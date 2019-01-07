@@ -9,7 +9,7 @@
 
 <body id="page-top">
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #2c3e50; border-color: #3d5a77;">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -44,7 +44,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="<?php echo base_url('register'); ?>">Ibu Hamil</a>
-                        <a class="dropdown-item" href="<?php echo base_url('register'); ?>"">Petugas Kesehatan</a>            
+                        <a class="dropdown-item" href="<?php echo base_url('register'); ?>"">Petugas Kesehatan</a>
                     </div>
                 </li>
             </ul>
@@ -62,6 +62,13 @@
                     <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
                     <a class="btn btn-primary btn-lg text-default">Learn more</a>
                 </div>
+
+				<div class="col-lg-12">
+					<div class="row">
+						<div class="col-md-8 bg-warning">Sisi Kiri</div>
+						<div class="col-md-4 bg-primary">Sisi Kanan</div>
+					</div>
+				</div>
 
 			</div>
 			<!-- /.container-fluid -->

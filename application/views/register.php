@@ -2,14 +2,8 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-	<title>Register - User</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<?php $this->load->view("admin/_partials/head.php") ?>
 	<style type="text/css">
 		body {
 			font-family: 'Roboto', sans-serif;
@@ -28,7 +22,7 @@
 		}
 
 		.signup-form {
-			width: 390px;
+			width: 590px;
 			margin: 0 auto;
 			padding: 30px 0;
 		}
@@ -106,36 +100,110 @@
 
 <body>
 	<div class="signup-form">
-		<form action="/examples/actions/confirmation.php" method="post">
-			<h2>Sign Up</h2>
-			<p>Please fill in this form to create an account!</p>
+
+		<!-- Notifikasi data berhasil di simpan -->
+		<?php if ($this->session->flashdata('success')): ?>
+		<div class="alert alert-primary" role="alert">
+			<?php echo $this->session->flashdata('success'); ?>
+		</div>
+		<?php endif; ?>
+
+		<form action="<?php echo base_url('register'); ?>" method="post">
+		  <fieldset>
+			<h2 class="text-center">Sign Up</h2>
+			<p class="text-center">Please fill in this form to create an account!</p>
 			<hr>
-			<div class="form-group">
-				<label>Username</label>
-				<input type="text" class="form-control" name="username" required="required">
+			<div class="col-lg-12">
+				<div class="row">
+					<!-- Username -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Username</label>
+							<input type="text" class="form-control" name="username" value="<?php echo $username; ?>" placeholder="Username">
+							<span style="color: red">
+								<?php echo form_error('username'); ?>
+							</span>
+						</div>
+					</div>
+					<!-- Tanggal Lahir -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Tanggal Lahir</label>
+							<input type="date" class="form-control" name="tanggal_lahir">
+						</div>
+					</div>
+				</div>
+				<!-- ./row -->
+
+				<div class="row">
+					<div class="col-md-6">
+						<!-- Nama Lengkap -->
+						<div class="form-group">
+							<label>Nama Lengkap</label>
+							<input type="text" class="form-control" name="nama" value="<?php echo $nama; ?>" placeholder="Nama Lengkap">
+							<span style="color: red">
+								<?php echo form_error('nama'); ?>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<!-- No. Telp -->
+						<div class="form-group">
+							<label>No. Telp</label>
+							<input type="text" class="form-control" name="no_telp" value="<?php echo $no_telp; ?>" placeholder="No. Telp">
+							<span style="color: red">
+								<?php echo form_error('no_telp'); ?>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<!-- Email Address -->
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" class="form-control" name="email" value="<?php echo $email; ?>" placeholder="Email">
+							<span style="color: red">
+								<?php echo form_error('email'); ?>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<!-- Password -->
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" class="form-control" name="password" placeholder="Password">
+							<span style="color: red">
+								<?php echo form_error('password'); ?>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<!-- Foto -->
+						<div class="form-group">
+							<label>Foto</label>
+							<input type="file" class="form-control" name="foto" placeholder="Foto">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="alamat">Alamat</label>
+							<textarea class="form-control" name="alamat" placeholder="Alamat" rows="8"><?php echo $alamat; ?></textarea>
+							<span style="color: red">
+								<?php echo form_error('alamat'); ?>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group" style="float: right;">
+					<button type="submit" class="btn btn-primary btn-lg pull-right">Sign Up</button>
+				</div>
 			</div>
-			<div class="form-group">
-				<label>Email Address</label>
-				<input type="email" class="form-control" name="email" required="required">
-			</div>
-			<div class="form-group">
-				<label>Password</label>
-				<input type="password" class="form-control" name="password" required="required">
-			</div>
-			<div class="form-group">
-				<label>Confirm Password</label>
-				<input type="password" class="form-control" name="confirm_password" required="required">
-			</div>
-			<div class="form-group">
-				<label class="checkbox-inline">
-					<input type="checkbox" required="required"> I accept the
-					<a href="#">Terms of Use</a> &amp;
-					<a href="#">Privacy Policy</a>
-				</label>
-			</div>
-			<div class="form-group" style="padding-bottom: 20px;">
-				<button type="submit" class="btn btn-primary btn-lg pull-right">Sign Up</button>
-			</div>
+		  </fieldset>
 		</form>
 		<div class="text-center">Sudah punya akun?
 			<a href="<?php echo base_url('login'); ?>">Silahkan Login</a>

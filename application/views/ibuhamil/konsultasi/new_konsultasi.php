@@ -48,10 +48,10 @@
 						</div> -->
 
                         <form action="<?php echo site_url('ibuhamil/konsultasi/add'); ?>" method="post" enctype="multipart/form-data">
-                            <div class="col lg 12">
+                            <div class="col-lg-12">
                                 <div class="row">
                                     <!-- Nama Menu -->
-                                    <div class="col md 4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="tinggi_badan">Tinggi Badan* (cm)</label>
                                             <input type="text" class="form-control" name="tinggi_badan" placeholder="Tinggi Badan">
@@ -62,7 +62,7 @@
                                     </div>
 
                                     <!-- Karbohidrat Menu -->
-                                    <div class="col md 6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="berat_badan">Berat Badan* (kg)</label>
                                             <input type="text" class="form-control" name="berat_badan" placeholder="Berat Badan">
@@ -76,7 +76,7 @@
 
                                 <div class="row">
 									<!-- Usia Kandungan -->
-                                    <div class="col md 6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="usia_kandungan">Usia Kandungan* (minggu/bulan)</label>
                                             <input type="text" class="form-control" name="usia_kandungan" placeholder="Usia Kandungan">
@@ -87,7 +87,7 @@
                                     </div>
 
                                     <!-- Protein Menu -->
-                                    <div class="col md 6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="usia_bumil">Usia Ibu Hamil* (tahun)</label>
                                             <input type="text" class="form-control" name="usia_bumil" placeholder="Usia Ibu Hamil">
@@ -100,9 +100,9 @@
                                 <!-- ./rows -->
 
                                 <div class="row">
-									<div class="col md 6">
+									<div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="aktifitas_fisik">Aktifitas Fisik* (penjelasan)</label>
+                                            <label for="aktifitas_fisik">Aktifitas Fisik* (penjelasan) / (pakai modal)</label>
                                             <select class="form-control" id="aktifitas_fisik" name="aktifitas_fisik">
                                                 <option value="0">Silahkan Pilih</option>
 												<option value="1">Ringan</option>

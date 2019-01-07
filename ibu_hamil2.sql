@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 06, 2019 at 10:20 PM
+-- Generation Time: Jan 07, 2019 at 12:48 PM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.28-0ubuntu0.16.04.1
 
@@ -143,9 +143,9 @@ CREATE TABLE `konsultasi` (
   `berat_badan` int(10) NOT NULL,
   `usia_bumil` int(10) NOT NULL,
   `usia_kandungan` int(10) NOT NULL,
-  `imt` double NOT NULL,
-  `bbih` double NOT NULL,
-  `tte` double NOT NULL,
+  `imt` double NOT NULL COMMENT 'Indeks Masa Tubuh',
+  `bbih` double NOT NULL COMMENT 'Berat Badan Ideal Ibu Hamil',
+  `tee` double NOT NULL COMMENT 'Total Energi Expenditure',
   `aktifitas_fisik` varchar(20) NOT NULL,
   `kebutuhan_karbohidrat` double NOT NULL,
   `kebutuhan_protein` double NOT NULL,
@@ -194,6 +194,7 @@ CREATE TABLE `user` (
   `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `level` varchar(50) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `no_telp` varchar(20) NOT NULL,
   `foto` varchar(150) NOT NULL
@@ -203,15 +204,19 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `level`, `alamat`, `no_telp`, `foto`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 'admin@mail.com', '1', 'Sleman', '087216521889', 'default.jpg'),
-(2, 'vina', 'e7bb4f7ed097bd6ccefc46018fda32c8', 'Murniawati Sholiqah', 'murni@mail.com', '2', 'Sleman', '087216521889', 'default.jpg'),
-(3, 'dff', 'sasa', 'dfss', 'df@mail.com', '2', 'dfsfs', '65765676', 'default.jpg'),
-(8, 'salim', 'ca6b147b8fbdd688d8ebcaa3b803c22a', 'Salim A. Fillah', 'ardi@mail.com', '3', 'Jogjakarta', '089782675127', 'default.jpg'),
-(9, 'mio', 'f08e2dd8531f351874eeb92893d9a1fc', 'mio', 'ahmad@mail.com', '3', 'hoihoho', '097879', 'default.jpg'),
-(10, 'sdqw', '0d7d6541ccef76414e9b3df9fcf71d1b', 'rqwew', 'vina@mail.com', '3', 'fadefewgegqg', '083979826180', 'default.jpg'),
-(11, 'sa', 'af15d5fdacd5fdfea300e88a8e253e82', 'sihiuhu', 'kuncoro@mail.com', '2', 'sssssssss', '088772871901', 'IMG_20180228_021814_647.jpg'),
-(12, 'sda', '71a3e2ec778157bbbcd11c7929de0d17', 'fsfasfaffa', 'fahmi@gmail.com', '2', 'saaaaaafestet', '089397873915', 'Bacaan-Doa-Lulus-Ujian-Skripsi-1.png');
+INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `level`, `tanggal_lahir`, `alamat`, `no_telp`, `foto`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 'admin@mail.com', '1', '1990-12-12', 'Sleman', '087216521889', 'default.jpg'),
+(2, 'vina', 'e7bb4f7ed097bd6ccefc46018fda32c8', 'Murniawati Sholiqah', 'murni@mail.com', '2', '1988-10-19', 'Sleman', '087216521889', 'default.jpg'),
+(3, 'dff', 'sasa', 'dfss', 'df@mail.com', '2', '1998-09-09', 'dfsfs', '65765676', 'default.jpg'),
+(8, 'salim', 'ca6b147b8fbdd688d8ebcaa3b803c22a', 'Salim A. Fillah', 'ardi@mail.com', '3', '1980-10-20', 'Jogjakarta', '089782675127', 'default.jpg'),
+(9, 'mio', 'f08e2dd8531f351874eeb92893d9a1fc', 'mio', 'ahmad@mail.com', '3', '1992-06-18', 'hoihoho', '097879', 'default.jpg'),
+(10, 'sdqw', '0d7d6541ccef76414e9b3df9fcf71d1b', 'rqwew', 'vina@mail.com', '3', '1980-09-12', 'fadefewgegqg', '083979826180', 'default.jpg'),
+(11, 'sa', 'af15d5fdacd5fdfea300e88a8e253e82', 'sihiuhu', 'kuncoro@mail.com', '2', '1991-09-22', 'sssssssss', '088772871901', 'IMG_20180228_021814_647.jpg'),
+(12, 'sda', '71a3e2ec778157bbbcd11c7929de0d17', 'fsfasfaffa', 'fahmi@gmail.com', '2', '1986-01-30', 'saaaaaafestet', '089397873915', 'Bacaan-Doa-Lulus-Ujian-Skripsi-1.png'),
+(13, 'ani', '29d1e2357d7c14db51e885053a58ec67', 'Ani Karlina', 'ani@mail.com', '2', '0000-00-00', 'Banguntapan, Bantul, DIY', '089397873915', 'default.jpg'),
+(14, 'putri', 'd7c24d51c8d5b3b671952041804add48', 'Adini Putri Lestari', 'adini_putri@mail.com', '2', '1998-09-05', 'Seturan, Selokan Mataram, Sleman, Yogyakarta', '089782675127', 'default.jpg'),
+(15, 'prista', 'c7aadc812c1450a6cd8d8c59719314da', 'Prista Prima Pradani', 'prista_prima@mail.com', '2', '2019-01-04', 'Jl. Kaliurang Km. 12, Bangunjiwo,  Sleman, Yogyakarta', '0887728719019', 'default.jpg'),
+(16, 'wiwin', 'b6d67c9a0571394fc265616f7f47f9fb', 'Wiwin Khadir', 'wiwin@gmail.com', '2', '1993-10-29', 'Umbulharjo', '0887728719019', 'default.jpg');
 
 --
 -- Indexes for dumped tables
@@ -312,7 +317,7 @@ ALTER TABLE `menu_makan`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

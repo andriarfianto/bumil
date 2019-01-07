@@ -135,7 +135,7 @@
 			</div>
 		</form>
 		<div class="text-center">Belum punya akun?
-			<a href="<?php echo base_url('login/register'); ?>">Daftar sekarang</a>
+			<a href="<?php echo base_url('register'); ?>">Daftar sekarang</a>
 		</div>
 	</div>
 </body>
