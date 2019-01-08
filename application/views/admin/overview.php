@@ -19,12 +19,20 @@
 
 			<div class="container-fluid">
 
-				<!-- 
+				<!--
 				karena ini halaman overview (home), kita matikan partial breadcrumb.
 				Jika anda ingin mengampilkan breadcrumb di halaman overview,
 				silahkan hilangkan komentar (//) di tag PHP di bawah.
         		-->
 				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
+
+				<!-- Notifikasi data berhasil di simpan -->
+				<?php if ($this->session->flashdata('success')): ?>
+				<div class="alert alert-success alert-dismissable" role="alert">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+					<?php echo $this->session->flashdata('success'); ?>
+				</div>
+				<?php endif; ?>
 
 				<!-- Icon Cards-->
 				<div class="row">
@@ -34,9 +42,10 @@
 								<div class="card-body-icon">
 									<i class="fas fa-fw fa-comments"></i>
 								</div>
-								<div class="mr-5">26 New Messages!</div>
+								<div class="mr-5">Jumlah user</div>
+								<h2><?php echo $jumlah_user; ?> Orang</h2>
 							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
+							<a class="card-footer text-white clearfix small z-1" href="<?php echo base_url('admin/user'); ?>">
 								<span class="float-left">View Details</span>
 								<span class="float-right">
 									<i class="fas fa-angle-right"></i>
@@ -50,9 +59,10 @@
 								<div class="card-body-icon">
 									<i class="fas fa-fw fa-list"></i>
 								</div>
-								<div class="mr-5">11 New Tasks!</div>
+								<div class="mr-5">Jumlah artikel</div>
+								<h2><?php echo $jumlah_artikel; ?> Buah</h2>
 							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
+							<a class="card-footer text-white clearfix small z-1" href="<?php echo base_url('admin/artikel'); ?>">
 								<span class="float-left">View Details</span>
 								<span class="float-right">
 									<i class="fas fa-angle-right"></i>
@@ -66,9 +76,10 @@
 								<div class="card-body-icon">
 									<i class="fas fa-fw fa-shopping-cart"></i>
 								</div>
-								<div class="mr-5">123 New Orders!</div>
+								<div class="mr-5">Jumlah menu makan</div>
+								<h2><?php echo $menu_makan; ?> Buah</h2>
 							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
+							<a class="card-footer text-white clearfix small z-1" href="<?php echo base_url('admin/menu'); ?>">
 								<span class="float-left">View Details</span>
 								<span class="float-right">
 									<i class="fas fa-angle-right"></i>
@@ -82,9 +93,10 @@
 								<div class="card-body-icon">
 									<i class="fas fa-fw fa-life-ring"></i>
 								</div>
-								<div class="mr-5">13 New Tickets!</div>
+								<div class="mr-5">Jumlah bahan makan</div>
+								<h2><?php echo $bahan_makan; ?> Buah</h2>
 							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
+							<a class="card-footer text-white clearfix small z-1" href="<?php echo base_url('admin/bahan'); ?>">
 								<span class="float-left">View Details</span>
 								<span class="float-right">
 									<i class="fas fa-angle-right"></i>
@@ -94,13 +106,14 @@
 					</div>
 				</div>
 
-				<!-- Area Chart Example-->
 				<div class="card mb-3">
 					<div class="card-header">
 						<i class="fas fa-chart-area"></i>
-						Area Chart Example</div>
+						Dasboard Panel
+					</div>
 					<div class="card-body">
-						<canvas id="myAreaChart" width="100%" height="30"></canvas>
+						<h2>Selamat datang!</h2>
+						<p>di halaman dashboard Admin</p>
 					</div>
 					<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 				</div>

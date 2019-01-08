@@ -15,6 +15,11 @@ class Bahan_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_bahan" => $id])->row();
     }
 
+    public function jumlah()
+    {
+        return $this->db->get($this->_table)->num_rows('*');
+    }
+
     public function save($data)
     {
         // $data = [
@@ -25,13 +30,13 @@ class Bahan_model extends CI_Model
         //     'mobile' => $this->input->post('mobile'),
         // ];
 
-        // $image_name = $this->_uploadImage();        
+        // $image_name = $this->_uploadImage();
 
         $this->db->insert($this->_table, $data);
     }
 
     public function update($data, $id)
-    {   
+    {
         return $this->db->where('id_bahan', $id)->update($this->_table, $data);
     }
 
@@ -54,9 +59,9 @@ class Bahan_model extends CI_Model
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('image')) {
-            return $this->upload->data('file_name'); // untuk menentukan nama file                      
+            return $this->upload->data('file_name'); // untuk menentukan nama file
         }
 
-        return "default.jpg";          
+        return "default.jpg";
     }
 }

@@ -15,6 +15,11 @@ class Menu_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_menu" => $id])->row();
     }
 
+    public function jumlah()
+    {
+        return $this->db->get($this->_table)->num_rows('*');
+    }
+
     public function get_id_menu_terakhir()
     {
         $new_id = $this->db->order_by('id_menu', 'DESC')->get($this->_table)->row('id_menu');
@@ -23,17 +28,17 @@ class Menu_model extends CI_Model
     }
 
     public function detail_bahan($id)
-    { 
+    {
         $db = $this->db->join('bahan_makan', 'bahan_makan.id_bahan = detail_menu.id_bahan')
               ->get_where('detail_menu', ["id_menu" => $id])->result();
-        
+
         return $db;
-        
+
 //         $this->db->select('artikel.*, user.nama');
 //         $this->db->join('user', 'user.id_user = '.$this->_table.'.id_user');
 //         return $this->db->get($this->_table)->result();
     }
-    
+
     public function save_menu($data)
     {
         $this->db->insert($this->_table, $data);
@@ -45,7 +50,7 @@ class Menu_model extends CI_Model
     }
 
     public function update($data, $id)
-    {   
+    {
         return $this->db->where('id_menu', $id)->update($this->_table, $data);
     }
 
@@ -68,9 +73,9 @@ class Menu_model extends CI_Model
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('image')) {
-            return $this->upload->data('file_name'); // untuk menentukan nama file                      
+            return $this->upload->data('file_name'); // untuk menentukan nama file
         }
 
-        return "default.jpg";          
+        return "default.jpg";
     }
 }

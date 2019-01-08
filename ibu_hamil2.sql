@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 07, 2019 at 12:48 PM
+-- Generation Time: Jan 09, 2019 at 06:18 AM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.28-0ubuntu0.16.04.1
 
@@ -141,8 +141,9 @@ CREATE TABLE `konsultasi` (
   `id_user` int(11) NOT NULL,
   `tinggi_badan` int(10) NOT NULL,
   `berat_badan` int(10) NOT NULL,
-  `usia_bumil` int(10) NOT NULL,
-  `usia_kandungan` int(10) NOT NULL,
+  `usia_ibuhamil` int(10) NOT NULL,
+  `usia_kehamilan` int(10) NOT NULL,
+  `nilai_trisemester` int(11) NOT NULL,
   `imt` double NOT NULL COMMENT 'Indeks Masa Tubuh',
   `bbih` double NOT NULL COMMENT 'Berat Badan Ideal Ibu Hamil',
   `tee` double NOT NULL COMMENT 'Total Energi Expenditure',
@@ -152,6 +153,15 @@ CREATE TABLE `konsultasi` (
   `kebutuhan_lemak` double NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `konsultasi`
+--
+
+INSERT INTO `konsultasi` (`id_konsultasi`, `id_user`, `tinggi_badan`, `berat_badan`, `usia_ibuhamil`, `usia_kehamilan`, `nilai_trisemester`, `imt`, `bbih`, `tee`, `aktifitas_fisik`, `kebutuhan_karbohidrat`, `kebutuhan_protein`, `kebutuhan_lemak`, `tanggal`) VALUES
+(1, 2, 160, 70, 28, 19, 300, 27.34375, 61.65, 2421.262, '0.3', 363.1893, 90.797325, 151.328875, '2019-01-08 16:53:37'),
+(2, 2, 160, 60, 26, 16, 300, 23.4375, 60.6, 2143.776, '0.2', 321.5664, 80.3916, 133.986, '2019-01-08 16:53:41'),
+(3, 2, 172, 73, 32, 10, 180, 24.675500270416, 65.5, 2343.1, '0.4', 351.465, 87.86625, 146.44375, '2019-01-08 16:56:08');
 
 -- --------------------------------------------------------
 
@@ -307,7 +317,7 @@ ALTER TABLE `detail_menu`
 -- AUTO_INCREMENT for table `konsultasi`
 --
 ALTER TABLE `konsultasi`
-  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `menu_makan`
 --

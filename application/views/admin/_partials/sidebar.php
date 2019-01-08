@@ -54,7 +54,7 @@
 			<a class="dropdown-item" href="<?php echo site_url('admin/bahan/add'); ?>">New Bahan</a>
 			<a class="dropdown-item" href="<?php echo site_url('admin/bahan'); ?>">List Bahan</a>
 		</div>
-	</li>	
+	</li>
 	<!-- Konsultasi -->
 	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'uploads/uploads/' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -84,7 +84,7 @@
 		<i class="fas fa-fw fa-upload"></i>
 		<span>Upload</span>
 	</a>
-	</li> -->
+	</li> -->	
 	<li class="nav-item">
 		<a class="nav-link" href="#">
 			<i class="fas fa-fw fa-table"></i>

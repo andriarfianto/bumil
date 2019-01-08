@@ -44,6 +44,7 @@ class Login extends CI_Controller
 
                 // admin
                 if ($this->session->userdata('level') == '1') {
+                    $this->session->set_flashdata('success', '<h4> <i class="icon fa fa-check"></i> Success</h4> <p>Selamat anda berhasil login</p>');
                     redirect(base_url('admin/overview'),'refresh');
                 }
                 // ibu hamil

@@ -62,22 +62,22 @@
 								<span style="color: red">
 									<?php echo form_error('berat_takaran'); ?>
 								</span>
-							</div>							
+							</div>
 
 							<div class="form-group">
-								<label for="golongan">Golongan*</label>							
+								<label for="golongan">Golongan*</label>
 								<select class="form-control" id="golongan" name="golongan">
 									<option value="0">Silahkan Pilih</option>
 									<option <?php if ($golongan == 1 ) echo 'selected' ; ?> value="1">Buah</option>
 									<option <?php if ($golongan == 2 ) echo 'selected' ; ?> value="2">Daging</option>
 									<option <?php if ($golongan == 3 ) echo 'selected' ; ?> value="3">Ikan</option>
 									<option <?php if ($golongan == 4 ) echo 'selected' ; ?> value="4">Sayuran</option>
-									<option <?php if ($golongan == 5 ) echo 'selected' ; ?> value="5">Serelia/Umbi</option>																						
+									<option <?php if ($golongan == 5 ) echo 'selected' ; ?> value="5">Serelia/Umbi</option>								
 								</select>
 								<span style="color: red">
 									<?php echo form_error('golongan'); ?>
-								</span>													
-							</div> 
+								</span>
+							</div>
 
 							<div class="form-group">
 								<label for="energi_bahan">Energi Bahan*</label>
@@ -85,7 +85,7 @@
 								<span style="color: red">
 									<?php echo form_error('energi_bahan'); ?>
 								</span>
-							</div>														
+							</div>
 
 							<div class="form-group">
 								<label for="karbohidrat_bahan">Karbohidrat Bahan*</label>
@@ -97,15 +97,15 @@
 
 							<div class="form-group">
 								<label for="protein_bahan">Protein Bahan*</label>
-								<input type="text" class="form-control" name="protein_bahan" value="<?php echo $protein_bahan; ?>" placeholder="Protein Bahan">								
+								<input type="text" class="form-control" name="protein_bahan" value="<?php echo $protein_bahan; ?>" placeholder="Protein Bahan">
 								<span style="color: red">
 									<?php echo form_error('protein_bahan'); ?>
 								</span>
-							</div>							
+							</div>
 
 							<div class="form-group">
 								<label for="lemak_bahan">Lemak Bahan*</label>
-								<input type="text" class="form-control" name="lemak_bahan" value="<?php echo $lemak_bahan; ?>" placeholder="Lemak Bahan">								
+								<input type="text" class="form-control" name="lemak_bahan" value="<?php echo $lemak_bahan; ?>" placeholder="Lemak Bahan">
 								<span style="color: red">
 									<?php echo form_error('lemak_bahan'); ?>
 								</span>

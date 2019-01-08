@@ -47,10 +47,12 @@
 							echo form_error('username'); ?>
 						</div> -->
 
-                        <form action="<?php echo site_url('ibuhamil/konsultasi/add'); ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo site_url('ibuhamil/konsultasi/hitung'); ?>" method="post" enctype="multipart/form-data">
+                            <!-- <h3>Form Konsultasi Ibu</h3>
+                            <p>Untuk melakukan konsultasi silahkan isi form dibawah ini:</p> -->
                             <div class="col-lg-12">
                                 <div class="row">
-                                    <!-- Nama Menu -->
+                                    <!-- Tinggi Badan -->
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="tinggi_badan">Tinggi Badan* (cm)</label>
@@ -61,7 +63,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Karbohidrat Menu -->
+                                    <!-- Berat Badan -->
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="berat_badan">Berat Badan* (kg)</label>
@@ -75,24 +77,24 @@
                                 <!-- ./rows -->
 
                                 <div class="row">
-									<!-- Usia Kandungan -->
+									<!-- Usia Kehamilan -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="usia_kandungan">Usia Kandungan* (minggu/bulan)</label>
-                                            <input type="text" class="form-control" name="usia_kandungan" placeholder="Usia Kandungan">
+                                            <label for="usia_kehamilan">Usia Kehamilan* (minggu/bulan)</label>
+                                            <input type="text" class="form-control" name="usia_kehamilan" placeholder="Usia Kehamilan">
                                             <span style="color: red">
-                                                <?php echo form_error('usia_kandungan'); ?>
+                                                <?php echo form_error('usia_kehamilan'); ?>
                                             </span>
                                         </div>
                                     </div>
 
-                                    <!-- Protein Menu -->
+                                    <!-- Usia Ibu Hamil -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="usia_bumil">Usia Ibu Hamil* (tahun)</label>
-                                            <input type="text" class="form-control" name="usia_bumil" placeholder="Usia Ibu Hamil">
+                                            <label for="usia_ibuhamil">Usia Ibu Hamil* (tahun)</label>
+                                            <input type="text" class="form-control" name="usia_ibuhamil" placeholder="Usia Ibu Hamil">
                                             <span style="color: red">
-                                                <?php echo form_error('usia_bumil'); ?>
+                                                <?php echo form_error('usia_ibuhamil'); ?>
                                             </span>
                                         </div>
                                     </div>
@@ -105,24 +107,10 @@
                                             <label for="aktifitas_fisik">Aktifitas Fisik* (penjelasan) / (pakai modal)</label>
                                             <select class="form-control" id="aktifitas_fisik" name="aktifitas_fisik">
                                                 <option value="0">Silahkan Pilih</option>
-												<option value="1">Ringan</option>
-												<option value="2">Sedang</option>
-												<option value="3">Berat</option>
-
-                                                <!-- <option <?php if ($aktifitas_fisik==1 ) echo 'selected' ; ?>
-                                                    value="1">Sayur Mayur</option>
-                                                <option <?php if ($aktifitas_fisik==2 ) echo 'selected' ; ?>
-                                                    value="2">Lauk Pauk</option>
-                                                <option <?php if ($aktifitas_fisik==3 ) echo 'selected' ; ?>
-                                                    value="3">Olahan Buah</option>
-                                                <option <?php if ($aktifitas_fisik==4 ) echo 'selected' ; ?>
-                                                    value="4">Olahan Daging</option>
-                                                <option <?php if ($aktifitas_fisik==5 ) echo 'selected' ; ?>
-                                                    value="5">Susu</option>
-                                                <option <?php if ($aktifitas_fisik==6 ) echo 'selected' ; ?>
-                                                    value="6">Camilan</option>
-                                                <option <?php if ($aktifitas_fisik==7 ) echo 'selected' ; ?>
-                                                    value="7">Serelia/Umbi</option> -->
+												<option value="0.2">Ringan</option>
+												<option value="0.3">Sedang</option>
+                                                <option value="0.4">Berat</option>
+												<option value="0.5">Sangat Berat</option>
                                             </select>
                                             <span style="color: red">
                                                 <?php echo form_error('kategori_menu'); ?>
@@ -132,12 +120,52 @@
                                 </div>
                                 <!-- ./rows -->
 
-                                <button type="submit" name="btn" class="btn btn-success" style="float: right;">Save</button>
+                                <button type="submit" name="btn" class="btn btn-success" style="float: right; margin-top: 2%; margin-bottom: 3%;">Hitung</button>
+
+                                <!-- <?php
+                                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                        echo '<pre>' . var_dump($_POST) . '</pre>';
+                                    }
+                                ?> -->
+
                             </div>
                             <!-- .col-lg-12 -->
                         </form>
 
+                        <table class="table table-striped table-hover ">
+                          <thead>
+                            <tr>
+                              <td>Tinggi Badan</td>
+                              <td>Berat Badan</td>
+                              <td>Usia Ibu</td>
+                              <td>Usia Kehamilan</td>
+                              <td>Indeks Masa Tubuh</td>
+                              <td>Berat Badan Ideal</td>
+                              <td>Total Energi</td>
+                              <td>Kebutuhan Karbohidrat</td>
+                              <td>Kebutuhan Protein</td>
+                              <td>Kebutuhan Lemak</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php foreach($konsultasis as $konsultasi): ?>
+                                <tr>
+                                    <td><?php echo $konsultasi->tinggi_badan; ?> cm</td>
+                                    <td><?php echo $konsultasi->berat_badan; ?> kg</td>
+                                    <td><?php echo $konsultasi->usia_ibuhamil; ?> tahun</td>
+                                    <td><?php echo $konsultasi->usia_kehamilan;?> minggu</td>
+                                    <td><?php echo $konsultasi->imt; ?></td> <!--digantu status ibu -->
+                                    <td><?php echo $konsultasi->bbih; ?> kg</td>
+                                    <td><?php echo $konsultasi->tee; ?> kalori</td>
+                                    <td><?php echo $konsultasi->kebutuhan_karbohidrat; ?> gram</td>
+                                    <td><?php echo $konsultasi->kebutuhan_protein; ?> gram</td>
+                                    <td><?php echo $konsultasi->kebutuhan_lemak; ?> gram</td>
+                                </tr>
+                            <?php endforeach; ?>
+                          </tbody>
+                        </table>
                     </div>
+                    <!-- ./card-body -->
                 </div>
 
                 <div class="card-footer small text-muted">
