@@ -9,8 +9,7 @@
 
 <body id="page-top">
 
-
-    	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -23,7 +22,7 @@
                     <a class="nav-link" href="<?php echo base_url('home/informasi') ?>">Informasi</a>
                 </li>
 				<li class="nav-item">
-                    <a class="nav-link" href="#">Kontak</a>
+                    <a class="nav-link" href="<?php echo base_url('home/kontak') ?>">Kontak</a>
                 </li>
             </ul>
         </div>
@@ -56,47 +55,58 @@
         </div>
     </nav>
 
-
 	 <div id="wrapper">
 
 		<div id="content-wrapper">
 
 			<div class="container-fluid">
 
-				<ul class="breadcrumb">
-					<li><a href="http://localhost/ci-ibuhamil/home">Home</a></li>
-				</ul>
-
-				<div class="jumbotron" style="background-color: #e3e3e3;">
-					<center>
-					<h1>Sistem Pemenuhan Gizi Ibu Hamil</h1>
-					    <h3>Menggunakan Metode Harris Benedict</h3>
-					    <h4>Andri Arfianto</h4>
-					    <h4>3125111382</h4>
-					</center>
-				</div>
-				<hr>
-
 				<div class="col-lg-12">
 					<div class="row">
-						<div class="col-lg-4">Satu</div>
-						<div class="col-lg-4">Dua</div>
-						<div class="col-lg-4">Tiga</div>
+						<!-- Sisi Kiri -->
+						<div class="col-md-9">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="<?php echo base_url('home'); ?>">Home</a>
+                                <li class="breadcrumb-item active">Informasi</li>
+                                </li>
+							</ol>
+
+                            <hr>
+
+							<div class='col-sm-12' style="margin-top: 4%; margin-bottom: 3%;">
+								<div class='card md-3'>
+                                    <div class="card-header" style="background-color: #d0d0d0">
+                                        <span class='h4'>Informasi Header</span><br>
+										<span class='small text-muted'>Ditulis Oleh Administrator</span>
+                                    </div>
+
+									<div class='card-body'>
+										<p>Body</p>
+									</div>
+
+									<div class="card-footer" style="background-color: #d0d0d0">
+										Footer
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<div class="card md-3">
+								<div class="card-header">
+									<h3 class="panel-title">Panel Informasi</h3>
+								</div>
+								<div class="card-body">
+									    <li>Kosong</li>
+								</div>
+							</div>
+						</div>
 					</div>
+
 				</div>
 
 			</div>
 			<!-- /.container-fluid -->
-
-			<footer class="sticky-footer" style="width: 100%">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright ©
-							<?php echo SITE_NAME ." ". Date('Y') ?>
-						</span>
-					</div>
-				</div>
-			</footer>
 		</div>
 		<!-- /.content-wrapper -->
 

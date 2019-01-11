@@ -13,17 +13,12 @@ class Dashboard extends MY_Controller
     {
         // memanggil session
         $id = $this->session->userdata('id_user');
-        $this->load->model('user_model');        
+        $this->load->model('user_model');
         $data['user'] = $this->user_model->getById($id);
         if (!$data['user']) show_404();
 
         // $this->load->view('admin/_partials/navbar', $data);
-        $this->load->view('ibuhamil/overview', $data);
-
-        // var_dump($this->session->userdata);
-
-        // load view admin/overview.php
-        // $this->load->view("ibuhamil/overview");
+        $this->load->view('ibuhamil/_partials/sidebar', $data);
     }
 
     public function logout() {

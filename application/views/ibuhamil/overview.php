@@ -7,115 +7,103 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" style="background-color: #158CBA;">
 
-	<?php $this->load->view("ibuhamil/_partials/navbar.php") ?>
+	<div class="container">
 
-	<div id="wrapper">
+		<!-- Nyoba navbar -->
+		<?php $this->load->view("ibuhamil/_partials/navbar.php") ?>
 
-		<?php $this->load->view("ibuhamil/_partials/sidebar.php") ?>
+		<div id="wrapper" style="background-color: white;">
 
-		<div id="content-wrapper">
+			<!-- <?php //$this->load->view("ibuhamil/_partials/sidebar.php") ?> -->
 
-			<div class="container-fluid">
+			<!-- Sidebar Baru -->
+			<ul class="sidebar navbar-nav" style="background-color: white; margin-left: 3%;margin-right: 1%;">
+				<img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%" style="margin-top: 7%;">
+				<br>
+				<b>Nama</b> <?php echo $user->nama; ?> <br> <br>
 
-				<!--
-				karena ini halaman overview (home), kita matikan partial breadcrumb.
-				Jika anda ingin mengampilkan breadcrumb di halaman overview,
-				silahkan hilangkan komentar (//) di tag PHP di bawah.
-        		-->
-				<?php $this->load->view("ibuhamil/_partials/breadcrumb.php") ?>
+				<b>Email</b> <?php echo $user->email; ?> <br> <br>
 
-				<!-- Icon Cards-->
-				<div class="row">
-					<div class="col-xl-3 col-sm-6 mb-3">
-						<div class="card text-white bg-primary o-hidden h-100">
-							<div class="card-body">
-								<div class="card-body-icon">
-									<i class="fas fa-fw fa-comments"></i>
-								</div>
-								<div class="mr-5">26 New Messages!</div>
-							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
-								<span class="float-left">View Details</span>
-								<span class="float-right">
-									<i class="fas fa-angle-right"></i>
-								</span>
-							</a>
-						</div>
+				<b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
+				echo $date->format('d/m/Y');?> <br> <br>
+
+				<b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
+
+				<b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
+			</ul>
+
+			<!-- <?php //echo $this->load->view("ibuhamil/_partials/sidebar"); ?> -->
+
+			<div id="content-wrapper">
+
+				<div class="container-fluid">
+
+					<!--
+					karena ini halaman overview (home), kita matikan partial breadcrumb.
+					Jika anda ingin mengampilkan breadcrumb di halaman overview,
+					silahkan hilangkan komentar (//) di tag PHP di bawah.
+	        		-->
+					<?php $this->load->view("ibuhamil/_partials/breadcrumb.php") ?>
+
+					<!-- Notifikasi data berhasil di simpan -->
+					<?php if ($this->session->flashdata('success')): ?>
+					<div class="alert alert-success alert-dismissable" role="alert">
+						<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+						<?php echo $this->session->flashdata('success'); ?>
 					</div>
-					<div class="col-xl-3 col-sm-6 mb-3">
-						<div class="card text-white bg-warning o-hidden h-100">
-							<div class="card-body">
-								<div class="card-body-icon">
-									<i class="fas fa-fw fa-list"></i>
-								</div>
-								<div class="mr-5">11 New Tasks!</div>
-							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
-								<span class="float-left">View Details</span>
-								<span class="float-right">
-									<i class="fas fa-angle-right"></i>
-								</span>
-							</a>
+					<?php endif; ?>
+
+					<!-- <h3>Tampilkan informasi selamat datang ibu hamil</h3> -->
+
+					<div class="card mb-3">
+						<div class="card-header" style="background-color: #E3E3E3;">
+							<i class="fas fa-chart-area"></i>
+							Dashboard Panel
 						</div>
-					</div>
-					<div class="col-xl-3 col-sm-6 mb-3">
-						<div class="card text-white bg-success o-hidden h-100">
-							<div class="card-body">
-								<div class="card-body-icon">
-									<i class="fas fa-fw fa-shopping-cart"></i>
-								</div>
-								<div class="mr-5">123 New Orders!</div>
-							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
-								<span class="float-left">View Details</span>
-								<span class="float-right">
-									<i class="fas fa-angle-right"></i>
-								</span>
-							</a>
+						<div class="card-body">
+							<h2>Selamat datang!</h2>
+							<p>di halaman dashboard Admin</p>
 						</div>
+						<div class="card-footer small text-muted" style="background-color: #E3E3E3;">Updated yesterday at 11:59 PM</div>
 					</div>
-					<div class="col-xl-3 col-sm-6 mb-3">
-						<div class="card text-white bg-danger o-hidden h-100">
-							<div class="card-body">
-								<div class="card-body-icon">
-									<i class="fas fa-fw fa-life-ring"></i>
-								</div>
-								<div class="mr-5">13 New Tickets!</div>
-							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
-								<span class="float-left">View Details</span>
-								<span class="float-right">
-									<i class="fas fa-angle-right"></i>
-								</span>
-							</a>
-						</div>
-					</div>
+
 				</div>
+				<!-- /.container-fluid -->
 
-				<!-- Area Chart Example-->
-				<div class="card mb-3">
-					<div class="card-header">
-						<i class="fas fa-chart-area"></i>
-						Area Chart Example</div>
-					<div class="card-body">
-						<canvas id="myAreaChart" width="100%" height="30"></canvas>
-					</div>
-					<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-				</div>
 
 			</div>
-			<!-- /.container-fluid -->
-
-			<!-- Sticky Footer -->
-			<?php $this->load->view("ibuhamil/_partials/footer.php") ?>
+			<!-- /.content-wrapper -->
 
 		</div>
-		<!-- /.content-wrapper -->
+		<!-- /#wrapper -->
+
+		<!-- Sticky Footer -->
+		<!-- <footer class="sticky-footer">
+			<div class="container my-auto">
+				<div class="copyright text-center my-auto">
+					<span>Copyright ©
+						<?php echo SITE_NAME ." ". Date('Y') ?>
+					</span>
+				</div>
+			</div>
+		</footer> -->
+
+		<!-- Footer -->
+		<footer class="page-footer" style="background-color: #E3E3E3; ">
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				<span>Copyright ©
+				<?php echo SITE_NAME ." ". Date('Y') ?>
+				</span>
+			</div>
+			<!-- Copyright -->
+		</footer>
+		<!-- Footer -->
 
 	</div>
-	<!-- /#wrapper -->
+	<!-- container -->
 
 	<?php $this->load->view("ibuhamil/_partials/scrolltop.php") ?>
 	<?php $this->load->view("ibuhamil/_partials/modal.php") ?>

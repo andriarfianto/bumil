@@ -17,19 +17,19 @@ class Menu extends CI_Controller
     }
 
     public function detail($id = null)
-    {                
+    {
         $data['menu'] = $this->menu_model->getById($id);
         $data['bahans'] = $this->menu_model->detail_bahan($id);
-        
+
         if (!$data['menu']) show_404();
-        
+
 //         var_dump($data);
-        
+
         $this->load->view('admin/menu/detail_menu', $data);
     }
 
     public function add()
-    {           
+    {
         $data = array(
             'nama_menu' => $this->input->post('nama_menu'),
             'kategori_menu' => $this->input->post('kategori_menu'),
@@ -37,7 +37,7 @@ class Menu extends CI_Controller
             'karbohidrat_menu' => $this->input->post('karbohidrat_menu'),
             'protein_menu' => $this->input->post('protein_menu'),
             'lemak_menu' => $this->input->post('lemak_menu'),
-            'cara_membuat' => $this->input->post('cara_membuat'),           
+            'cara_membuat' => $this->input->post('cara_membuat'),
         );
 
         $this->form_validation->set_rules('nama_menu', 'Nama Menu', 'required');
@@ -71,7 +71,7 @@ class Menu extends CI_Controller
 
             $data['id_menu'] = $id_menu_terbaru;
 
-//            var_dump($data);
+            //var_dump($data);
 
             $this->menu_model->save_menu($data); // simpan ke tb menu
 
@@ -86,9 +86,9 @@ class Menu extends CI_Controller
     public function edit($id = null)
     {
         if (!isset($id)) redirect('admin/menu/');
-        
+
         $data['menu'] = $this->menu_model->getById($id);
-        if (!$data['menu']) show_404();  
+        if (!$data['menu']) show_404();
 
         $this->form_validation->set_rules('nama_menu', 'Nama Menu', 'required');
         $this->form_validation->set_rules('kategori_menu', 'Kategori Menu', 'required');
@@ -111,7 +111,7 @@ class Menu extends CI_Controller
 
             $this->menu_model->update($post_data, $id);
 
-            $this->session->set_flashdata('success', 'Data menu berhasil diubah');                        
+            $this->session->set_flashdata('success', 'Data menu berhasil diubah');
 
             redirect(base_url('admin/menu'));
         }
@@ -122,12 +122,12 @@ class Menu extends CI_Controller
     public function delete($id = null)
     {
         if (!isset($id)) show_404();
-              
+
         $this->menu_model->delete($id);
         $this->session->set_flashdata('success', 'Menu berhasil dihapus');
-        redirect('admin/menu/', 'refresh');        
+        redirect('admin/menu/', 'refresh');
     }
-    
+
     public function browse()
     {
         // $data = null;

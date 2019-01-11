@@ -64,14 +64,14 @@
 								<span style="color: red">
 									<?php echo form_error('email'); ?>
 								</span>
-							</div>						
+							</div>
 
 							<div class="form-group">
-								<label for="level">Level*</label>								
+								<label for="level">Level*</label>
 								<select class="form-control" id="select" name="level">
 									<option value="0">Silahkan Pilih</option>
 									<option <?php if ($user->level == 1 ) echo 'selected' ; ?> value="1">Ibu Hamil</option>
-									<option <?php if ($user->level == 2 ) echo 'selected' ; ?> value="2">Petugas Kesehatan</option>																		
+									<option <?php if ($user->level == 2 ) echo 'selected' ; ?> value="2">Petugas Kesehatan</option>
 								</select>
 								<span style="color: red">
 									<?php echo form_error('level'); ?>
@@ -102,7 +102,7 @@
 									<?php echo form_error('foto') ?>
 								</div>
 							</div>
-							
+
 							<input type="submit" value="Save" name="btn" class="btn btn-success">
 						</form>
 					</div>

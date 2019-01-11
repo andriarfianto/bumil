@@ -17,13 +17,25 @@ class Artikel_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_artikel" => $id])->row();
     }
 
+    public function limit()
+    {
+        return $this->db->order_by('id_artikel', 'DESC')->get($this->_table)->limit(3);
+
+        // $this->db->get('artikel')->order_by('id_artikel', 'desc')->limit(15); // Limit, 15 entries
+
+        // $this->db->order_by('id_artikel', 'DESC')->limit(3);
+        // SELECT * FROM `artikel` ORDER BY id_artikel DESC LIMIT 3
+    }
+
     public function getRecords()
     {
         // return $this->db->select()->from($this->_table)->order_by('id_artikel', 'desc');
         // $this->db->order_by("id_artikel", "asc");
         // $query = $this->db->get($this->_table);
         // return $query->result();
-        return $this->db->order_by("id_artikel", "asc")->get($this->_table)->result();
+        return $this->db->order_by("id_artikel", "desc")->get($this->_table)->result();
+
+        // $this->db->order_by('id_artikel', 'DESC')->get($this->_table)->limit(3)
     }
 
     public function jumlah()

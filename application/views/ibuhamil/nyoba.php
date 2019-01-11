@@ -19,22 +19,22 @@
 			<!-- <?php //$this->load->view("ibuhamil/_partials/sidebar.php") ?> -->
 
 			<!-- Sidebar Baru -->
-            <!-- <ul class="sidebar navbar-nav" style="background-color: white; margin-left: 3%;margin-right: 1%;">
-                <img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%" style="margin-top: 7%;">
-                <br>
-                <b>Nama</b> <?php echo $user->nama; ?> <br> <br>
+			<ul class="sidebar navbar-nav" style="background-color: white; margin-left: 3%;margin-right: 1%;">
+				<!-- Main Menu - Dashboard -->
+				<!-- Foto Profile Admin -->
+					<img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%" style="margin-top: 7%;">
+					<br>
+					<b>Nama</b> <?php echo $user->nama; ?> <br> <br>
 
-                <b>Email</b> <?php echo $user->email; ?> <br> <br>
+					<b>Email</b> <?php echo $user->email; ?> <br> <br>
 
-                <b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
-                echo $date->format('d/m/Y');?> <br> <br>
+					<b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
+					echo $date->format('d/m/Y');?> <br> <br>
 
-                <b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
+					<b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
 
-                <b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
-            </ul> -->
-
-            <?php echo $this->load->view("ibuhamil/_partials/sidebar"); ?>
+					<b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
+			</ul>
 
 			<div id="content-wrapper">
 
@@ -166,6 +166,8 @@
                                             }
                                             ?> -->
 
+
+
                                     </form>
                                     </div>
 
@@ -183,6 +185,49 @@
                                 </div>
                             </div>
 
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-md-6 bg-danger">
+                                        <div class="panel panel-danger">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Panel danger</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                Panel content
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Panel info</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                Panel content
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 bg-primary">
+                                        <div class="panel panel-danger">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Panel danger</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                Panel content
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Panel info</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                Panel content
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <!-- ./card-body -->
                     </div>
@@ -194,54 +239,6 @@
 				</div>
 				<!-- /.container-fluid -->
 
-                <table class="table table-striped table-hover ">
-                  <thead>
-					 <tr>
-  						<td>No</td>
-  					  <td>Tinggi Badan</td>
-  					  <td>Berat Badan</td>
-  					  <td>Usia Ibu</td>
-  					  <td>Usia Kehamilan</td>
-  					  <td>Sattus Gizi</td>
-  					  <td>Berat Badan Ideal</td>
-  					  <td>Total Energi</td>
-  					  <td>Kebutuhan Karbohidrat</td>
-  					  <td>Kebutuhan Protein</td>
-  					  <td>Kebutuhan Lemak</td>
-  					  <td>Aksi</td>
-  					</tr>
-                  </thead>
-                  <tbody>
-					  <tr>
-  						<td>1</td>
-  						<td>176 cm</td>
-  						<td>68 kg</td>
-  						<td>37 tahun</td>
-  						<td>10 minggu</td>
-  						<td>Gemuk</td>
-  						<td>79 kg</td>
-  						<td>2120 kalori</td>
-  						<td>213 gram</td>
-  						<td>445 gram</td>
-  						<td>13 gram</td>
-  						<td><a href="#">Detail</a></td>
-  					</tr>
-  					<tr>
-  						<td>2</td>
-  						<td>176 cm</td>
-  						<td>72 kg</td>
-  						<td>39 tahun</td>
-  						<td>19 minggu</td>
-  						<td>Normal</td>
-  						<td>81 kg</td>
-  						<td>2216 kalori</td>
-  						<td>262 gram</td>
-  						<td>124 gram</td>
-  						<td>121 gram</td>
-  						<td><a href="#">Detail</a></td>
-  					</tr>
-                  </tbody>
-                </table>
 
 			</div>
 			<!-- /.content-wrapper -->
@@ -280,5 +277,38 @@
 	<?php $this->load->view("ibuhamil/_partials/js.php") ?>
 
 </body>
+
+<!-- <table class="table table-striped table-hover "> -->
+  <thead>
+    <tr>
+      <td>Tinggi Badan</td>
+      <td>Berat Badan</td>
+      <td>Usia Ibu</td>
+      <td>Usia Kehamilan</td>
+      <td>Indeks Masa Tubuh</td>
+      <td>Berat Badan Ideal</td>
+      <td>Total Energi</td>
+      <td>Kebutuhan Karbohidrat</td>
+      <td>Kebutuhan Protein</td>
+      <td>Kebutuhan Lemak</td>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($konsultasis as $konsultasi): ?>
+        <tr>
+            <td><?php echo $konsultasi->tinggi_badan; ?> cm</td>
+            <td><?php echo $konsultasi->berat_badan; ?> kg</td>
+            <td><?php echo $konsultasi->usia_ibuhamil; ?> tahun</td>
+            <td><?php echo $konsultasi->usia_kehamilan;?> minggu</td>
+            <td><?php echo $konsultasi->imt; ?></td> <!--digantu status ibu -->
+            <td><?php echo $konsultasi->bbih; ?> kg</td>
+            <td><?php echo $konsultasi->tee; ?> kalori</td>
+            <td><?php echo $konsultasi->kebutuhan_karbohidrat; ?> gram</td>
+            <td><?php echo $konsultasi->kebutuhan_protein; ?> gram</td>
+            <td><?php echo $konsultasi->kebutuhan_lemak; ?> gram</td>
+        </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
 
 </html>

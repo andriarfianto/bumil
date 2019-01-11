@@ -49,6 +49,7 @@ class Login extends CI_Controller
                 }
                 // ibu hamil
                 elseif ($this->session->userdata('level') == '2') {
+                    $this->session->set_flashdata('success', '<h4> <i class="icon fa fa-check"></i> Success</h4> <p>Selamat anda berhasil login</p>');
                     redirect(base_url('ibuhamil/dashboard'),'refresh');
                 }
                 // petugas

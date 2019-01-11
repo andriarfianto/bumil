@@ -1,28 +1,24 @@
-<!-- Sidebar -->
+<!-- Sidebar
 <ul class="sidebar navbar-nav">
-	<!-- Main Menu - Dashboard -->
+	Main Menu - Dashboard
 	<li class="nav-item <?php echo $this->uri->segment(2) == '' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('ibuhamil/dashboard'); ?>">
 			<i class="fas fa-fw fa-tachometer-alt"></i>
 			<span>Dashboard</span>
 		</a>
 	</li>
-	<!-- Konsultasi -->
-	<!-- <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'ibuhamil/konsultasi/' ?  'active' : ''?>">
+	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'ibuhamil/konsultasi/' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="<?php echo base_url('ibuhamil/konsultasi'); ?>"  role="button">
 			<i class="fas fa-fw fa-file"></i>
 			<span>Konsultasi</span>
 		</a>
-	</li> -->
-
+	</li>
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'ibuhamil/konsultasi/' ?  'active' : ''?>">
 		<a class="nav-link" href="<?php echo base_url('ibuhamil/konsultasi'); ?>">
 			<i class="fas fa-fw fa-file"></i>
 			<span>Konsultasi</span>
 		</a>
 	</li>
-
-	<!-- Artikel -->
 	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'artikel' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 		 aria-expanded="false">
@@ -34,7 +30,6 @@
 			<a class="dropdown-item" href="<?php echo site_url('admin/artikel'); ?>">List Artikel</a>
 		</div>
 	</li>
-	<!-- Menu Makan -->
 	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'menu' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 		 aria-expanded="false">
@@ -46,7 +41,6 @@
 			<a class="dropdown-item" href="<?php echo site_url('admin/menu'); ?>">List Menu</a>
 		</div>
 	</li>
-	<!-- Chat -->
 	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'uploads/uploads/' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 		 aria-expanded="false">
@@ -64,4 +58,22 @@
 			<span>Laporan</span>
 		</a>
 	</li>
+</ul> -->
+
+<!-- Sidebar Baru -->
+<ul class="sidebar navbar-nav" style="background-color: white; margin-left: 3%;margin-right: 1%;">
+	<!-- Main Menu - Dashboard -->
+	<!-- Foto Profile Admin -->
+		<img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%" style="margin-top: 7%;">
+		<br>
+		<b>Nama</b> <?php echo $user->nama; ?> <br> <br>
+
+		<b>Email</b> <?php echo $user->email; ?> <br> <br>
+
+		<b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
+		echo $date->format('d/m/Y');?> <br> <br>
+
+		<b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
+
+		<b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
 </ul>

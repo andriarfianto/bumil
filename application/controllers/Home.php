@@ -16,4 +16,36 @@ class Home extends CI_Controller
         $data['artikels'] = $this->artikel_model->getRecords();
         $this->load->view('home_page', $data);
     }
+
+    public function artikel()
+    {
+        $data['artikels'] = $this->artikel_model->getRecords();
+        $this->load->view('artikel', $data);
+    }
+
+    public function limit()
+    {
+        $data['limits'] = $this->artikel_model->limit();
+        $this->load->view('artikel', $data);
+
+    }
+
+    public function detail_artikel($id = null)
+    {
+        $data['artikel'] = $this->artikel_model->getById($id);
+        // $data['limit'] = $this->artikel_model->limit();
+        if (!$data['artikel']) show_404();
+
+        $this->load->view('detail_artikel', $data);
+    }
+
+    public function informasi()
+    {
+        $this->load->view('informasi');
+    }
+
+    public function kontak()
+    {
+        $this->load->view('kontak');
+    }
 }
