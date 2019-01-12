@@ -62,10 +62,10 @@
 				<a class="nav-link navbar-brand" href="<?php echo base_url('ibuhamil/dashboard'); ?>">IBU HAMIL</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<?php echo base_url('ibuhamil/konsultasi'); ?>">Konsultasi</a>
+				<a class="nav-link" href="<?php echo base_url('ibuhamil/konsultasi/index'); ?>">Konsultasi</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<?php echo base_url('ibuhamil/konsultasi/riwayat'); ?>">Riwayat Konsultasi</a>
+				<a class="nav-link" href="<?php echo base_url('ibuhamil/konsultasi/riwayat/'); ?>">Riwayat Konsultasi</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="<?php echo base_url('ibuhamil/chat') ?>">Chat</a>

@@ -3,34 +3,13 @@
 
 <head>
 
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-	<title> Sistem Pemenuhan Gizi Ibu Hamil</title>
-
-	<!-- Bootstrap core CSS-->
-	<link href="<?php echo base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Custom fonts for this template-->
-	<link href="<?php echo base_url('assets/fontawesome-free/css/all.min.css'); ?>"
-	 rel="stylesheet" type="text/css">
-
-	<!-- Page level plugin CSS-->
-	<link href="<?php echo base_url('assets/datatables/dataTables.bootstrap4.css'); ?>"
-	 rel="stylesheet">
-
-	<!-- Custom styles for this template-->
-	<link href="<?php echo base_url('css/sb-admin.css'); ?>" rel="stylesheet">
+	<?php $this->load->view("admin/_partials/head.php") ?>
 
 </head>
 
 <body id="page-top">
 
-
-    	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -79,47 +58,71 @@
         </div>
     </nav>
 
-
 	 <div id="wrapper">
 
 		<div id="content-wrapper">
 
 			<div class="container-fluid">
 
-				<ul class="breadcrumb">
-					<li><a href="http://localhost/ci-ibuhamil/home">Home</a></li>
-				</ul>
-
-				<div class="jumbotron" style="background-color: #e3e3e3;">
-					<center>
-					<h1>Sistem Pemenuhan Gizi Ibu Hamil</h1>
-					    <h3>Menggunakan Metode Harris Benedict</h3>
-					    <h4>Andri Arfianto</h4>
-					    <h4>3125111382</h4>
-					</center>
-				</div>
-				<hr>
-<!--
 				<div class="col-lg-12">
 					<div class="row">
-						<div class="col-lg-4">Satu</div>
-						<div class="col-lg-4">Dua</div>
-						<div class="col-lg-4">Tiga</div>
+						<!-- Sisi Kiri -->
+						<div class="col-md-9">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="<?php echo base_url('home'); ?>">Home</a>
+                                <li class="breadcrumb-item active">Tentang</li>
+                                </li>
+							</ol>
+
+                            <hr>
+
+							<div class='col-sm-12' style="margin-top: 4%; margin-bottom: 3%;">
+								<div class='card md-3'>
+                                    <div class="card-header">
+                                        <span class='h4'>Tentang Aplikasi</span><br>
+										<span class='small text-muted'>Data Profile Penulis</span>
+                                    </div>
+
+									<div class='card-body text-center'>
+										<img src="<?php echo base_url('upload/admin/profile data diri.png') ?>" alt="Profile Data Diri"> <br> <br>
+                                        <h5>Aplikasi ini merupakan proyek tugas akhir mahasiswa Universitas Teknologi Yogyakarta (UTY) <br> Andri Arfianto - (3125111382) mahasiswa jurusan Teknik Informatika tahun 2012 yang berjudul Sistem Pemenuhan Gizi Ibu Hamil menggunakan Metode Harris Benedict</h5> <br>
+
+                                        <h5>Aplikasi berguna untuk mengetahui kebutuhan gizi ibu hamil menggunakan metode Harris Benedict <br> dengan memasukkan data tinggi badan ibu hamil, berat badan ibu hamil, usia ibu hamil, usia kandungan dan kondisi ibu hamil.</h5>
+									</div>
+
+									<div class="card-footer">
+										Footer
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+                        <div class="col-md-3">
+							<div class="card md-3">
+								<div class="card-header">
+									<h3 class="panel-title">Kontak Informasi</h3>
+								</div>
+								<div class="card-body">
+									<li><a href="<?php echo base_url('home/artikel') ?>"> Artikel</a></li>
+									<li>
+										<a  href="<?php echo base_url('home/informasi') ?>">Informasi</a>
+									</li>
+									<li>
+										<a  href="<?php echo base_url('home/artikel') ?>">Kontak</a>
+									</li>
+									<li>
+										<a  href="<?php echo base_url('home/tentang') ?>">Tentang</a>
+									</li>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div> -->
+
+				</div>
 
 			</div>
 			<!-- /.container-fluid -->
-
-			<footer class="sticky-footer" style="width: 100%">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright ©
-							<?php echo SITE_NAME ." ". Date('Y') ?>
-						</span>
-					</div>
-				</div>
-			</footer>
 		</div>
 		<!-- /.content-wrapper -->
 

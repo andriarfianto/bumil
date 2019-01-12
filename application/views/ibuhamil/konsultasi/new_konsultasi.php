@@ -47,25 +47,9 @@
 	        		-->
 					<?php $this->load->view("ibuhamil/_partials/breadcrumb.php") ?>
 
-					<!-- Notifikasi data berhasil di simpan -->
-					<?php if ($this->session->flashdata('success')): ?>
-					<div class="alert alert-success alert-dismissable" role="alert">
-						<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-						<?php echo $this->session->flashdata('success'); ?>
-					</div>
-					<?php endif; ?>
-
 					<!-- <h3>Tampilkan informasi selamat datang ibu hamil</h3> -->
 
-                    <!-- Notifikasi data berhasil di simpan -->
-                    <?php if ($this->session->flashdata('success')): ?>
-                    <div class="alert alert-primary" role="alert">
-                        <?php echo $this->session->flashdata('success'); ?>
-                    </div>
-                    <?php endif; ?>
-
-
-                    <!-- DISINI -->
+                    <!-- form konsultasi -->
                     <div class="card mb-3">
                         <div class="card-header">
                             <a href="<?php echo site_url('ibuhamil/konsultasi'); ?>">
@@ -87,7 +71,7 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-6">
-                                        <form action="<?php echo site_url('ibuhamil/konsultasi/hitung'); ?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?php echo site_url('ibuhamil/konsultasi/'); ?>" method="post" enctype="multipart/form-data">
                                             <!-- <h3>Form Konsultasi Ibu</h3>
                                             <p>Untuk melakukan konsultasi silahkan isi form dibawah ini:</p> -->
 
@@ -190,58 +174,76 @@
                     <div class="card-footer small text-muted">
                         * required fields
                     </div>
+					<!-- ./form konsultasi -->
+					<hr>
 
+					<!-- Notifikasi data berhasil di simpan -->
+					<?php if ($this->session->flashdata('success')): ?>
+					<div class="alert alert-primary alert-dismissable" role="alert">
+						<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+						<?php echo $this->session->flashdata('success'); ?>
+					</div>
+					<?php endif; ?>
+
+					<!-- form hasil konsultasi -->
+					<div class="card mb-3">
+						<div class="card-header">
+							<i class="fas fa-info-circle"></i> Informasi Konsultasi
+						</div>
+
+						<div class="card-body">
+							<!-- Success validation error -->
+							<!-- <div class="form_error">
+								echo validation_errors('<div class="alert alert-danger" role="alert">','</div>'); ?>
+							</div> -->
+
+							<!-- Failed validation error -->
+							<!-- <div class="invalid-feedback">
+								echo form_error('username'); ?>
+							</div> -->
+
+							<div class="col-lg-12">
+
+								<div class="row">
+									<div class="col-md-6">
+										<strong><i class="fas fa-angle-double-right"></i> Hasil Konsultasi</strong> <br>
+										<?php if (empty($konsultasi)) { ?>
+											Tinggi Badan : <strong>......</strong> cm<br>
+											Berat Badan : <strong>......</strong> kg<br>
+											Usia Kehamilan : <strong>......</strong> minggu<br>
+											Usia Ibu Hamil : <strong>......</strong> tahun<br>
+										<?php } else { ?>
+											Tinggi Badan : <strong><?php echo $konsultasi->tinggi_badan; ?></strong> cm<br>
+											Berat Badan : <strong><?php echo $konsultasi->berat_badan; ?></strong> kg<br>
+											Usia Kehamilan : <strong><?php echo $konsultasi->usia_kehamilan; ?></strong> minggu<br>
+											Usia Ibu Hamil : <strong><?php echo $konsultasi->usia_ibuhamil; ?></strong> tahun<br>
+										<?php } ?>
+									</div>
+									<div class="col-6">
+										<h3>Konsultasi kehamilan</h3>
+										<p>Untuk melakukan konsultasi kehamilan, silahkan masukkan data anda</p>
+										<ol>
+											<li>Tinggi Badan - Isi tinggi badan anda saat ini dengan satuan ukuran centimeter.</li>
+											<li>Berat Badan - Isi berat badan anda saat ini dengan satuan ukuran kilogram.</li>
+											<li>Usia Kehamilan - Isi usia kehamilan anda saat ini dengan rentang waktu antara (1 sampai 40 minggu), isi dengan satuan waktu minggu.</li>
+											<li>Usia Ibu - Isi sesuai dengan usia anda saat ini dengan satuan tahun.</li>
+											<li>Aktifitas Fisik - Pilih aktifitas fisik berdasarkan <a href="#" data-toggle="modal" data-target="#aktifitasModal">kreteria berikut</a></li>
+										</ol>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<!-- ./card-body -->
+					</div>
+
+					<div class="card-footer small text-muted">
+						Footer
+					</div>
+					<!-- ./form hasil konsultasi -->
 				</div>
 				<!-- /.container-fluid -->
-
-                <table class="table table-striped table-hover ">
-                  <thead>
-					 <tr>
-  						<td>No</td>
-  					  <td>Tinggi Badan</td>
-  					  <td>Berat Badan</td>
-  					  <td>Usia Ibu</td>
-  					  <td>Usia Kehamilan</td>
-  					  <td>Sattus Gizi</td>
-  					  <td>Berat Badan Ideal</td>
-  					  <td>Total Energi</td>
-  					  <td>Kebutuhan Karbohidrat</td>
-  					  <td>Kebutuhan Protein</td>
-  					  <td>Kebutuhan Lemak</td>
-  					  <td>Aksi</td>
-  					</tr>
-                  </thead>
-                  <tbody>
-					  <tr>
-  						<td>1</td>
-  						<td>176 cm</td>
-  						<td>68 kg</td>
-  						<td>37 tahun</td>
-  						<td>10 minggu</td>
-  						<td>Gemuk</td>
-  						<td>79 kg</td>
-  						<td>2120 kalori</td>
-  						<td>213 gram</td>
-  						<td>445 gram</td>
-  						<td>13 gram</td>
-  						<td><a href="#">Detail</a></td>
-  					</tr>
-  					<tr>
-  						<td>2</td>
-  						<td>176 cm</td>
-  						<td>72 kg</td>
-  						<td>39 tahun</td>
-  						<td>19 minggu</td>
-  						<td>Normal</td>
-  						<td>81 kg</td>
-  						<td>2216 kalori</td>
-  						<td>262 gram</td>
-  						<td>124 gram</td>
-  						<td>121 gram</td>
-  						<td><a href="#">Detail</a></td>
-  					</tr>
-                  </tbody>
-                </table>
 
 			</div>
 			<!-- /.content-wrapper -->

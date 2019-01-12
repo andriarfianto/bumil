@@ -48,4 +48,9 @@ class Home extends CI_Controller
     {
         $this->load->view('kontak');
     }
+
+    public function tentang()
+    {
+        $this->load->view('tentang');
+    }
 }

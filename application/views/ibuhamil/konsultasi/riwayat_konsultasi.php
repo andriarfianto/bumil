@@ -85,73 +85,55 @@
 
                             <div class="col-lg-12">
                                 <!-- Row untuk penjelasa -->
-                                <div class="row">
-                                    <!-- <div class="col-6"> -->
-                                        <h3>Konsultasi kehamilan</h3>
-                                        <p>Untuk melakukan konsultasi kehamilan, silahkan masukkan data anda</p>
-                                        <ol>
-                                            <li>Tinggi Badan - Isi tinggi badan anda saat ini dengan satuan ukuran centimeter.</li>
-                                            <li>Berat Badan - Isi berat badan anda saat ini dengan satuan ukuran kilogram.</li>
-                                            <li>Usia Kehamilan - Isi usia kehamilan anda dengan jumlah waktu usia kandungan, isi dengan satuan waktu minggu.</li>
-                                            <li>Usia Ibu - Isi sesuai dengan usia anda saat ini.</li>
-                                            <li>Aktifitas Fisik - Pilih aktifitas fisik berdasarkan <a href="#" data-toggle="modal" data-target="#aktifitasModal">kreteria berikut</a></li>
-                                        </ol>
-                                    <!-- </div> -->
-                                </div>
+								<h3>Riwayat Konsultasi kehamilan</h3>
+								<p>Riwayat konsultasi yang pernah anda lakukan <br>
+								Silahkan pilih/tekan tombol <strong>Detail</strong> untuk mengetahui informasi lengkap data konsultasi <br> beserta informasi saran makan yang dibutuhkan</p>
 
                                 <!-- Row untuk tabel riwayat dan detail-->
-                                <div class="row">
-                                    <!-- <div class="col-6"> -->
-                                        <table class="table table-striped table-hover ">
+                                <!-- <div class="row"> -->
+                                    <!-- <div class="col-md-6"> -->
+									Daftar Riwayat Konsultasi
+									<hr>
+                                        <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                           <thead>
                                             <tr>
 												<td>No</td>
-                                              <td>Tinggi Badan</td>
-                                              <td>Berat Badan</td>
-                                              <td>Usia Ibu</td>
-                                              <td>Usia Kehamilan</td>
-                                              <td>Sattus Gizi</td>
-                                              <td>Berat Badan Ideal</td>
-                                              <td>Total Energi</td>
-                                              <td>Kebutuhan Karbohidrat</td>
-                                              <td>Kebutuhan Protein</td>
-                                              <td>Kebutuhan Lemak</td>
-                                              <td>Aksi</td>
+												<td>Tinggi Badan</td>
+												<td>Berat Badan</td>
+												<td>Usia Ibu</td>
+												<td>Usia Kehamilan</td>
+												<!-- <td>Status Gizi</td> -->
+												<td>Berat Badan Ideal</td>
+												<td>Total Energi</td>
+												<!-- <td>Kebutuhan Karbohidrat</td>
+												<td>Kebutuhan Protein</td>
+												<td>Kebutuhan Lemak</td> -->
+												<td>Aksi</td>
                                             </tr>
                                           </thead>
-                                          <tbody>
-                                            <tr>
-												<td>1</td>
-                                                <td>176 cm</td>
-                                                <td>68 kg</td>
-                                                <td>37 tahun</td>
-                                                <td>10 minggu</td>
-                                                <td>Gemuk</td>
-                                                <td>79 kg</td>
-                                                <td>2120 kalori</td>
-                                                <td>213 gram</td>
-                                                <td>445 gram</td>
-                                                <td>13 gram</td>
-                                                <td><a href="#">Detail</a></td>
-                                            </tr>
-                                            <tr>
-												<td>2</td>
-                                                <td>176 cm</td>
-                                                <td>72 kg</td>
-                                                <td>39 tahun</td>
-                                                <td>19 minggu</td>
-                                                <td>Normal</td>
-                                                <td>81 kg</td>
-                                                <td>2216 kalori</td>
-                                                <td>262 gram</td>
-                                                <td>124 gram</td>
-                                                <td>121 gram</td>
-                                                <td><a href="#">Detail</a></td>
-                                            </tr>
-                                          </tbody>
+										  <tbody>
+											  <?php $no=1;
+											  foreach ($konsultasis as $konsultasi): ?>
+											  <tr>
+												  <td><?php echo $no; ?></td>
+												  <td><?php echo $konsultasi->tinggi_badan; ?></td>
+												  <td><?php echo $konsultasi->berat_badan; ?></td>
+												  <td><?php echo $konsultasi->usia_ibuhamil; ?></td>
+												  <td><?php echo $konsultasi->usia_kehamilan; ?></td>
+												  <!-- <td>Gemuk</td> -->
+												  <td><?php echo $konsultasi->bbih; ?></td>
+												  <td><?php echo $konsultasi->tee; ?></td>
+												  <!-- <td>213 gram</td>
+												  <td>445 gram</td>
+												  <td>13 gram</td> -->
+												  <td><a href="#">Detail</a></td>
+											  </tr>
+											  <?php $no++;
+										  endforeach; ?>
+								  </tbody>
                                         </table>
-                                    <!-- </div>                                     -->
-                                </div>
+                                    <!-- </div> -->
+                                <!-- </div> -->
                             </div>
 
                         </div>

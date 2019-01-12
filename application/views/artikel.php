@@ -24,6 +24,9 @@
 				<li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/artikel') ?>">Kontak</a>
                 </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url('home/tentang') ?>">Tentang</a>
+                </li>
             </ul>
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
@@ -104,7 +107,6 @@
 
 				</div>
 				<hr>
-
 
 				<div class="col-lg-12">
 					<div class="row">
