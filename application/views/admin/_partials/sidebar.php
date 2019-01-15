@@ -56,40 +56,19 @@
 		</div>
 	</li>
 	<!-- Konsultasi -->
-	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'uploads/uploads/' ?  'active' : ''?>">
-		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-		aria-expanded="false">
-			<i class="fas fa-fw fa-file-medical"></i>
+	<li class="nav-item <?php echo $this->uri->segment(2) == 'konsultasi' ?  'active' : ''?>">
+		<a class="nav-link" href="<?php echo site_url('admin/konsultasi'); ?>">
+			<i class="fas fa-stethoscope"></i>
 			<span>Konsultasi</span>
-		</a>
-		<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-			<a class="dropdown-item" href="<?php echo site_url('uploads/uploads/add'); ?>">New Upload</a>
-			<a class="dropdown-item" href="<?php echo site_url('uploads/uploads/'); ?>">List Upload</a>
-		</div>
+		</a>		
 	</li>
-	<!-- Chat -->
-	<!-- <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'uploads/uploads/' ?  'active' : ''?>">
-		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-		aria-expanded="false">
-			<i class="fas fa-fw fa-comment-alt"></i>
-			<span>Chat</span>
-		</a>
-		<div class="dropdown-menu" aria-labelledby="pagesDropdown">			
-			<a class="dropdown-item" href="<?php echo site_url('admin/chat'); ?>">List Chat</a>
-		</div>
-	</li> -->
+	<!-- Chat -->	
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'chat' ?  'active' : ''?>">
 		<a class="nav-link" href="<?php echo site_url('admin/chat'); ?>">
 			<i class="fas fa-fw fa-comment-alt"></i>			
 			<span>Chat</span>
 		</a>
-	</li>
-	<!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'uploads/uploads/' ?  'active' : ''?>">
-	<a class="nav-link" href="<?php echo site_url('uploads/uploads'); ?>">
-		<i class="fas fa-fw fa-upload"></i>
-		<span>Upload</span>
-	</a>
-	</li> -->	
+	</li>	
 	<li class="nav-item">
 		<a class="nav-link" href="#">
 			<i class="fas fa-fw fa-table"></i>

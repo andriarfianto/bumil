@@ -79,6 +79,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>The corresponding controller for this page is found at:</p>
 		<code>application/controllers/Welcome.php</code>
 
+		<div class="row">
+			<table border="1">
+				<tr>
+					<td><b>username</b></td>
+					<td><b>nama</b></td>
+					<td><b>email</b></td>
+					<td><b>alamat</b></td>
+				</tr>
+				<tbody>
+					<?php foreach ($users as $user) {?>
+					
+					<tr>
+					<td> <?php echo $user->username;?></td>
+					<td> <?php echo $user->nama;?></td>
+					<td> <?php echo $user->email;?></td>
+					<td> <?php echo $user->alamat;?></td>
+				</tr>
+				<?php } ?>
+				</tbody>
+			</table>
+		</div>
+
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
 	</div>
 

@@ -17,7 +17,7 @@
 	<ul class="navbar-nav ml-auto ml-md-0">
 		<li class="nav-item dropdown no-arrow mx-1">
 			<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-			 aria-expanded="false">
+			aria-expanded="false">
 				<i class="fas fa-bell fa-fw"></i>
 			</a>
 			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
@@ -29,7 +29,7 @@
 		</li>
 		<li class="nav-item dropdown no-arrow mx-1">
 			<a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-			 aria-expanded="false">
+			aria-expanded="false">
 				<i class="fas fa-envelope fa-fw"></i>
 			</a>
 			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
@@ -41,7 +41,7 @@
 		</li>
 		<li class="nav-item dropdown no-arrow">
 			<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-			 aria-expanded="false">
+			aria-expanded="false">
 				<i class="fas fa-user-circle fa-fw"></i>
 			</a>
 			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">

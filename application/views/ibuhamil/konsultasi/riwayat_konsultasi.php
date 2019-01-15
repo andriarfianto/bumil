@@ -95,43 +95,40 @@
 									Daftar Riwayat Konsultasi
 									<hr>
                                         <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                                          <thead>
-                                            <tr>
-												<td>No</td>
-												<td>Tinggi Badan</td>
-												<td>Berat Badan</td>
-												<td>Usia Ibu</td>
-												<td>Usia Kehamilan</td>
-												<!-- <td>Status Gizi</td> -->
-												<td>Berat Badan Ideal</td>
-												<td>Total Energi</td>
-												<!-- <td>Kebutuhan Karbohidrat</td>
-												<td>Kebutuhan Protein</td>
-												<td>Kebutuhan Lemak</td> -->
-												<td>Aksi</td>
-                                            </tr>
-                                          </thead>
-										  <tbody>
-											  <?php $no=1;
-											  foreach ($konsultasis as $konsultasi): ?>
-											  <tr>
-												  <td><?php echo $no; ?></td>
-												  <td><?php echo $konsultasi->tinggi_badan; ?> cm</td>
-												  <td><?php echo $konsultasi->berat_badan; ?> kg</td>
-												  <td><?php echo $konsultasi->usia_ibuhamil; ?> tahun</td>
-												  <td><?php echo $konsultasi->usia_kehamilan; ?> minggu</td>
-												  <!-- <td>Gemuk</td> -->
-												  <td><?php echo $konsultasi->bbih; ?> kg</td>
-												  <td><?php echo $konsultasi->tee; ?> kalori</td>
-												  <!-- <td>213 gram</td>
-												  <td>445 gram</td>
-												  <td>13 gram</td> -->
-												  <td><a href="<?php echo site_url('ibuhamil/konsultasi/detail/'.$konsultasi->id_user) ?>">Detail</a></td>
-
-											  </tr>
-											  <?php $no++;
-										  endforeach; ?>
-								  </tbody>
+											<thead>
+												<tr>
+													<td>No</td>
+													<td>Tinggi Badan</td>
+													<td>Berat Badan</td>
+													<td>Usia Ibu</td>
+													<td>Usia Kehamilan</td>
+													<!-- <td>Status Gizi</td> -->
+													<td>Berat Badan Ideal</td>
+													<td>Total Energi</td>
+													<!-- <td>Kebutuhan Karbohidrat</td>
+													<td>Kebutuhan Protein</td>
+													<td>Kebutuhan Lemak</td> -->
+													<td>Aksi</td>
+												</tr>
+											</thead>
+											<tbody>
+												<?php $no=1; foreach ($konsultasis as $konsultasi): ?>
+													<tr>
+														<td><?php echo $no; ?></td>
+														<td><?php echo $konsultasi->tinggi_badan; ?> cm</td>
+														<td><?php echo $konsultasi->berat_badan; ?> kg</td>
+														<td><?php echo $konsultasi->usia_ibuhamil; ?> tahun</td>
+														<td><?php echo $konsultasi->usia_kehamilan; ?> minggu</td>
+														<!-- <td>Gemuk</td> -->
+														<td><?php echo $konsultasi->bbih; ?> kg</td>
+														<td><?php echo $konsultasi->tee; ?> kalori</td>
+														<!-- <td>213 gram</td>
+														<td>445 gram</td>
+														<td>13 gram</td> -->
+														<td><a href="<?php echo site_url('ibuhamil/konsultasi/detail/'.$konsultasi->id_user) ?>">Detail</a></td>
+													</tr>
+												<?php $no++; endforeach; ?>
+											</tbody>
                                         </table>
                                     <!-- </div> -->
                                 <!-- </div> -->
