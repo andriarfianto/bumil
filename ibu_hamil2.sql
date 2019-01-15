@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2019 at 06:18 AM
+-- Generation Time: Jan 14, 2019 at 10:00 AM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.28-0ubuntu0.16.04.1
 
@@ -81,10 +81,22 @@ INSERT INTO `bahan_makan` (`id_bahan`, `nama_bahan`, `berat_takaran`, `golongan`
 
 CREATE TABLE `chat` (
   `id_chat` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
+  `dari` int(11) NOT NULL,
+  `kepada` int(11) NOT NULL,
   `isi_pesan` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`id_chat`, `dari`, `kepada`, `isi_pesan`, `tanggal`) VALUES
+(1, 2, 1, 'Asssalamualaikum, tanya dok?', '2019-01-13 15:13:15'),
+(2, 2, 1, 'Hallo dok', '2019-01-13 15:31:38'),
+(3, 1, 2, 'Iya, waalaikumsalam', '2019-01-13 15:31:38'),
+(4, 9, 1, 'afwan dok, ijin tanya', '2019-01-13 15:33:38'),
+(5, 14, 12, 'hai apa kabar', '2019-01-13 15:34:45');
 
 -- --------------------------------------------------------
 
@@ -97,6 +109,21 @@ CREATE TABLE `detail_konsultasi` (
   `id_konsultasi` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_konsultasi`
+--
+
+INSERT INTO `detail_konsultasi` (`id_detail_konsultasi`, `id_konsultasi`, `id_menu`) VALUES
+(1, 1, 2),
+(2, 1, 5),
+(3, 1, 1),
+(4, 1, 4),
+(5, 1, 3),
+(6, 2, 2),
+(7, 2, 1),
+(8, 2, 5),
+(9, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -145,8 +172,12 @@ CREATE TABLE `konsultasi` (
   `usia_kehamilan` int(10) NOT NULL,
   `nilai_trisemester` int(11) NOT NULL,
   `imt` double NOT NULL COMMENT 'Indeks Masa Tubuh',
+  `status_gizi` varchar(11) NOT NULL,
   `bbih` double NOT NULL COMMENT 'Berat Badan Ideal Ibu Hamil',
   `tee` double NOT NULL COMMENT 'Total Energi Expenditure',
+  `energi_karbohidrat` double NOT NULL,
+  `energi_protein` double NOT NULL,
+  `energi_lemak` double NOT NULL,
   `aktifitas_fisik` varchar(20) NOT NULL,
   `kebutuhan_karbohidrat` double NOT NULL,
   `kebutuhan_protein` double NOT NULL,
@@ -158,10 +189,9 @@ CREATE TABLE `konsultasi` (
 -- Dumping data for table `konsultasi`
 --
 
-INSERT INTO `konsultasi` (`id_konsultasi`, `id_user`, `tinggi_badan`, `berat_badan`, `usia_ibuhamil`, `usia_kehamilan`, `nilai_trisemester`, `imt`, `bbih`, `tee`, `aktifitas_fisik`, `kebutuhan_karbohidrat`, `kebutuhan_protein`, `kebutuhan_lemak`, `tanggal`) VALUES
-(1, 2, 160, 70, 28, 19, 300, 27.34375, 61.65, 2421.262, '0.3', 363.1893, 90.797325, 151.328875, '2019-01-08 16:53:37'),
-(2, 2, 160, 60, 26, 16, 300, 23.4375, 60.6, 2143.776, '0.2', 321.5664, 80.3916, 133.986, '2019-01-08 16:53:41'),
-(3, 2, 172, 73, 32, 10, 180, 24.675500270416, 65.5, 2343.1, '0.4', 351.465, 87.86625, 146.44375, '2019-01-08 16:56:08');
+INSERT INTO `konsultasi` (`id_konsultasi`, `id_user`, `tinggi_badan`, `berat_badan`, `usia_ibuhamil`, `usia_kehamilan`, `nilai_trisemester`, `imt`, `status_gizi`, `bbih`, `tee`, `energi_karbohidrat`, `energi_protein`, `energi_lemak`, `aktifitas_fisik`, `kebutuhan_karbohidrat`, `kebutuhan_protein`, `kebutuhan_lemak`, `tanggal`) VALUES
+(1, 2, 160, 73, 28, 19, 300, 28.515625, 'Gemuk', 61.65, 2181.446, 1308.8676, 327.2169, 545.3615, '0.3', 327.2169, 81.804225, 60.595722222222, '2019-01-12 14:40:55'),
+(2, 2, 158, 51, 26, 9, 180, 20.429418362442, 'Normal', 56.15, 1733.976, 1040.3856, 260.0964, 433.494, '0.2', 260.0964, 65.0241, 48.166, '2019-01-12 15:07:25');
 
 -- --------------------------------------------------------
 
@@ -185,11 +215,11 @@ CREATE TABLE `menu_makan` (
 --
 
 INSERT INTO `menu_makan` (`id_menu`, `nama_menu`, `kategori_menu`, `energi_menu`, `karbohidrat_menu`, `protein_menu`, `lemak_menu`, `cara_membuat`) VALUES
-(1, 'Ketoprak', '2', 153, 13.89, 7.9, 7.7, 'Tempatkan bihun dalam wadah lalu seduh dengan air panas. Biarkan hingga lembek, kemudian buang airnya dan tiriskan.\r\nSeduh juga taoge yang sudah disiapkan dan dibersihkan, dengan air panas. Buang airnya dan tiriskan.\r\nGoreng tahu yang sudah dipotong-potong dalam minyak panas. Setelah warnanya kecoklatan, angkat dan tiriskan. Anda pun bisa menggorengnya terlebih dahulu baru kemudian memotong-motongnya.\r\nBumbu yang telah dihaluskan dididihkan dan cicipi rasanya sesuai dengan selera. Aduk-aduk sampai saus kacang mengental. Sebaiknya, Anda menghaluskannya dengan cara diblender untuk hasil bumbu kacang yang benar-benar halus dan kental.\r\nSelanjutnya, Anda siapkan piring saji.\r\nTaruh potongan lontong atau ketupat terlebih dahulu, kemudian taruh bihun, tahu, dan taoge di bagian atasnya.\r\nSiram dengan saus kacang dan beri sedikit kecap.\r\nTaburkan bawang goreng dan irisan seledri.'),
-(2, 'Gudeg', '2', 160, 3.9, 9.71, 12.1, 'Haluskan bawang merah, bawang putih, kemiri, ketumbar, gula merah, dan garam dengan sedikit air.\r\nMasukkan nangka muda, ayam , sereh, lengkuas, daun salam, bumbu halus, gula merah, garam , air dan santan . ...\r\nSetelah 30 menit, masukkan telur rebus dan santan. ...\r\nSajikan gudeg nangka bersama kuah santan areh.'),
-(3, 'Gudeg', '2', 160, 13.89, 9.71, 12.1, 'lllvhufifuyu'),
-(4, 'Sayur Bening', '1', 160, 13.89, 9.71, 12.1, 'oskas skajos askjos njsoajo asnojsoa onsao oasnoa siamqisy sao'),
-(5, 'Sayur Bayam', '1', 89, 12, 127, 13, 'dsfdsds');
+(1, 'Ketoprak', '2', 523, 13.89, 7.9, 7.7, 'Tempatkan bihun dalam wadah lalu seduh dengan air panas. Biarkan hingga lembek, kemudian buang airnya dan tiriskan.\r\nSeduh juga taoge yang sudah disiapkan dan dibersihkan, dengan air panas. Buang airnya dan tiriskan.\r\nGoreng tahu yang sudah dipotong-potong dalam minyak panas. Setelah warnanya kecoklatan, angkat dan tiriskan. Anda pun bisa menggorengnya terlebih dahulu baru kemudian memotong-motongnya.\r\nBumbu yang telah dihaluskan dididihkan dan cicipi rasanya sesuai dengan selera. Aduk-aduk sampai saus kacang mengental. Sebaiknya, Anda menghaluskannya dengan cara diblender untuk hasil bumbu kacang yang benar-benar halus dan kental.\r\nSelanjutnya, Anda siapkan piring saji.\r\nTaruh potongan lontong atau ketupat terlebih dahulu, kemudian taruh bihun, tahu, dan taoge di bagian atasnya.\r\nSiram dengan saus kacang dan beri sedikit kecap.\r\nTaburkan bawang goreng dan irisan seledri.'),
+(2, 'Gudeg', '2', 453, 3.9, 9.71, 12.1, 'Haluskan bawang merah, bawang putih, kemiri, ketumbar, gula merah, dan garam dengan sedikit air.\r\nMasukkan nangka muda, ayam , sereh, lengkuas, daun salam, bumbu halus, gula merah, garam , air dan santan . ...\r\nSetelah 30 menit, masukkan telur rebus dan santan. ...\r\nSajikan gudeg nangka bersama kuah santan areh.'),
+(3, 'Gudeg', '2', 351, 13.89, 9.71, 12.1, 'lllvhufifuyu'),
+(4, 'Sayur Bening', '1', 618, 13.89, 9.71, 12.1, 'oskas skajos askjos njsoajo asnojsoa onsao oasnoa siamqisy sao'),
+(5, 'Sayur Bayam', '1', 723, 12, 127, 13, 'dsfdsds');
 
 -- --------------------------------------------------------
 
@@ -216,14 +246,14 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `level`, `tanggal_lahir`, `alamat`, `no_telp`, `foto`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 'admin@mail.com', '1', '1990-12-12', 'Sleman', '087216521889', 'default.jpg'),
-(2, 'vina', 'e7bb4f7ed097bd6ccefc46018fda32c8', 'Murniawati Sholiqah', 'murni@mail.com', '2', '1988-10-19', 'Sleman', '087216521889', 'default.jpg'),
-(3, 'dff', 'sasa', 'dfss', 'df@mail.com', '2', '1998-09-09', 'dfsfs', '65765676', 'default.jpg'),
-(8, 'salim', 'ca6b147b8fbdd688d8ebcaa3b803c22a', 'Salim A. Fillah', 'ardi@mail.com', '3', '1980-10-20', 'Jogjakarta', '089782675127', 'default.jpg'),
-(9, 'mio', 'f08e2dd8531f351874eeb92893d9a1fc', 'mio', 'ahmad@mail.com', '3', '1992-06-18', 'hoihoho', '097879', 'default.jpg'),
-(10, 'sdqw', '0d7d6541ccef76414e9b3df9fcf71d1b', 'rqwew', 'vina@mail.com', '3', '1980-09-12', 'fadefewgegqg', '083979826180', 'default.jpg'),
-(11, 'sa', 'af15d5fdacd5fdfea300e88a8e253e82', 'sihiuhu', 'kuncoro@mail.com', '2', '1991-09-22', 'sssssssss', '088772871901', 'IMG_20180228_021814_647.jpg'),
-(12, 'sda', '71a3e2ec778157bbbcd11c7929de0d17', 'fsfasfaffa', 'fahmi@gmail.com', '2', '1986-01-30', 'saaaaaafestet', '089397873915', 'Bacaan-Doa-Lulus-Ujian-Skripsi-1.png'),
-(13, 'ani', '29d1e2357d7c14db51e885053a58ec67', 'Ani Karlina', 'ani@mail.com', '2', '0000-00-00', 'Banguntapan, Bantul, DIY', '089397873915', 'default.jpg'),
+(2, 'vina', 'e7bb4f7ed097bd6ccefc46018fda32c8', 'Vina Pusparani Sari', 'vina@mail.com', '2', '1988-10-19', 'Jl. Tirtomartani No. 29, Kalasan, Sleman', '087216521889', 'IMG_20180305_045753_0181.jpg'),
+(3, 'lili', '777bbb7869ae8193249f8ff7d3e59afe', 'Liliana Putri', 'lili@mail.com', '2', '1998-09-09', 'Tirtomartani, Kalasan, Sleman', '08921782919', 'default.jpg'),
+(8, 'nana', '518d5f3401534f5c6c21977f12f60989', 'Nana Pratiwi', 'nana_pratiwi@mail.com', '2', '1980-10-20', 'Jogjakarta', '089782675127', 'default.jpg'),
+(9, 'fahmi', 'f11d50d63d3891a44c332e46d6d7d561', 'Fahmi Saputri', 'fahmi@mail.com', '2', '1992-06-18', 'hoihoho', '08218273192', 'default.jpg'),
+(10, 'fatimah', '3610528e7fee68c6ffb0445603ef2c8e', 'Nurul Fatimah', 'fatimah@mail.com', '2', '1980-09-12', 'Jogokaryan, Bantul, Yogyakarta', '083979826180', 'default.jpg'),
+(11, 'sandi', 'ac9b4e0b6a21758534db2a6324d34a54', 'Sandi Aulia', 'sandi@mail.com', '2', '1991-09-22', 'Jl. Nurul Asri Deresan 2, Gejayan, Sleman', '088772871901', 'IMG_20180228_021814_647.jpg'),
+(12, 'ani', '29d1e2357d7c14db51e885053a58ec67', 'Ani Karlina', 'ani@gmail.com', '2', '1986-01-30', 'Jl. Nogopuro No. 1 Gowok', '089397873915', 'Bacaan-Doa-Lulus-Ujian-Skripsi-1.png'),
+(13, 'leta', '14af248986271bc8894447214c0e8498', 'Leta Azhara', 'leta@mail.com', '2', '2000-07-04', 'Jl. Jendral Sudirman, Kotabaru, Yogyakarta', '089397873915', 'default.jpg'),
 (14, 'putri', 'd7c24d51c8d5b3b671952041804add48', 'Adini Putri Lestari', 'adini_putri@mail.com', '2', '1998-09-05', 'Seturan, Selokan Mataram, Sleman, Yogyakarta', '089782675127', 'default.jpg'),
 (15, 'prista', 'c7aadc812c1450a6cd8d8c59719314da', 'Prista Prima Pradani', 'prista_prima@mail.com', '2', '2019-01-04', 'Jl. Kaliurang Km. 12, Bangunjiwo,  Sleman, Yogyakarta', '0887728719019', 'default.jpg'),
 (16, 'wiwin', 'b6d67c9a0571394fc265616f7f47f9fb', 'Wiwin Khadir', 'wiwin@gmail.com', '2', '1993-10-29', 'Umbulharjo', '0887728719019', 'default.jpg');
@@ -302,12 +332,12 @@ ALTER TABLE `bahan_makan`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `detail_konsultasi`
 --
 ALTER TABLE `detail_konsultasi`
-  MODIFY `id_detail_konsultasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `detail_menu`
 --
@@ -317,7 +347,7 @@ ALTER TABLE `detail_menu`
 -- AUTO_INCREMENT for table `konsultasi`
 --
 ALTER TABLE `konsultasi`
-  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `menu_makan`
 --

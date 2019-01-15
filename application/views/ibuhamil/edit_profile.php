@@ -58,9 +58,8 @@
                                 <div class="row">
                                     <!-- Sisi kiri -->
                                     <div class="col-md-6">
-                                        <form action="<?php echo site_url('ibuhamil/profile/edit/'.$user->id_user); ?>" method="post"
-                                         enctype="multipart/form-data">
-
+                                        <form action="<?php echo site_url('ibuhamil/profile/edit/'.$user->id_user); ?>" method="post" enctype="multipart/form-data">
+											<!--  enctype="multipart/form-data" -->
                                             <input type="hidden" name="id" value="<?php echo $user->id_user; ?>">
 
                                             <div class="form-group">
@@ -127,7 +126,8 @@
                                                     <i class="fa fa-save"></i> Save
                                                 </button> -->
 
-                                                <input type="submit" value="Save" name="btn" class="btn btn-success">
+												<button type="submit" class="btn btn-success pull-right">
+													<i class="far fa-save"></i> Save</button>
                                             </div>
                                             <!-- /.button-back -->
                                         </form>

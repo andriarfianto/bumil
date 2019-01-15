@@ -41,7 +41,8 @@
     				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
     				<?php if ($this->session->flashdata('success')): ?>
-    				<div class="alert alert-primary" role="alert">
+    				<div class="alert alert-success" role="alert">
+						<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
     					<?php echo $this->session->flashdata('success'); ?>
     				</div>
     				<?php endif; ?>

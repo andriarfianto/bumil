@@ -85,7 +85,7 @@
 
                             <div class="col-lg-12">
                                 <!-- Row untuk penjelasa -->
-								<h3>Riwayat Konsultasi kehamilan</h3>
+								<h3><i class="fas fa-angle-double-right"></i> Riwayat Konsultasi kehamilan</h3>
 								<p>Riwayat konsultasi yang pernah anda lakukan <br>
 								Silahkan pilih/tekan tombol <strong>Detail</strong> untuk mengetahui informasi lengkap data konsultasi <br> beserta informasi saran makan yang dibutuhkan</p>
 
@@ -116,17 +116,18 @@
 											  foreach ($konsultasis as $konsultasi): ?>
 											  <tr>
 												  <td><?php echo $no; ?></td>
-												  <td><?php echo $konsultasi->tinggi_badan; ?></td>
-												  <td><?php echo $konsultasi->berat_badan; ?></td>
-												  <td><?php echo $konsultasi->usia_ibuhamil; ?></td>
-												  <td><?php echo $konsultasi->usia_kehamilan; ?></td>
+												  <td><?php echo $konsultasi->tinggi_badan; ?> cm</td>
+												  <td><?php echo $konsultasi->berat_badan; ?> kg</td>
+												  <td><?php echo $konsultasi->usia_ibuhamil; ?> tahun</td>
+												  <td><?php echo $konsultasi->usia_kehamilan; ?> minggu</td>
 												  <!-- <td>Gemuk</td> -->
-												  <td><?php echo $konsultasi->bbih; ?></td>
-												  <td><?php echo $konsultasi->tee; ?></td>
+												  <td><?php echo $konsultasi->bbih; ?> kg</td>
+												  <td><?php echo $konsultasi->tee; ?> kalori</td>
 												  <!-- <td>213 gram</td>
 												  <td>445 gram</td>
 												  <td>13 gram</td> -->
-												  <td><a href="#">Detail</a></td>
+												  <td><a href="<?php echo site_url('ibuhamil/konsultasi/detail/'.$konsultasi->id_user) ?>">Detail</a></td>
+
 											  </tr>
 											  <?php $no++;
 										  endforeach; ?>

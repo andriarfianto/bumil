@@ -24,6 +24,9 @@ class Konsultasi extends CI_Controller
             // tampung ke variabel untuk menampilkan view
             $data['konsultasi'] = $data_konsultasi;
 
+            $data_detail = $this->konsultasi_model->getDetail($id_konsultasi)->result();
+            $data['details'] = $data_detail;
+            // var_dump($data['details']); die('dsd');
             // $this->load->view('ibuhamil/konsultasi/new_konsultasi', $data_konsultasi);
         }
 
@@ -53,21 +56,21 @@ class Konsultasi extends CI_Controller
 
             // untuk mencari kriteria berat badan ibu hamil
             if ($imt < 19.8) {
-                $status = "Kurus";
+                $status_gizi = "Kurus";
             }
             elseif ($imt >= 19.9 && $imt <= 26.0) {
-                $status = "Normal";
+                $status_gizi = "Normal";
             }
             elseif ($imt >= 26.1 && $imt <= 29.0) {
-                $status = "Gemuk";
+                $status_gizi = "Gemuk";
             }
             elseif ($imt >29.0) {
-                $status = "Obesitas";
+                $status_gizi = "Obesitas";
             }
             else {
-                $status = null;
+                $status_gizi = null;
             }
-            // var_dump($status);
+            // var_dump($status_gizi); die('sasd');
 
             /**
             * mencari berat badan ideal
@@ -112,15 +115,28 @@ class Konsultasi extends CI_Controller
             * trisemester 2 = minggu 13 - 28 -> 300
             * trisemester 3 = minggu 29 - 40 -> 300
             */
-           if (($usia_kehamilan >= 1 && $usia_kehamilan <= 12)){
+            if (($usia_kehamilan >= 1 && $usia_kehamilan <= 12)) 
                 $nilai_trisemester = 180;
-           } if (($usia_kehamilan >= 13 && $usia_kehamilan <= 28)) {
+            elseif (($usia_kehamilan >= 13 && $usia_kehamilan <= 28)) 
                 $nilai_trisemester = 300;
-           } if (($usia_kehamilan >= 29 && $usia_kehamilan <= 40)) {
+            elseif (($usia_kehamilan >= 29 && $usia_kehamilan <= 40)) 
                 $nilai_trisemester = 300;
-           } else {
+            else 
                 null;
-           }
+            
+
+            /**
+             * cadangan kalau error
+             */
+            // if (($usia_kehamilan >= 1 && $usia_kehamilan <= 12)) {
+            //     $nilai_trisemester = 180;
+            // } if (($usia_kehamilan >= 13 && $usia_kehamilan <= 28)) {
+            //     $nilai_trisemester = 300;
+            // } if (($usia_kehamilan >= 29 && $usia_kehamilan <= 40)) {
+            //     $nilai_trisemester = 300;
+            // } else {
+            //     null;
+            // }
 
             /**
             * tee = bee() + nilai_aktifitas_fisik() + faktor pertumbuhan
@@ -129,9 +145,13 @@ class Konsultasi extends CI_Controller
             // var_dump($tee);
 
             // kurang mengubah nilai kedalam bentuk karbihidrat, protein dan lemak
-            $karbohidrat = ($tee * 0.6) / 4;
-            $protein = ($tee * 0.15) / 4;
-            $lemak = ($tee * 0.25) / 4;
+            $energi_karbohidrat = $tee * 0.6;
+            $energi_protein = $tee * 0.15;
+            $energi_lemak = $tee * 0.25;
+
+            $karbohidrat = $energi_karbohidrat / 4;
+            $protein = $energi_protein / 4;
+            $lemak = $energi_lemak / 9;
 
             // var_dump('kebutuhan karbihidrat anda: ', $karbohidrat ,' gram');
             // var_dump('kebutuhan protein anda: ', $protein ,' gram');
@@ -150,12 +170,17 @@ class Konsultasi extends CI_Controller
                 'nilai_trisemester' => $nilai_trisemester,
                 'aktifitas_fisik' => $aktifitas_fisik,
                 'imt' => $imt,
+                'status_gizi' => $status_gizi,
                 'bbih' => $bbih,
                 'tee' => $tee,
+                'energi_karbohidrat' => $energi_karbohidrat,
+                'energi_protein' => $energi_protein,
+                'energi_lemak' => $energi_lemak,
                 'kebutuhan_karbohidrat' => $karbohidrat,
                 'kebutuhan_protein' => $protein,
                 'kebutuhan_lemak' => $lemak,
             );
+            // var_dump($data_input); die('ds');
 
             //input kedb lewat model
             $this->konsultasi_model->save($data_input);
@@ -166,61 +191,43 @@ class Konsultasi extends CI_Controller
             // 10% dari tee, bisa lebih bisa dikurang = 10% keatas dan 10% kebawah
 
             // inisailisasi batas atas dan bawah
-            // $persen    = $tee * 0.1;
-            // $ten_atas  = $tee + $persen;
-            // $ten_bawah = $tee - $persen;
-            // // cek var
-            //
-            // // ambil data menu makanan lalu randon dan cek yang jika jumlah energinya lebih batas bawah dan kurang dari batas atas
-            //
-            // $menu = $this->konsultasi_model->getMenu();
-            // $menus = $menu->result();
-            // $count_menu = $menu->num_rows();
-            // // var_dump($sarans); die('cek saran');
-            //
-            // $total = 0;
-            // $detail = array();
-            //
-            // // simpan data saran makanan, tb = detail_konsultasi
-            // foreach ($menus as $key => $val)
-            // {
-            //     // var_dump($key); die('cek saran key');
-            //     // var_dump($val); die('cek saran val');
-            //
-            //     // acak dengan range jumlah count semua menu ($count_menu)
-            //     $id_acak = rand(1, $count_menu);
-            //
-            //     // cek apakah id menu yg diacak ini sudah digunakan atau belum untuk id konsultasi ini
-            //     if (!empty($detail[$id_acak])) {
-            //         // berarti id acak ini sudah digunaka, jadi tidak dipakai lagi
-            //     }
-            //     else {
-            //         // belum ada ditambahkan ke array sebagai penanda agar tidak digunakan lagi
-            //         $detail[$id_acak] = $val->id_menu;
-            //
-            //         // tambah total
-            //         $total += $val->energi_menu;
-            //
-            //         // array('energi_menu >= ' => $ten_bawah, 'energi_menu <=' => $ten_atas)
-            //         if ($total <= $ten_atas)
-            //         {
-            //             // ??? :=> $total >= $ten_bawah
-            //
-            //             // prose simpan ke database
-            //             $id_menu_disarankan = $val->id_menu;
-            //
-            //             $data = array(
-            //                 'id_konsultasi' => $id_konsultasi_terbaru,
-            //                 'id_menu' => $id_menu_disarankan,
-            //             );
-            //
-            //             //input kedb lewat model
-            //             $this->konsultasi_model->saveDetail($data);
-            //         }
-            //     }
-            // }
+            $persen    = $tee * 0.1;
+            $ten_atas  = $tee + $persen;
 
-            $this->session->set_flashdata('success', 'Selamat! Hasil konsultasi anda sebagai berikut');
+            // // ambil data menu makanan dengan randon dan cek yang jika jumlah energinya lebih batas bawah dan kurang dari batas atas
+
+            $menu = $this->konsultasi_model->getMenuRandom();
+            $menus = $menu->result();
+
+            $total = 0;
+
+            // simpan data saran makanan, tb = detail_konsultasi
+            foreach ($menus as $key => $val)
+            {
+                // var_dump($key); die('cek saran key');
+                // var_dump($val); die('cek saran val');
+
+                if ($total <= $ten_atas) {
+                    // prose simpan ke database
+                    $id_menu_disarankan = $val->id_menu;
+
+                    $data = array(
+                        'id_konsultasi' => $id_konsultasi_terbaru,
+                        'id_menu' => $id_menu_disarankan,
+                    );
+
+                    //input kedb lewat model
+                    $this->konsultasi_model->saveDetail($data);
+
+                    // tambah total, agar total energi yang disimpan sebagai saran tidak melebihi batas atas
+                    $total += $val->energi_menu;
+                }
+                else {
+                    break;
+                }
+            }
+
+            $this->session->set_flashdata('success', 'Selamat! Hasil konsultasi anda sebagai berikut :');
 
             // menapilkan hasil perhitungan
             redirect(base_url('ibuhamil/konsultasi/index/'. $id_konsultasi_terbaru));
@@ -256,6 +263,27 @@ class Konsultasi extends CI_Controller
         // }
 
         $this->load->view('ibuhamil/konsultasi/riwayat_konsultasi', $data);
+    }
+
+    public function detail($id = null)
+    {
+        $id = $this->session->userdata('id_user');
+        $this->load->model('user_model');
+        $data['user'] = $this->user_model->getById($id);
+        // cuma memanggila data yang ada didatabase
+        $data['konsultasi'] = $this->konsultasi_model->getId($id);
+
+        // cuma memanggila data yang ada didatabase
+        $data_detail = $this->konsultasi_model->getDetail($id)->result();
+        $data['details'] = $data_detail;
+
+        $this->load->view('ibuhamil/konsultasi/detail_konsultasi', $data);
+        // var_dump($data['konsultasis']);
+        //
+        // if (!empty($id)) {
+        //     $data['konsultasi'] = $this->konsultasi_model->getRiwayat();
+        //     // by id user login
+        // }
     }
 
 

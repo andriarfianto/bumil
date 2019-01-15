@@ -21,8 +21,13 @@ class User_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_user" => $id])->row();
     }
 
+    public function getIbuHamil()
+    {
+        return $this->db->get_where($this->_table, ["level" => 2])->result();
+    }
+
     public function jumlah()
-    {        
+    {
         return $this->db->get($this->_table)->num_rows('*');
     }
 
@@ -34,6 +39,12 @@ class User_model extends CI_Model
     public function update($data, $id)
     {
         return $this->db->where('id_user', $id)->update($this->_table, $data);
+    }
+
+    public function checkPasswordLama()
+    {
+        // di cek ke database where id user =  id user yg login dengan session, apakah passwordnya = md5($passwordlama_inputan)
+        return $this->db->get_where('user', ["id_user" => $this->session->userdata('id_user')])->row('password');
     }
 
     public function delete($id)

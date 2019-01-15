@@ -26,9 +26,9 @@ class konsultasi_model extends CI_Model
         return $this->db->get($this->_table);
     }
 
-    function getMenu()
+    function getMenuRandom()
     {
-        return $this->db->get('menu_makan');
+        return $this->db->order_by('id_menu', 'RANDOM')->get('menu_makan');
     }
 
     public function saveDetail($data)
@@ -36,6 +36,14 @@ class konsultasi_model extends CI_Model
         $this->db->insert('detail_konsultasi', $data);
     }
 
+    public function getDetail($id = null)
+    {
+        $this->db->select('*');
+        $this->db->join('menu_makan', 'menu_makan.id_menu = detail_konsultasi.id_menu');
+        return $this->db->get_where('detail_konsultasi', ['id_konsultasi' => $id]);
+
+        // return $this->db->get_where('detail_konsultasi', ['id_konsultasi' => $id]);
+    }
 
     public function get_id_konsultasi_terakhir()
     {

@@ -10,7 +10,7 @@
 	<!-- Ibu Hamil -->
 	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'user' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-		 aria-expanded="false">
+		aria-expanded="false">
 			<i class="fas fa-fw fa-folder"></i>
 			<span>Pengguna</span>
 		</a>
@@ -22,7 +22,7 @@
 	<!-- Artikel -->
 	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'artikel' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-		 aria-expanded="false">
+		aria-expanded="false">
 			<i class="fas fa-fw fa-chart-area"></i>
 			<span>Artikel</span>
 		</a>
@@ -34,7 +34,7 @@
 	<!-- Menu Makan -->
 	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'menu' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-		 aria-expanded="false">
+		aria-expanded="false">
 			<i class="fas fa-fw fa-bookmark"></i>
 			<span>Menu Makan</span>
 		</a>
@@ -46,7 +46,7 @@
 	<!-- Bahan Makan -->
 	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'bahan' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-		 aria-expanded="false">
+		aria-expanded="false">
 			<i class="fas fa-fw fa-poll-h"></i>
 			<span>Bahan Makan</span>
 		</a>
@@ -58,7 +58,7 @@
 	<!-- Konsultasi -->
 	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'uploads/uploads/' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-		 aria-expanded="false">
+		aria-expanded="false">
 			<i class="fas fa-fw fa-file-medical"></i>
 			<span>Konsultasi</span>
 		</a>
@@ -68,16 +68,21 @@
 		</div>
 	</li>
 	<!-- Chat -->
-	<li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'uploads/uploads/' ?  'active' : ''?>">
+	<!-- <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'uploads/uploads/' ?  'active' : ''?>">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-		 aria-expanded="false">
+		aria-expanded="false">
 			<i class="fas fa-fw fa-comment-alt"></i>
 			<span>Chat</span>
 		</a>
-		<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-			<a class="dropdown-item" href="<?php echo site_url('uploads/uploads/add'); ?>">New Upload</a>
-			<a class="dropdown-item" href="<?php echo site_url('uploads/uploads/'); ?>">List Upload</a>
+		<div class="dropdown-menu" aria-labelledby="pagesDropdown">			
+			<a class="dropdown-item" href="<?php echo site_url('admin/chat'); ?>">List Chat</a>
 		</div>
+	</li> -->
+	<li class="nav-item <?php echo $this->uri->segment(2) == 'chat' ?  'active' : ''?>">
+		<a class="nav-link" href="<?php echo site_url('admin/chat'); ?>">
+			<i class="fas fa-fw fa-comment-alt"></i>			
+			<span>Chat</span>
+		</a>
 	</li>
 	<!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'uploads/uploads/' ?  'active' : ''?>">
 	<a class="nav-link" href="<?php echo site_url('uploads/uploads'); ?>">

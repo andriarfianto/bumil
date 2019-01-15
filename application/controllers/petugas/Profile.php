@@ -1,16 +1,12 @@
 <?php
 defined('BASEPATH') OR exit ('No direct script access allowed');
 
-/**
- * Class Controller Profile
- * untuk update data user petugas
- */
 class Profile extends CI_Controller
 {
 
-    function __construct(argument)
+    function __construct()
     {
-        // code...
+        parent::__construct();
     }
 
     public function index()

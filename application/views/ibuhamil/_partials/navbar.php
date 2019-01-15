@@ -74,8 +74,11 @@
 				<a class="nav-link" href="<?php echo base_url('ibuhamil/profile') ?>">Data Diri</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<?php echo base_url('ibuhamil/konsultasi/nyoba'); ?>">Nyoba Konsultasi</a>
+				<a class="nav-link" href="<?php echo base_url('ibuhamil/password'); ?>">Ganti Password</a>
 			</li>
+			<!-- <li class="nav-item">
+				<a class="nav-link" href="<?php echo base_url('ibuhamil/konsultasi/nyoba'); ?>">Nyoba Konsultasi</a>
+			</li> -->
 		</ul>
 	</div>
 

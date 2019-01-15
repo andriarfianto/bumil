@@ -67,10 +67,8 @@
 
                     <!-- DISINI -->
                     <div class="card mb-3">
-                        <div class="card-header">
-                            <a href="<?php echo site_url('ibuhamil/konsultasi'); ?>">
-                                <i class="fas fa-arrow-left"></i> Back
-                            </a>
+                        <div class="card-header">                            
+							<i class="fa fa-comments" aria-hidden="true"></i> Chat dengan konsultan                            
                         </div>
 
                         <div class="card-body">
@@ -85,22 +83,40 @@
                             </div> -->
 
                             <div class="card md-3">
-                                <div class="card-header">
-                                    <strong>Chat untuk bertanya dan konsultasi</strong>
-                                </div>
                                 <div class="card-body">
-                                    <div class="well" style="width:100%; height: 300px; max-height: 300px; overflow-y: auto;">
-                                        Pesan kosong
-                                    </div>
+									<div class="well" style="width:100%; height: 300px; max-height: 300px; overflow-y: auto;">
+									<?php foreach ($pesans as $pesan): ?>
+										<?php if ($pesan->pengirim == 2): ?>
+											<p class="alert alert-primary" style="border-radius: 20px 20px 0px 20px; width: 50%; left: 50%;">
+												<strong><?php echo $pesan->isi_pesan; ?></strong><br>
+												<span class="text-default small">
+													<?php														
+														echo time_ago($pesan->tanggal);														
+													?>
+												</span>
+											</p>
+										<?php elseif($pesan->pengirim == 1): ?>
+											<p class="alert alert-info" style="border-radius: 20px 20px 20px 0px; background-color: #23A127; border-color: #1f8422; width: 50%;right: 0%;">
+												<strong><?php echo $pesan->isi_pesan; ?></strong><br>
+												<span class="text-default small">
+													<?php 
+														echo time_ago($pesan->tanggal);														
+													?>
+												</span>
+											</p>
+										<?php endif ?>
+									<?php endforeach; ?>
+									</div>
                                 </div>
                             </div>
-
-                            <form class="" method="post" action="" style="margin-top: 2%;">
+							<?php //echo var_dump($this->session->userdata()); die('sawe'); ?>
+							
+                            <form class="" method="post" action="<?php base_url('chat/index'); ?>" style="margin-top: 2%;">
                                 <div class="form-group">
-                                    <textarea required="" name="pesan" id="pesan" class="form-control" placeholder="Tuliskan Pesan Anda Disini"></textarea>
+                                    <textarea required="" name="isi_pesan" id="isi_pesan" class="form-control" placeholder="Tuliskan pesan anda disini"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i> Kirim</button>
+                                    <button type="submit" class="btn btn-success" style="float: right;"><i class="fa fa-paper-plane"></i> Kirim</button>
                                 </div>
                             </form>
                         </div>

@@ -35,20 +35,36 @@ class Profile extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('email','Email Address','required|valid_email');
-        $this->form_validation->set_rules('level', 'Level User', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('no_telp', 'No. Telephone', 'required|numeric');
 
+        // if (!empty($_POST)) {
+        //     var_dump($this->form_validation->run());
+        //
+        //     echo validation_errors();
+        //     // var_dump(form_error('username'));
+        //     die('fffff');
+        //
+        //     $post = $this->input->post();
+        //     var_dump($post);
+        //
+        //     // var_dump($_POST);
+        //     var_dump($_FILES);
+        //     die('d');
+        // }
+
         if ($this->form_validation->run()) {
+            // die('a');
+
             $post_data = array(
                 'username' => $this->input->post('username'),
                 'nama' => $this->input->post('nama'),
-                'email' => $this->input->post('email'),
-                'level' => $this->input->post('level'),
+                'email' => $this->input->post('email'),                
                 'alamat' => $this->input->post('alamat'),
                 'no_telp' => $this->input->post('no_telp'),
                 'foto' => 'default.jpg',
             );
+            // var_dump($post_data); die('$post_data');
 
             // edit foto
             $file = $_FILES;
