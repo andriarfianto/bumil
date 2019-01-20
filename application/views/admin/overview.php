@@ -115,8 +115,14 @@
 						<h2>Selamat datang!</h2>
 						<p>di halaman dashboard Admin</p>
 					</div>
-					<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-				</div>
+					<div class="card-footer small text-muted" style="background-color: #E3E3E3;">
+							<strong>Selamat datang - Admin</strong> |
+							<?php
+								date_default_timezone_set('Asia/Jakarta');
+								echo $timestamp = date('H:i:s');
+							?>
+						</div>
+				</div>				
 
 			</div>
 			<!-- /.container-fluid -->

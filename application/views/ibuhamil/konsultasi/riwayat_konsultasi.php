@@ -68,7 +68,7 @@
                     <div class="card mb-3">
                         <div class="card-header">
                             <a href="<?php echo site_url('ibuhamil/konsultasi'); ?>">
-                                <i class="fas fa-arrow-left"></i> Back
+                                <i class="fas fa-arrow-left"></i> Kembali
                             </a>
                         </div>
 

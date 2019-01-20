@@ -47,6 +47,16 @@ class User_model extends CI_Model
         return $this->db->get_where('user', ["id_user" => $this->session->userdata('id_user')])->row('password');
     }
 
+    public function checkEmailLama($email_inputan)
+    {
+        // $this->db->select('email');
+        // $this->db->from('user');           
+        // return $this->db->get();
+
+        return $this->db->get_where('user', ['email' => $email_inputan]);
+        // return $this->db->get('user', ['email' => ])->result();
+    }
+
     public function delete($id)
     {
         $this->db->delete($this->_table, array('id_user' => $id));

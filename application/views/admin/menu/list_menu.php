@@ -32,7 +32,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<a href="<?php echo site_url('admin/menu/add'); ?>">
-							<i class="fas fa-plus"></i> Add New
+							<i class="fas fa-plus"></i> Tambah
 						</a>
 					</div>
 

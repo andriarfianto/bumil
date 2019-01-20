@@ -22,31 +22,23 @@
 				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
 				<!-- Notifikasi data berhasil di simpan -->
-				<?php if ($this->session->flashdata('success')): ?>
-				<div class="alert alert-primary" role="alert">
-					<?php echo $this->session->flashdata('success'); ?>
-				</div>
-				<?php endif; ?>
+				<?php if ($this->session->flashdata('success')): ?>	
+					<div class="alert alert-primary" role="alert">	
+						<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+						<?php echo $this->session->flashdata('success'); ?>
+					</div>
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+				<?php endif; ?>			
 
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
 						<a href="<?php echo site_url('admin/user'); ?>">
-							<i class="fas fa-arrow-left"></i> Back
+							<i class="fas fa-arrow-left"></i> Kembali
 						</a>
 					</div>
 
-					<div class="card-body">
-						<!-- Success validation error -->
-						<!-- <div class="form_error">
-							echo validation_errors('<div class="alert alert-danger" role="alert">','</div>'); ?>
-						</div> -->
-
-						<!-- Failed validation error -->
-						<!-- <div class="invalid-feedback">
-							echo form_error('username'); ?>
-						</div> -->
-
+					<div class="card-body">						
 						<form action="<?php echo site_url('admin/user/add'); ?>" method="post" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="username">Username*</label>
@@ -80,7 +72,7 @@
 								</span>
 							</div>							
 
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label for="level">Level*</label>							
 								<select class="form-control" id="select" name="level">
 									<option value="0">Silahkan Pilih</option>
@@ -90,7 +82,7 @@
 								<span style="color: red">
 									<?php echo form_error('select'); ?>
 								</span>													
-							</div>
+							</div> -->
 
 							<div class="form-group">
 								<label for="alamat">Alamat*</label>
@@ -115,8 +107,10 @@
 									<?php echo form_error('foto'); ?>
 								</span>
 							</div>							
-
-							<input type="submit" value="Save" name="btn" class="btn btn-success">
+							
+							<button type="submit" class="btn btn-success">
+								<i class="far fa-save"></i> Save
+                            </button>
 						</form>
 					</div>
 				</div>

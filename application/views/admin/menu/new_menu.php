@@ -32,7 +32,7 @@
                 <div class="card mb-3">
                     <div class="card-header">
                         <a href="<?php echo site_url('admin/menu'); ?>">
-                            <i class="fas fa-arrow-left"></i> Back
+                            <i class="fas fa-arrow-left"></i> Kembali
                         </a>
                     </div>
 
@@ -154,7 +154,9 @@
                                     </span>
                                 </div>
 
-                                <button type="submit" name="btn" class="btn btn-success" style="float: right;">Save</button>
+                                <button type="submit" name="btn" class="btn btn-success" style="float: right;">
+                                    <i class="far fa-save"></i> Save
+                                </button>
                                 <button type="button" id="add-bahan" name="btn" class="btn btn-primary" style="float: right; margin-right: 10px; margin-bottom: 3%">Tambah
                                     Bahan</button>
 

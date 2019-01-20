@@ -10,19 +10,84 @@ class Konsultasi extends CI_Controller
         $this->load->model('user_model');
     }
 
-    public function index($id_konsultasi = null)
+    function test()
     {
+        $tee = 2603.336;
+        $persen    = $tee * 0.1;
+        $ten_atas  = $tee + $persen;
+        $ten_bawah  = $tee - $persen;
+
+        echo 'tee = '.$tee.' && atas = '.$ten_atas.' && bwh = '.$ten_bawah.'<br/>';
+
+        // ambil data menu makanan dengan random dan cek yang jika jumlah energinya lebih batas bawah dan kurang dari batas atas
+
+        $menu = $this->konsultasi_model->getMenuRandom();
+        $menus = $menu->result();
+
+        $total = 0;
+
+        // simpan data saran makanan, tb = detail_konsultasi
+        foreach ($menus as $key => $val)
+        {
+            // tambah total, agar total energi yang disimpan sebagai saran tidak melebihi batas atas
+            $total += $val->energi_menu;
+
+            if ($total >= $ten_atas) {
+                // echo 'lbh = '.$total.'<br/>';
+                $total -= $val->energi_menu;
+
+                // lebih dari batas diberikan else lebih dari batas atas
+                if ($total <= $ten_bawah) {
+                    // echo 'masih kurang = '.$total.'<br/>';
+                    continue;
+                }
+                else {
+                    break;
+                }
+            }
+            elseif ($total < $ten_atas) {
+                // prose simpan ke database
+                $id_menu_disarankan = $val->id_menu;
+
+                echo 'energi = '.$val->energi_menu.', nma = '.$val->nama_menu.'<br/>';
+                echo 'ini proses simpan disini yaa selain ini berarti tidak ada yg disimpan = '.$id_menu_disarankan.'<br/>';
+                echo 'ttl = '.$total.'<br/><br/>';
+            }
+        }
+    }
+
+    public function index($id_konsultasi = null)
+    {       
         // parameter 1 = NULL
-        // if id_konsultasi not null ngeget
+        // if id_konsultasi not null ambil data dari database
         // kalau parameter ada isi nya
         // jalankan fungsi data - manggil get dari id_konsultasi = parameter
         // tampung variabel dibawa ke view yang sama
+
         // diview harus ada kondisi kalau parameter kosong form kosong kalau ada tampilkan
         if (!empty($id_konsultasi)) {
             $data_konsultasi = $this->konsultasi_model->getId($id_konsultasi);
-            //ambil data dari database where id parameter id_konsultasi
+            // ambil data dari database where id parameter id_konsultasi
             // tampung ke variabel untuk menampilkan view
             $data['konsultasi'] = $data_konsultasi;
+            
+            $total_makan = $this->konsultasi_model->getTotalEnergiMenuSaran($id_konsultasi)->row(); // total menu makan berdasarkan id_konsultasi
+            $data['total_energimenu'] = $total_makan;
+            // var_dump($data['total_energimenu']); die('fe');            
+            
+            // $waktu_makan = (float) $total_makan->energi_menu / 3;
+            // $makan = round($waktu_makan);
+
+            // ambil data
+            $sarans = $this->konsultasi_model->getEnergiMenu($id_konsultasi)->result();            
+
+            // catatan : buat model untuk mengambil semua data
+            // energi menu yang berada di tabel detail_konsultasi
+            // berdasarkan id_konsultasi dari user                  
+
+            $batas_atas = $this->konsultasi_model->getWhere(array('id_konsultasi' => $id_konsultasi))->row();
+            $data['nilai_batasatas'] = $batas_atas->batas_atas;       
+
 
             $data_detail = $this->konsultasi_model->getDetail($id_konsultasi)->result();
             $data['details'] = $data_detail;
@@ -42,10 +107,10 @@ class Konsultasi extends CI_Controller
         $aktifitas_fisik = $this->input->post('aktifitas_fisik');
         $id_user = $this->session->userdata('id_user');
 
-        $this->form_validation->set_rules('berat_badan', 'Berat Badan', 'required');
-        $this->form_validation->set_rules('tinggi_badan', 'Tinggi Badan', 'required');
-        $this->form_validation->set_rules('usia_ibuhamil', 'Usia Ibu Hamil', 'required');
-        $this->form_validation->set_rules('usia_kehamilan', 'Usia Kehamilan', 'required');
+        $this->form_validation->set_rules('berat_badan', 'Berat Badan', 'required|numeric');
+        $this->form_validation->set_rules('tinggi_badan', 'Tinggi Badan', 'required|numeric');
+        $this->form_validation->set_rules('usia_ibuhamil', 'Usia Ibu Hamil', 'required|numeric');
+        $this->form_validation->set_rules('usia_kehamilan', 'Usia Kehamilan', 'required|numeric|min_length[1]');
         $this->form_validation->set_rules('aktifitas_fisik','Aktifitas Fisik','required');
 
         if ($this->form_validation->run()) {
@@ -153,6 +218,7 @@ class Konsultasi extends CI_Controller
             $protein = $energi_protein / 4;
             $lemak = $energi_lemak / 9;
 
+            $batas_atas = $tee + ($tee * 0.1);
             // var_dump('kebutuhan karbihidrat anda: ', $karbohidrat ,' gram');
             // var_dump('kebutuhan protein anda: ', $protein ,' gram');
             // var_dump('kebutuhan lemak anda: ', $lemak ,' gram');
@@ -172,6 +238,7 @@ class Konsultasi extends CI_Controller
                 'imt' => $imt,
                 'status_gizi' => $status_gizi,
                 'bbih' => $bbih,
+                'batas_atas' => $batas_atas,
                 'tee' => $tee,
                 'energi_karbohidrat' => $energi_karbohidrat,
                 'energi_protein' => $energi_protein,
@@ -193,8 +260,9 @@ class Konsultasi extends CI_Controller
             // inisailisasi batas atas dan bawah
             $persen    = $tee * 0.1;
             $ten_atas  = $tee + $persen;
+            $ten_bawah  = $tee - $persen;
 
-            // // ambil data menu makanan dengan randon dan cek yang jika jumlah energinya lebih batas bawah dan kurang dari batas atas
+            // ambil data menu makanan dengan random dan cek yang jika jumlah energinya lebih batas bawah dan kurang dari batas atas
 
             $menu = $this->konsultasi_model->getMenuRandom();
             $menus = $menu->result();
@@ -222,8 +290,16 @@ class Konsultasi extends CI_Controller
                     // tambah total, agar total energi yang disimpan sebagai saran tidak melebihi batas atas
                     $total += $val->energi_menu;
                 }
-                else {
-                    break;
+                else {                    
+                    // catatan
+                    // lebih dari batas diberikan else lebih dari batas atas
+                    if ($total <= $ten_bawah) {
+                        $total += $val->energi_menu;
+                        continue;
+                    } elseif ($total >= $ten_atas) {
+                        break;
+                    }
+                    
                 }
             }
 

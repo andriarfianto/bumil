@@ -18,18 +18,42 @@ class Konsultasi extends CI_Controller
     }
 
     // riwayat / detail konsultasi
-    public function detail($id = null)
-    {
-        $id = $this->session->userdata('id_user');
-        $this->load->model('user_model');
-        $data['user'] = $this->user_model->getById($id);
+    public function detail($id_konsultasi = null)
+    {        
+        // $this->load->model('user_model');
+        // $data['user'] = $this->user_model->getById($id);
         // cuma memanggil data yang ada didatabase
-        $data['konsultasi'] = $this->konsultasi_model->getId($id);
+
+        $data['konsultasi'] = $this->konsultasi_model->getId($id_konsultasi);
+        // var_dump($data['konsultasi']); die('sa');
 
         // cuma memanggil data yang ada didatabase
-        $data_detail = $this->konsultasi_model->getDetail($id)->result();
+        $data_detail = $this->konsultasi_model->getDetail($id_konsultasi)->result();
         $data['details'] = $data_detail;
 
-        $this->load->view('admin/konsultasi/detail_konsultasi', $data);      
+        // ambil data nama ibu dengan join
+        $data['ibu'] = $this->konsultasi_model->getIbu();
+
+        $this->load->view('admin/konsultasi/detail_konsultasi', $data);
+    }
+
+    // riwayat / detail konsultasi
+    public function print_detail($id_konsultasi = null)
+    {        
+        // $this->load->model('user_model');
+        // $data['user'] = $this->user_model->getById($id);
+        // cuma memanggil data yang ada didatabase
+
+        $data['konsultasi'] = $this->konsultasi_model->getId($id_konsultasi);
+        // var_dump($data['konsultasi']); die('sa');
+
+        // cuma memanggil data yang ada didatabase
+        $data_detail = $this->konsultasi_model->getDetail($id_konsultasi)->result();
+        $data['details'] = $data_detail;
+
+        // ambil data nama ibu dengan join
+        $data['ibu'] = $this->konsultasi_model->getIbu();
+
+        $this->load->view('admin/konsultasi/print_detail', $data);
     }
 }

@@ -63,19 +63,7 @@
                                                     <td>
                                                         : <?php echo $user->email; ?>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Level</th>
-                                                    <td>
-                                                        : <?php echo $user->level; ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Alamat</th>
-                                                    <td>
-                                                        : <?php echo $user->alamat; ?>
-                                                    </td>
-                                                </tr>
+                                                </tr>                                               
                                                 <tr>
                                                     <th scope="row">Alamat</th>
                                                     <td>
@@ -91,26 +79,35 @@
                                             </tbody>
                                         </table>
                                     </form>
+
+                                    <div class="text-right">
+                                        <!-- Button kembali -->
+                                        <a href="<?php echo base_url('admin/overview') ?>">
+                                            <button type="button" class="btn btn-primary pull-right">
+                                                <i class="fas fa-arrow-left"></i> Kembali
+                                            </button>
+                                        </a>
+
+                                        <!-- Button edit -->
+                                        <a href="<?php echo base_url('admin/user/edit_profile/'.$user->id_user) ?>">
+                                            <button type="button" class="btn btn-success pull-right">                                        
+                                                <i class="far fa-edit"></i> Edit
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <!-- /right-button -->
                                 </div>
                                 <!-- ./col-md-8 -->
 
                                 <!-- Sisi kanan -->
                                 <div class="col-md-2">
                                     <div class="row">
-                                        <img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%">
+                                        <img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%" style="height: 20%;">
                                     </div>
                                 </div>
                                 <!-- ./col-md-4 -->
                             </div>
                             <!-- /.row -->
-
-                            <div class="text-right">
-                                <a href="<?php echo site_url('admin'); ?>">
-                                <button type="button" class="btn btn-primary pull-right">
-                                    <i class="fas fa-arrow-left"></i> Back</button>
-                                </a>
-                            </div>
-                            <!-- /.button-back -->
                         </div>
                         <!-- ./col-md-12 -->
 					</div>
@@ -121,6 +118,7 @@
 				<div class="card-footer small text-muted">
 					* required fields
 				</div>
+                <br>
 			</div>
 			<!-- /.container-fluid -->
 

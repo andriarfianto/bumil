@@ -30,13 +30,15 @@
                         <div class="card-header">
                             <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <a href="http://localhost/ci-ibuhamil/admin/konsultasi">
+                                <div class="col-md-6" style="margin-top: 5px;">
+                                    <a href="<?php echo base_url('admin/konsultasi'); ?>">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>
                                 </div>    
                                 <div class="col-md-6 text-right">
-                                    <button type="button" class="btn btn-warning"><i class="fa fa-print" aria-hidden="true"></i> Print</button></div>
+                                    <a href="<?php echo base_url("admin/konsultasi/print_detail/".$konsultasi->id_konsultasi); ?>" target="_blank">
+                                        <button type="button" class="btn btn-warning"><i class="fa fa-print" aria-hidden="true"></i> Print</button></div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -52,6 +54,12 @@
 
                                 <!-- Row untuk tabel riwayat dan detail-->
                                 <ul>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-md-2">Nama</div> :
+                                            <div class="col-md-6"><strong><?php echo $ibu->nama; ?></strong></div>
+                                        </div>
+                                    </li>                             
                                     <li>
                                         <div class="row">
                                             <div class="col-md-2">Tgl. Konsultasi</div> :

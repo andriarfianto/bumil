@@ -32,7 +32,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<a href="<?php echo site_url('admin/bahan'); ?>">
-							<i class="fas fa-arrow-left"></i> Back
+							<i class="fas fa-arrow-left"></i> Kembali
 						</a>
 					</div>
 
@@ -110,8 +110,10 @@
 									<?php echo form_error('lemak_bahan'); ?>
 								</span>
 							</div>
-
-							<input type="submit" value="Save" name="btn" class="btn btn-success">
+							
+							<button type="submit" class="btn btn-success">
+								<i class="far fa-save"></i> Save
+                            </button>
 						</form>
 					</div>
 				</div>

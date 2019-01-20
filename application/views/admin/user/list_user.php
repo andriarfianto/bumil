@@ -24,6 +24,7 @@
 				<!-- Notifikasi data berhasil di simpan -->
 				<?php if ($this->session->flashdata('success')): ?>
 				<div class="alert alert-primary" role="alert">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
 					<?php echo $this->session->flashdata('success'); ?>
 				</div>
 				<?php endif; ?>
@@ -32,7 +33,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<a href="<?php echo site_url('admin/user/add'); ?>">
-							<i class="fas fa-plus"></i> Add New
+							<i class="fas fa-plus"></i> Tambah
 						</a>
 					</div>
 

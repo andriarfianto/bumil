@@ -79,24 +79,22 @@
 							<div class='col-sm-12' style="margin-top: 4%; margin-bottom: 3%;">
 								<div class='card md-3'>
                                     <div class="card-header">
-                                        <span class='h4'>Kontak Informasi dibagi 2 bagian saja</span><br>
+                                        <span class='h4'>Kontak Informasi dibagi</span><br>
 										<span class='small text-muted'>Informasi Kontak Penulis</span>
                                     </div>
 
 									<div class='card-body'>
-										Silahkan kunjungi bagian bantuan kami untuk informasi umum mengenai beberapa layanan  yang ada dalam website, hal yang berhubungan dengan PT. Kalbe Farma Tbk., dll.  Jika Anda tidak dapat menemukan jawaban untuk pertanyaan Anda, gunakan halaman ini untuk menghubungi Layanan Anggota untuk melaporkan masalah, memberikan umpan balik, memperbarui informasi dan mengirim pertanyaan (surat untuk Editor, penjualan dan peluang pengembangan bisnis, dll).
+										Silahkan hubungi administrator atau penulis dengan cara hubungi nomer yang tertera dibawah
+										<br> atau melalui email
+										Jika ada informasi lain belum dimengerti silahkan ditanyakan melakukan 
+										<br> formulir pertanyaan dibawah ini <br> <br>
 
-										Silahkan lengkapi formulir dan Tim Layanan kami akan membantu dengan permintaan Anda.
+										Tugas Akhir - Teknik Informatika <br>
+										Jl. Ringroad utara, Jombor <br>
+										Sleman, Yogyakarta <br>						
 
-
-										Gedung Kalbe
-										Jl. Let. Jend. Supranto Kav 4
-										Jakarta 10510, Indonesia
-										PO. BOX 3105 JAK.
-
-										Phone : 6221-42873888-39
-										Fax : 6221-4256326
-										Email : info@kalbemed.com
+										Phone : +6289640291150 <br>										
+										Email : aarfianto11@gmail.com <br>
 									</div>
 
 									<div class="card-footer">
@@ -152,7 +150,7 @@
 													<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
 												</div>
 											</div>
-											<div class="form-group">
+											<!-- <div class="form-group">
 												<label class="control-label col-sm-2" for="email">Nama:</label>
 												<div class="col-sm-8">
 													<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -169,9 +167,9 @@
 												<div class="col-sm-8">
 													<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
 												</div>
-											</div>
+											</div> -->
 											<div class="form-group">
-												<label class="control-label col-sm-2" for="email">Subjecy:</label>
+												<label class="control-label col-sm-2" for="email">Subject:</label>
 												<div class="col-sm-8">
 													<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
 												</div>

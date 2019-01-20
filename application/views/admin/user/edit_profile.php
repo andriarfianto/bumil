@@ -7,32 +7,13 @@
 
 </head>
 
-<body id="page-top" style="background-color: #158CBA;">
+<body id="page-top">
+		
+		<?php $this->load->view("admin/_partials/navbar.php") ?>
 
-	<div class="container">
+		<div id="wrapper">
 
-		<!-- Nyoba navbar -->
-		<?php $this->load->view("ibuhamil/_partials/navbar.php") ?>
-
-		<div id="wrapper" style="background-color: white;">
-
-			<!-- <?php //$this->load->view("ibuhamil/_partials/sidebar.php") ?> -->
-
-			<!-- Sidebar Baru -->
-            <ul class="sidebar navbar-nav" style="background-color: white; margin-left: 3%;margin-right: 1%;">
-                <img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%" style="margin-top: 7%;">
-                <br>
-                <b>Nama</b> <?php echo $user->nama; ?> <br> <br>
-
-                <b>Email</b> <?php echo $user->email; ?> <br> <br>
-
-                <b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
-                echo $date->format('d/m/Y');?> <br> <br>
-
-                <b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
-
-                <b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
-            </ul>
+            <?php $this->load->view("admin/_partials/sidebar.php") ?>			        
 
 			<div id="content-wrapper">
 
@@ -49,16 +30,19 @@
     				<!-- DataTables -->
     				<div class="card mb-3">
     					<div class="card-header">
-    						<i class="fas fa-address-card"></i> Update Profile
+    						<i class="fas fa-address-card"></i> Update Profile Admin
     					</div>
 
     					<div class="card-body">
 
                             <div class="col-md-12">
-                                <div class="row">
+                                <div class="row"> 
                                     <!-- Sisi kiri -->
+                                    <div class="col-3"></div>
+
+                                    <!-- Sisi tengah -->
                                     <div class="col-md-6">
-                                        <form action="<?php echo site_url('ibuhamil/profile/edit/'.$user->id_user); ?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?php echo site_url('admin/user/edit_profile/'.$user->id_user); ?>" method="post" enctype="multipart/form-data">
 											<!--  enctype="multipart/form-data" -->
                                             <input type="hidden" name="id" value="<?php echo $user->id_user; ?>">
 
@@ -109,15 +93,10 @@
                                                 <div class="invalid-feedback">
                                                     <?php echo form_error('foto') ?>
                                                 </div>
-                                            </div>
-
-                                            <!-- <input type="submit" value="Save" name="btn" class="btn btn-success">
-                                            <a href="<?php echo site_url('ibuhamil/profile/edit/'.$user->id_user); ?>" class="btn btn-success pull-right ">
-                                                <i class="far fa-edit"></i> Edit
-                                            </a> -->
+                                            </div>                                            
 
                                             <div class="text-right">
-                                                <a href="<?php echo site_url('ibuhamil/profile'); ?>">
+                                                <a href="<?php echo site_url('admin/user/profile'); ?>">
                                                 <button type="button" class="btn btn-primary pull-right">
                                                     <i class="fas fa-arrow-left"></i> Kembali</button>
                                                 </a>                                               
@@ -129,20 +108,10 @@
                                             <!-- /.button-back -->
                                         </form>
                                     </div>
-                                    <!-- ./col-md-8 -->
+                                    <!-- ./col-md-6 -->
 
                                     <!-- Sisi kanan -->
-                                    <div class="col-6">
-                                        <h3>Konsultasi kehamilan</h3>
-                                        <p>Untuk melakukan konsultasi kehamilan, silahkan masukkan data anda</p>
-                                        <ol>
-                                            <li>Tinggi Badan - Isi tinggi badan anda saat ini dengan satuan ukuran centimeter.</li>
-                                            <li>Berat Badan - Isi berat badan anda saat ini dengan satuan ukuran kilogram.</li>
-                                            <li>Usia Kehamilan - Isi usia kehamilan anda dengan jumlah waktu usia kandungan, isi dengan satuan waktu minggu.</li>
-                                            <li>Usia Ibu - Isi sesuai dengan usia anda saat ini.</li>
-                                            <li>Aktifitas Fisik - Pilih aktifitas fisik berdasarkan <a href="#" data-toggle="modal" data-target="#aktifitasModal">kreteria berikut</a></li>
-                                        </ol>
-                                    </div>
+                                    <div class="col-3"></div>
                                     <!-- ./col-md-6 -->
                                 </div>
                                 <!-- /.row -->
@@ -157,40 +126,22 @@
     				<div class="card-footer small text-muted">
     					* required fields
     				</div>
+                    <br>
+
+                    <!-- Sticky Footer -->
+			        <?php $this->load->view("admin/_partials/footer.php") ?>
+
     			</div>
     			<!-- /.container-fluid -->
 
 			</div>
 			<!-- /.content-wrapper -->
 
-		</div>
-		<!-- /#wrapper -->
-
-		<!-- Sticky Footer -->
-		<!-- <footer class="sticky-footer">
-			<div class="container my-auto">
-				<div class="copyright text-center my-auto">
-					<span>Copyright ©
-						<?php echo SITE_NAME ." ". Date('Y') ?>
-					</span>
-				</div>
-			</div>
-		</footer> -->
-
-		<!-- Footer -->
-		<footer class="page-footer" style="background-color: #E3E3E3; ">
-			<!-- Copyright -->
-			<div class="footer-copyright text-center py-3">
-				<span>Copyright ©
-				<?php echo SITE_NAME ." ". Date('Y') ?>
-				</span>
-			</div>
-			<!-- Copyright -->
-		</footer>
-		<!-- Footer -->
-
-	</div>
-	<!-- container -->
+            
+        
+        
+        </div>
+		<!-- /#wrapper -->		
 
 	<?php $this->load->view("ibuhamil/_partials/scrolltop.php") ?>
 	<?php $this->load->view("ibuhamil/_partials/modal.php") ?>

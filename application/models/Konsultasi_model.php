@@ -36,6 +36,32 @@ class konsultasi_model extends CI_Model
         $this->db->insert('detail_konsultasi', $data);
     }
 
+    public function getTotalEnergiMenuSaran($id = null)
+    {
+        // return $this->db->get_where($this->_table, ['tee' => $id]);
+
+        $this->db->select_sum('menu_makan.energi_menu');
+        $this->db->join('menu_makan', 'menu_makan.id_menu = detail_konsultasi.id_menu');
+        return $this->db->get_where('detail_konsultasi', ['id_konsultasi' => $id]);
+
+        // SELECT SUM(menu_makan.energi_menu)
+        // FROM `detail_konsultasi`
+        // JOIN menu_makan ON menu_makan.id_menu = detail_konsultasi.id_menu
+        // WHERE id_konsultasi = 2
+    }
+
+    public function getEnergiMenu($id = null)
+    {
+        // SELECT menu_makan.energi_menu
+        // FROM `detail_konsultasi`
+        // JOIN menu_makan ON menu_makan.id_menu = detail_konsultasi.id_menu
+        // WHERE id_konsultasi = 1
+
+        $this->db->select('menu_makan.energi_menu, menu_makan.nama_menu');
+        $this->db->join('menu_makan', 'menu_makan.id_menu = detail_konsultasi.id_menu');
+        return $this->db->get_where('detail_konsultasi', ['id_konsultasi' => $id]);
+    }
+
     public function getDetail($id = null)
     {
         $this->db->select('*');
@@ -76,8 +102,19 @@ class konsultasi_model extends CI_Model
     {
         //ambil data dari database where id parameter id_konsultasi
         // return $this->db->get('konsultasi')->where("id_konsultasi");
-
+        // var_dump($id_konsultasi); die('ds');
         return $this->db->get_where($this->_table, ["id_konsultasi" => $id_konsultasi])->row();
+    }
+
+    public function getIbu()
+    {
+        $this->db->select('user.nama');
+        $this->db->join('user', 'user.id_user = '.$this->_table.'.id_user');
+        return $this->db->get($this->_table)->row();
+        // SELECT konsultasi.*, user.nama 
+        // FROM `konsultasi`
+        // JOIN user ON konsultasi.id_user = user.id_user
+        // WHERE user.level = 2
     }
 
     public function save($data)

@@ -92,6 +92,12 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
+                                                        <th scope="row">Umur</th>
+                                                        <td>
+                                                            : Sementara kosong dulu
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
                                                         <th scope="row">Alamat</th>
                                                         <td>
                                                             : <?php echo $user->alamat; ?>
@@ -106,8 +112,25 @@
                                                 </tbody>
                                             </table>
                                         </form>
+
+                                        <div class="text-right">
+                                            <!-- Button kembali -->
+                                            <a href="<?php echo base_url('ibuhamil/dashboard') ?>">
+                                                <button type="button" class="btn btn-primary pull-right">
+                                                    <i class="fas fa-arrow-left"></i> Kembali
+                                                </button>
+                                            </a>
+
+                                            <!-- Button edit -->
+                                            <a href="<?php echo base_url('ibuhamil/profile/edit/'.$user->id_user) ?>">
+                                                <button type="button" class="btn btn-success pull-right">                                        
+                                                    <i class="far fa-edit"></i> Edit
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <!-- /right-button -->
                                     </div>
-                                    <!-- ./col-md-8 -->
+                                    <!-- ./col-md-10 -->
 
                                     <!-- Sisi kanan -->
                                     <div class="col-md-2">
@@ -117,24 +140,7 @@
                                     </div>
                                     <!-- ./col-md-4 -->
                                 </div>
-                                <!-- /.row -->
-
-                                <div class="text-right">
-                                    <a href="<?php echo site_url('ibuhamil/dashboard'); ?>">
-                                    <button type="button" class="btn btn-primary pull-right">
-                                        <i class="fas fa-arrow-left"></i> Back</button>
-                                    </a>
-                                    <!-- <?php echo site_url('admin/user/edit/'.$user->id_user); ?>
-                                    <a href="<?php echo site_url('ibuhamil/profile/update/' .$user->id_user); ?>">
-                                        <button type="button" class="btn btn-success pull-right">
-                                            <i class="far fa-edit"></i> Edit</button>
-                                    </a> -->
-
-                                    <a href="<?php echo site_url('ibuhamil/profile/edit/'.$user->id_user); ?>" class="btn btn-success pull-right ">
-                                        <i class="far fa-edit"></i> Edit
-                                    </a>
-                                </div>
-                                <!-- /.button-back -->
+                                <!-- /.row -->                                
                             </div>
                             <!-- ./col-md-12 -->
     					</div>

@@ -6,10 +6,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-	<title>Sign In - User</title>
+	<title>Login</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style type="text/css">
 		body {
 			font-family: 'Roboto', sans-serif;
@@ -76,7 +77,7 @@
 			font-weight: bold;
 			background: #3598dc;
 			border: none;
-			min-width: 140px;
+			min-width: 120px;
 		}
 
 		.signup-form .btn:hover,
@@ -107,7 +108,7 @@
 <body>
 	<div class="signup-form">
 		<form action="<?php echo base_url('login/user_login'); ?>" method="post">
-			<h2>Sign In</h2>
+			<h2>Login</h2>
 			<p>Silahkan isi dengan username dan password yang benar</p>
 			<hr>
 			<!-- validasi error -->
@@ -121,17 +122,19 @@
 			<div class="form-group">
 				<label>Username</label>
 				<input type="text" class="form-control" name="username" value="<?php echo set_value( 'username'); ?>"
-				 placeholder="Username">
+				placeholder="Username">
 				<?php echo form_error('username', '<span class="text-danger">','</span>'); ?>
 			</div>
 			<div class="form-group">
 				<label>Password</label>
 				<input type="password" class="form-control" name="password" value="<?php echo set_value( 'password'); ?>"
-				 placeholder="Password">
+				placeholder="Password">
 				<?php echo form_error('password', '<span class="text-danger">','</span>'); ?>
 			</div>
 			<div class="form-group" style="padding-bottom: 20px;">
-				<button type="submit" class="btn btn-primary btn-lg pull-right">Sign In</button>
+				<button type="submit" class="btn btn-primary btn-lg pull-right">
+					<i class="fa fa-sign-in"></i> Login
+				</button>
 			</div>
 		</form>
 		<div class="text-center">Belum punya akun?

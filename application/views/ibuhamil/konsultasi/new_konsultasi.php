@@ -56,7 +56,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<a href="<?php echo site_url('ibuhamil/konsultasi'); ?>">
-							<i class="fas fa-arrow-left"></i> Back
+							<i class="fas fa-arrow-left"></i> Kembali
 						</a>
 					</div>
 
@@ -105,7 +105,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="usia_kehamilan">Usia Kehamilan* (minggu)</label>
-											<input type="text" class="form-control" name="usia_kehamilan" placeholder="Usia Kehamilan">
+											<input type="number" min="1" max="40" class="form-control" name="usia_kehamilan" placeholder="Usia Kehamilan">
 											<span style="color: red">
 												<?php echo form_error('usia_kehamilan'); ?>
 											</span>
@@ -116,7 +116,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="usia_ibuhamil">Usia Ibu Hamil* (tahun)</label>
-											<input type="text" class="form-control" name="usia_ibuhamil" placeholder="Usia Ibu Hamil">
+											<input type="number" min="17" max="90" class="form-control" name="usia_ibuhamil" placeholder="Usia Ibu Hamil">
 											<span style="color: red">
 												<?php echo form_error('usia_ibuhamil'); ?>
 											</span>
@@ -126,7 +126,9 @@
 									<!-- Aktifitas Fisik -->
 									<div class="col-md-12">
 										<div class="form-group">
-											<label for="aktifitas_fisik">Aktifitas Fisik*</label>
+											<label for="aktifitas_fisik">Aktifitas Fisik* 
+												(<a href="#" data-toggle="modal" data-target="#aktifitasModal">detail aktifitas</a>)
+											</label>
 											<select class="form-control" id="aktifitas_fisik" name="aktifitas_fisik">
 												<option value="0">Silahkan Pilih</option>
 												<option value="0.2">Ringan</option>
@@ -164,7 +166,7 @@
 							<li>Berat Badan - Isi berat badan anda saat ini dengan satuan ukuran kilogram.</li>
 							<li>Usia Kehamilan - Isi usia kehamilan saat ini, isi dengan satuan waktu minggu. Rentang waktu antara <strong>1 sampai 40 minggu</strong></li>
 							<li>Usia Ibu - Isi sesuai dengan usia anda saat ini.</li>
-							<li>Aktifitas Fisik - Pilih aktifitas fisik berdasarkan <a href="#" data-toggle="modal" data-target="#aktifitasModal">kreteria berikut</a></li>
+							<li>Aktifitas Fisik - Silahkan pilih aktifitas fisik  yang tertera pada link detail aktifitas sebelah kanan dari label Aktifitas Fisik*</li>
 						</ol>
 					</div>
 				</div>
@@ -219,7 +221,7 @@
 								</li>
 								<li>
 									<div class="row">
-										<div class="col-md-3">Status Gizi</div> :
+										<div class="col-md-3">Indeks Masa Tubuh</div> :
 										<div class="col-md-4"> ..... </div>
 									</div>
 								</li>
@@ -281,14 +283,17 @@
 								</li>
 								<li>
 									<div class="row">
-										<div class="col-md-3">Status Gizi</div> :
+										<div class="col-md-3">Indeks Masa Tubuh</div> :
 										<div class="col-md-4"> <strong><?php echo $konsultasi->status_gizi; ?></strong> </div>
 									</div>
 								</li>
 								<li>
 									<div class="row">
 										<div class="col-md-3">Jumlah Energi yang anda butuhkan</div> :
-										<div class="col-md-4"> <strong><?php echo $konsultasi->tee; ?></strong> kalori</div>
+										<div class="col-md-4">
+											<strong><?php echo $konsultasi->tee; ?></strong> kalori - 
+											<strong><?php echo $konsultasi->batas_atas; ?></strong> kalori
+										</div>
 									</div>
 								</li>
 								<li>
@@ -322,50 +327,46 @@
 				<!-- ./col-row -->
 				<hr>
 
-				<h3><i class="fas fa-angle-double-right"></i> Saran Menu Makan</h3>
-				<table class="table table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
-					<thead>
-						<tr>
-							<td>No</td>
-							<td>Nama Menu</td>
-							<td>Kategori</td>
-							<td>Energi</td>
-							<td>Karbohidrat</td>
-							<td>Protein</td>
-							<td>Lemak</td>
-						</tr>
-					</thead>
-					<tbody>
-						<?php if (!empty($details)): ?>
-							<?php $no=1; ?>
-							<?php foreach ($details as $detail): ?>
-								<?php
-									if ($detail->kategori_menu == "1")
-									$showKat = "Buah";
-									elseif ($detail->kategori_menu == "2")
-									$showKat = "Daging";
-									elseif ($detail->kategori_menu == "3")
-									$showKat = "Ikan";
-									elseif ($detail->kategori_menu == "4")
-									$showKat = "Sayuran";
-									elseif ($detail->kategori_menu == "5")
-									$showKat = "Serelia/Umbi";
-									else
-									$showKat = '';								 
-								?>
-								<tr>
-									<td><?php echo $no; ?></td>
-									<td><?php echo $detail->nama_menu; ?></td>
-									<td><?php echo $showKat; ?></td>
-									<td><?php echo $detail->energi_menu; ?> kalori</td>
-									<td><?php echo $detail->karbohidrat_menu; ?> gram</td>
-									<td><?php echo $detail->protein_menu; ?> gram</td>
-									<td><?php echo $detail->lemak_menu; ?> gram</td>
-								</tr>
-							<?php $no++; endforeach; ?>
-						<?php endif; ?>
-					</tbody>
-				</table>
+				<h3><i class="fas fa-angle-double-right"></i> Saran Menu Makan</h3>		
+				<?php if (!empty($details)): ?>
+					<?php
+						echo $nilai_batasatas;
+						// echo $total_energimenu->energi_menu;
+						// $hasil = $total_energimenu->energi_menu / 3;
+						$hasil = $nilai_batasatas / 3;						
+						$total = 0;
+						$jam_makan = 1;
+						echo ' - ' .$hasil;
+					?>
+						<h3><?php echo ($jam_makan==1) ? 'Pagi' : '' ?></h3>
+						
+						<?php foreach ($details as $detail): ?>
+							<?php $total = $total + $detail->energi_menu; ?>
+							
+							<?php if ($total >= $hasil) : ?>
+								<?php $total = 0; ?>
+								<?php $jam_makan = $jam_makan + 1; ?>
+								
+								<h3><?php echo ($jam_makan==2) ? 'Siang' : 'Malam' ?></h3>
+								
+							<?php endif; ?>
+								
+							<p><?php echo $detail->nama_menu.' - '.$detail->energi_menu ?></p>
+
+							<?php //else : ?>
+            
+								<p><?php //echo $detail->nama_menu.' - '.$detail->energi_menu ?></p>
+								
+							<?php //endif; ?>
+
+						<?php endforeach; ?>
+										
+
+					<?php else: ?>
+
+						<p>kosong</p>
+
+					<?php endif; ?>
 			</div>
 			<!-- ./col-lg-12 -->
 		</div>

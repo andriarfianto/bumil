@@ -7,10 +7,43 @@ class Register extends CI_Controller
     {
         parent::__construct();
         $this->load->model('register_model');
+        $this->load->model('user_model');
+    }
+
+    // fungsi pengecekan usia tanggal lahir
+    public function validasi_tgllahir($date)
+    {
+        $birthday = new DateTime($date);
+        $today = new DateTime();
+
+        $interval = $today->diff($birthday);
+        $usia_ibu = $interval->y;
+
+        if ($usia_ibu < 17) {
+            $this->form_validation->set_message('validasi_tgllahir', 'Umur anda terlalu muda, usia minimal 17 tahun');
+            return FALSE;            
+        }
+        return TRUE;
+        // var_dump($birthday->format('d/m/y')); die('dsh');
+        // var_dump($interval->y." Tahun"); die('sajk');
+    }
+
+    // fungsi pengecekan email yang sudah ada didatabase
+    public function check_emaillama($email_inputan) {
+        $email_db = $this->user_model->checkEmailLama($email_inputan)->row();
+        // var_dump($email_db); die('ds');
+
+        if (!empty($email_db)) {
+            $this->form_validation->set_message('check_emaillama', 'Email yang anda inputkan sudah ada');
+            return FALSE;
+        }
+        return TRUE;
     }
 
     public function index()
-    {
+    {   
+        // $check = $this->user_model->checkEmailLama();
+        // var_dump($check); die('dsad');
         $data = array(
             'username'         => $this->input->post('username'),
             'password'         => md5($this->input->post('password')),
@@ -19,20 +52,20 @@ class Register extends CI_Controller
             'tanggal_lahir'    => $this->input->post('tanggal_lahir'),
             'no_telp'          => $this->input->post('no_telp'),
             'foto'             => 'default.jpg',
-            'alamat'           => $this->input->post('alamat')    ,
+            'alamat'           => $this->input->post('alamat'),
             'level'            => '2',
         );
 
         $this->form_validation->set_rules('username','Username','required');
         $this->form_validation->set_rules('password','Password','required');
         $this->form_validation->set_rules('nama','Nama Lengkap','required');
-        $this->form_validation->set_rules('email','Email','required');
+        $this->form_validation->set_rules('email','Email','required|callback_check_emaillama');
+        $this->form_validation->set_rules('tanggal_lahir','Tanggal Lahir','required|callback_validasi_tgllahir');
         $this->form_validation->set_rules('no_telp','No. Telephone','required');
         $this->form_validation->set_rules('alamat','Alamat','required');
         $this->form_validation->set_error_delimiters('<span class="text-danger">','</span>');
-
-        if ($this->form_validation->run()) {
-
+        
+        if ($this->form_validation->run()) {            
             $file = $_FILES;
             // var_dump($file['foto']["name"]); die('a');
             if (!empty($file['foto']["name"])) {
@@ -61,12 +94,16 @@ class Register extends CI_Controller
                     // var_dump($file); die('a');
                 }
             }
+            
             $this->register_model->save($data);
 
             $this->session->set_flashdata('success', 'Selamat! Akun anda berhasil terdaftar');
 
             redirect(base_url('register'));
         }
+        // else {
+        //     if (!empty($_POST)) die(validation_errors());
+        // }
 
         $this->load->view('register', $data);
     }
