@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +26,17 @@
 
                 <b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
                 echo $date->format('d/m/Y');?> <br> <br>
+
+				<b>Umur</b>
+				<?php								
+					$birthday = new DateTime($user->tanggal_lahir);
+					$today = new DateTime();
+
+					$interval = $today->diff($birthday);
+					$usia_ibu = $interval->y;
+					
+					echo $usia_ibu. ' Tahun';
+				?> <br> <br>
 
                 <b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
 
@@ -125,7 +133,7 @@
 														<!-- <td>213 gram</td>
 														<td>445 gram</td>
 														<td>13 gram</td> -->
-														<td><a href="<?php echo site_url('ibuhamil/konsultasi/detail/'.$konsultasi->id_user) ?>">Detail</a></td>
+														<td><a href="<?php echo site_url('ibuhamil/konsultasi/detail/'.$konsultasi->id_konsultasi) ?>">Detail</a></td>
 													</tr>
 												<?php $no++; endforeach; ?>
 											</tbody>

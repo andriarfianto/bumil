@@ -29,6 +29,17 @@
                 <b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
                 echo $date->format('d/m/Y');?> <br> <br>
 
+                <b>Umur</b> 
+				<?php								
+					$birthday = new DateTime($user->tanggal_lahir);
+					$today = new DateTime();
+
+					$interval = $today->diff($birthday);
+					$usia_ibu = $interval->y;
+					
+					echo $usia_ibu. ' Tahun';
+				?> <br> <br>
+
                 <b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
 
                 <b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
@@ -56,58 +67,138 @@
 
                             <div class="col-md-12">
                                 <div class="row">
+                                    <div class="col-md-2"></div>
                                     <!-- Sisi kiri -->
-                                    <div class="col-md-6">
+                                    <div class="col-md-8">
                                         <form action="<?php echo site_url('ibuhamil/profile/edit/'.$user->id_user); ?>" method="post" enctype="multipart/form-data">
 											<!--  enctype="multipart/form-data" -->
                                             <input type="hidden" name="id" value="<?php echo $user->id_user; ?>">
 
-                                            <div class="form-group">
-                                                <label for="username">Username*</label>
-                                                <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $user->username; ?>">
-                                                <span style="color: red">
-                                                    <?php echo form_error('username'); ?>
-                                                </span>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="username">Username : </label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $user->username; ?>">
+                                                    <span style="color: red">
+                                                        <?php echo form_error('username'); ?>
+                                                    </span>
+                                                </div>
                                             </div>
+                                            <br>
 
-                                            <div class="form-group">
-                                                <label for="nama">Nama*</label>
-                                                <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?php echo $user->nama; ?>">
-                                                <span style="color: red">
-                                                    <?php echo form_error('nama'); ?>
-                                                </span>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="nama">Nama Lengkap : </label>                                                    
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?php echo $user->nama; ?>">
+                                                    <span style="color: red">
+                                                        <?php echo form_error('nama'); ?>
+                                                    </span>
+                                                </div>
                                             </div>
+                                            <br>
 
-                                            <div class="form-group">
-                                                <label for="email">Email*</label>
-                                                <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo $user->email; ?>">
-                                                <span style="color: red">
-                                                    <?php echo form_error('email'); ?>
-                                                </span>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="email">Email : </label>                                                
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo $user->email; ?>">
+                                                    <span style="color: red">
+                                                        <?php echo form_error('email'); ?>
+                                                    </span>
+                                                </div>
                                             </div>
+                                            <br>
 
-                                            <div class="form-group">
-                                                <label for="alamat">Alamat*</label>
-                                                <input type="text" class="form-control" name="alamat" placeholder="Address" value="<?php echo $user->alamat; ?>">
-                                                <span style="color: red">
-                                                    <?php echo form_error('alamat'); ?>
-                                                </span>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="tanggal_lahir">Tanggal Lahir : </label>                                                
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="date" class="form-control" name="tanggal_lahir" value="<?php echo $user->tanggal_lahir; ?>">
+                                                    <span style="color: red">
+                                                        <?php echo form_error('tanggal_lahir'); ?>
+                                                    </span>
+                                                </div>
                                             </div>
+                                            <br>
 
-                                            <div class="form-group">
-                                                <label for="no_telp">No. Telp*</label>
-                                                <input type="text" class="form-control" name="no_telp" placeholder="No. Telp" value="<?php echo $user->no_telp; ?>">
-                                                <span style="color: red">
-                                                    <?php echo form_error('no_telp'); ?>
-                                                </span>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="tanggal_lahir">Umur : </label>                                                
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="tanggal_lahir" disabled
+                                                    value="<?php
+                                                            $birthday = new DateTime($user->tanggal_lahir);
+                                                            $today = new DateTime();
+
+                                                            $interval = $today->diff($birthday);
+                                                            $usia_ibu = $interval->y;
+                                                            
+                                                            echo $usia_ibu. ' Tahun';
+                                                        ?>">                                                    
+                                                </div>
                                             </div>
+                                            <br>                                    
 
-                                            <div class="form-group">
-                                                <label for="foto">Foto*</label>
-                                                <input type="file" class="form-control-file" name="foto">
-                                                <!-- <input type="hidden " name="old_image" value="<?php echo $user->foto; ?>"> -->
-                                                <div class="invalid-feedback">
-                                                    <?php echo form_error('foto') ?>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="alamat">Alamat : </label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $user->alamat; ?>">
+                                                    <span style="color: red">
+                                                        <?php echo form_error('alamat'); ?>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="no_telp">No. Telp : </label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="no_telp" placeholder="No. Telp" value="<?php echo $user->no_telp; ?>">
+                                                    <span style="color: red">
+                                                        <?php echo form_error('no_telp'); ?>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label for="foto">Foto : </label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="file" class="form-control-file" name="foto" value="<?php echo $user->foto; ?>">
+                                                    <input type="hidden" name="old_image" value="<?php echo $user->foto; ?>">
+                                                    <div class="invalid-feedback">
+                                                        <?php echo form_error('foto') ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10">
+                                                    <div class="text-right">
+                                                        <a href="<?php echo site_url('ibuhamil/profile'); ?>">
+                                                        <button type="button" class="btn btn-primary pull-right">
+                                                            <i class="fas fa-arrow-left"></i> Kembali</button>
+                                                        </a>                                               
+
+                                                        <button type="submit" class="btn btn-success pull-right">
+                                                            <i class="far fa-save"></i> Save
+                                                        </button>
+                                                    </div>
+                                                    <!-- /.button-back -->
                                                 </div>
                                             </div>
 
@@ -116,33 +207,13 @@
                                                 <i class="far fa-edit"></i> Edit
                                             </a> -->
 
-                                            <div class="text-right">
-                                                <a href="<?php echo site_url('ibuhamil/profile'); ?>">
-                                                <button type="button" class="btn btn-primary pull-right">
-                                                    <i class="fas fa-arrow-left"></i> Kembali</button>
-                                                </a>                                               
-
-												<button type="submit" class="btn btn-success pull-right">
-													<i class="far fa-save"></i> Save
-                                                </button>
-                                            </div>
-                                            <!-- /.button-back -->
+                                            
                                         </form>
                                     </div>
                                     <!-- ./col-md-8 -->
 
                                     <!-- Sisi kanan -->
-                                    <div class="col-6">
-                                        <h3>Konsultasi kehamilan</h3>
-                                        <p>Untuk melakukan konsultasi kehamilan, silahkan masukkan data anda</p>
-                                        <ol>
-                                            <li>Tinggi Badan - Isi tinggi badan anda saat ini dengan satuan ukuran centimeter.</li>
-                                            <li>Berat Badan - Isi berat badan anda saat ini dengan satuan ukuran kilogram.</li>
-                                            <li>Usia Kehamilan - Isi usia kehamilan anda dengan jumlah waktu usia kandungan, isi dengan satuan waktu minggu.</li>
-                                            <li>Usia Ibu - Isi sesuai dengan usia anda saat ini.</li>
-                                            <li>Aktifitas Fisik - Pilih aktifitas fisik berdasarkan <a href="#" data-toggle="modal" data-target="#aktifitasModal">kreteria berikut</a></li>
-                                        </ol>
-                                    </div>
+                                    <div class="col-md-3"></div>
                                     <!-- ./col-md-6 -->
                                 </div>
                                 <!-- /.row -->

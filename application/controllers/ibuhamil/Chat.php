@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit ('No direct script access allowed');
 
-class Chat extends CI_Controller
+class Chat extends MY_Controller
 {
     function __construct()
     {
@@ -15,7 +15,7 @@ class Chat extends CI_Controller
         // memanggil session
         $id = $this->session->userdata('id_user');        
         $data['user'] = $this->user_model->getById($id);
-        $data['pesans'] = $this->chat_model->getId($id); // tampilkan data pesan
+        $data['pesans'] = $this->chat_model->getId($id)->result(); // tampilkan data pesan
         // $data['pengirim'] = $this->chat_model->getPengirim($level);// ambil data pengirim
         if (!$data['user']) show_404();
         
@@ -24,8 +24,7 @@ class Chat extends CI_Controller
         if ($this->form_validation->run()) {
             
             $data_pesan = array(
-                'pengirim' => $id,
-                // 'penerima' => 1,
+                'pengirim' => $id,                
                 'isi_pesan' => $this->input->post('isi_pesan'),
                 'id_ibu' => $id,              
             );

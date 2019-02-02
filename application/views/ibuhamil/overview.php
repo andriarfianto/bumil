@@ -27,6 +27,17 @@
 				<b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
 				echo $date->format('d/m/Y');?> <br> <br>
 
+				<b>Umur</b> 
+				<?php										
+					$birthday = new DateTime($user->tanggal_lahir);
+					$today = new DateTime();
+
+					$interval = $today->diff($birthday);
+					$usia_ibu = $interval->y;
+					
+					echo $usia_ibu. ' Tahun';
+				?> <br> <br>
+
 				<b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
 
 				<b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
@@ -40,10 +51,10 @@
 
 					<!-- Notifikasi user berhasil login -->
 					<?php if ($this->session->flashdata('success')): ?>
-					<div class="alert alert-success alert-dismissable" role="alert">
-						<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-						<?php echo $this->session->flashdata('success'); ?>
-					</div>
+						<div class="alert alert-success alert-dismissable" role="alert">
+							<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+							<?php echo $this->session->flashdata('success'); ?>
+						</div>
 					<?php endif; ?>					
 
 					<div class="card mb-3">
@@ -69,11 +80,13 @@
 						</div>
 						<!-- ./card-footer -->
 					</div>
-
 				</div>
 				<!-- /.container-fluid -->
 
-
+				<!-- untuk menampilkan data chart ibu hamil -->
+				<div class="container-fluid">
+					<div id="graph"></div>					
+				</div>
 			</div>
 			<!-- /.content-wrapper -->
 
@@ -110,6 +123,15 @@
 	<?php $this->load->view("ibuhamil/_partials/modal.php") ?>
 	<?php $this->load->view("ibuhamil/_partials/js.php") ?>
 
+	<script>
+		Morris.Bar({
+			element: 'graph',
+			data: <?php echo $konsultasi;?>,
+			xkey: 'usia_kehamilan',
+			ykeys: ['berat_badan', 'tee'],
+			labels: ['berat badan', 'energi']
+		});
+	</script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit ('No direct script access allowed');
 
-class Chat extends CI_Controller
+class Chat extends MY_Controller
 {
     function __construct()
     {
@@ -17,17 +17,16 @@ class Chat extends CI_Controller
         $data['users'] = $this->user_model->getIbuHamil();
         $data['pesans'] = $this->chat_model->getId($id); // tampilkan data pesan
         // $data['pengirim'] = $this->chat_model->getPengirim($level);// ambil data pengirim
-        if (!$data['users']) show_404();
+        // if (!$data['users']) show_404();
         
         $this->form_validation->set_rules('isi_pesan', 'Isi pesan', 'required');
 
         if ($this->form_validation->run()) {
             
             $data_pesan = array(
-                'pengirim' => $this->session->userdata('level'),
-                'penerima' => 2,
+                'pengirim' => $this->session->userdata('level'),                
                 'isi_pesan' => $this->input->post('isi_pesan'),
-                'id_user' => $this->session->userdata('id_user'),                
+                'id_ibu' => $this->session->userdata('id_user'),                
             );
 
             $this->chat_model->save($data_pesan);            
@@ -39,16 +38,17 @@ class Chat extends CI_Controller
     }
 
     public function reply($id_ibu = null)
-    {
-        $data['pesans'] = $this->chat_model->getId($id_ibu); // tampilkan data pesan        
+    {        
+        // yang diambil data chat column id_ibu
+        $data['user'] = $this->chat_model->getId($id_ibu)->row();
+        $data['pesans'] = $this->chat_model->getId($id_ibu)->result(); // tampilkan data pesan        
 
         $this->form_validation->set_rules('isi_pesan', 'Isi pesan', 'required');
 
         if ($this->form_validation->run()) {
             
             $data_pesan = array(
-                'pengirim' => $this->session->userdata('id_user'),
-                // 'penerima' => 2,
+                'pengirim' => $this->session->userdata('id_user'),                
                 'isi_pesan' => $this->input->post('isi_pesan'),
                 'id_ibu' => $id_ibu,                
             );

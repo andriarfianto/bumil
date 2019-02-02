@@ -19,7 +19,7 @@
 			<!-- <?php //$this->load->view("ibuhamil/_partials/sidebar.php") ?> -->
 
 			<!-- Sidebar Baru -->
-            <!-- <ul class="sidebar navbar-nav" style="background-color: white; margin-left: 3%;margin-right: 1%;">
+            <ul class="sidebar navbar-nav" style="background-color: white; margin-left: 3%;margin-right: 1%;">
                 <img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%" style="margin-top: 7%;">
                 <br>
                 <b>Nama</b> <?php echo $user->nama; ?> <br> <br>
@@ -29,12 +29,21 @@
                 <b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
                 echo $date->format('d/m/Y');?> <br> <br>
 
+				<b>Umur</b> 
+				<?php										
+					$birthday = new DateTime($user->tanggal_lahir);
+					$today = new DateTime();
+
+					$interval = $today->diff($birthday);
+					$usia_ibu = $interval->y;
+					
+					echo $usia_ibu. ' Tahun';
+				?> <br> <br>
+
                 <b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
 
                 <b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
-            </ul> -->
-
-            <?php echo $this->load->view("ibuhamil/_partials/sidebar"); ?>
+            </ul>            
 
 			<div id="content-wrapper">
 
@@ -86,7 +95,9 @@
                                 <div class="card-body">
 									<div class="well" style="width:100%; height: 300px; max-height: 300px; overflow-y: auto;">
 									<?php foreach ($pesans as $pesan): ?>
-										<?php if ($pesan->pengirim == 2): ?>
+									<strong><?php //echo $pesan->isi_pesan; ?></strong><br>
+
+										<?php if ($pesan->pengirim == $user->id_user): ?> <?php //yg diambil id_usernya?>
 											<p class="alert alert-primary" style="border-radius: 20px 20px 0px 20px; width: 50%; left: 50%;">
 												<strong><?php echo $pesan->isi_pesan; ?></strong><br>
 												<span class="text-default small">

@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit ('No direct script access allowed');
  * Class Controller Profile
  * untuk update data user ibu hamil
  */
-class Password extends CI_Controller
+class Password extends MY_Controller
 {
 
     function __construct()

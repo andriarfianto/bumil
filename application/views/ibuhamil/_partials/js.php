@@ -2,6 +2,10 @@
 <script src="<?php echo base_url('assets/jquery/jquery.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 
+<!-- Morris js Chart -->
+<script src="<?php echo base_url('assets/morris.js/morris.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/morris.js/raphael-min.js'); ?>"></script>
+
 <!-- Core plugin JavaScript-->
 <script src="<?php echo base_url('assets/jquery-easing/jquery.easing.min.js'); ?>"></script>
 

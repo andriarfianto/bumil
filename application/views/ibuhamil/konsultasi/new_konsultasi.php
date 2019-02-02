@@ -19,22 +19,31 @@
 			<!-- <?php //$this->load->view("ibuhamil/_partials/sidebar.php") ?> -->
 
 			<!-- Sidebar Baru -->
-			<!-- <ul class="sidebar navbar-nav" style="background-color: white; margin-left: 3%;margin-right: 1%;">
-			<img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%" style="margin-top: 7%;">
-			<br>
-			<b>Nama</b> <?php echo $user->nama; ?> <br> <br>
+			<ul class="sidebar navbar-nav" style="background-color: white; margin-left: 3%;margin-right: 1%;">
+				<img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="100%" style="margin-top: 7%;">
+				<br>
+				<b>Nama</b> <?php echo $user->nama; ?> <br> <br>
 
-			<b>Email</b> <?php echo $user->email; ?> <br> <br>
+				<b>Email</b> <?php echo $user->email; ?> <br> <br>
 
-			<b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
-			echo $date->format('d/m/Y');?> <br> <br>
+				<b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
+				echo $date->format('d/m/Y');?> <br> <br>
 
-			<b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
+				<b>Umur</b> 
+				<?php										
+					$birthday = new DateTime($user->tanggal_lahir);
+					$today = new DateTime();
 
-			<b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
-		</ul> -->
+					$interval = $today->diff($birthday);
+					$usia_ibu = $interval->y;
+					
+					echo $usia_ibu. ' Tahun';
+				?> <br> <br>
 
-		<?php echo $this->load->view("ibuhamil/_partials/sidebar"); ?>
+				<b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
+
+				<b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
+			</ul>
 
 		<div id="content-wrapper">
 
@@ -116,7 +125,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="usia_ibuhamil">Usia Ibu Hamil* (tahun)</label>
-											<input type="number" min="17" max="90" class="form-control" name="usia_ibuhamil" placeholder="Usia Ibu Hamil">
+											<input type="input" min="17" max="90" class="form-control" name="usia_ibuhamil" placeholder="Usia Ibu Hamil">
 											<span style="color: red">
 												<?php echo form_error('usia_ibuhamil'); ?>
 											</span>
@@ -186,6 +195,13 @@
 	<div class="card mb-3">
 		<div class="card-header">
 			<i class="fas fa-info-circle"></i> Informasi Konsultasi
+			<?php if (empty($konsultasi)): ?>
+			
+			<?php else:?>
+				<strong>tanggal</strong>
+				<?php $date = new DateTime($konsultasi->tanggal);
+				echo $date->format('d/m/Y');?>
+			<?php endif ?>
 		</div>
 
 		<div class="card-body">
@@ -256,70 +272,111 @@
 								</li>
 							</ul>
 						<?php } else { ?> <!-- jika ada data maka tampilkan -->
-							<ul>
-								<li>
-									<div class="row">
-										<div class="col-md-3">Tinggi Badan</div> :
-										<div class="col-md-4"> <strong><?php echo $konsultasi->tinggi_badan; ?></strong> cm</div>
-									</div>
-								</li>
-								<li>
-									<div class="row">
-										<div class="col-md-3">Berat Badan</div> :
-										<div class="col-md-4"> <strong><?php echo $konsultasi->berat_badan; ?></strong> kg</div>
-									</div>
-								</li>
-								<li>
-									<div class="row">
-										<div class="col-md-3">Usia Kehamilan</div> :
-										<div class="col-md-4"> <strong><?php echo $konsultasi->usia_kehamilan; ?></strong> minggu</div>
-									</div>
-								</li>
-								<li>
-									<div class="row">
-										<div class="col-md-3">Usia Anda</div> :
-										<div class="col-md-4"> <strong><?php echo $konsultasi->usia_ibuhamil; ?></strong> tahun</div>
-									</div>
-								</li>
-								<li>
-									<div class="row">
-										<div class="col-md-3">Indeks Masa Tubuh</div> :
-										<div class="col-md-4"> <strong><?php echo $konsultasi->status_gizi; ?></strong> </div>
-									</div>
-								</li>
-								<li>
-									<div class="row">
-										<div class="col-md-3">Jumlah Energi yang anda butuhkan</div> :
-										<div class="col-md-4">
-											<strong><?php echo $konsultasi->tee; ?></strong> kalori - 
-											<strong><?php echo $konsultasi->batas_atas; ?></strong> kalori
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="row">
-										<div class="col-md-5">Rincian Gizi</div>
-									</div>
-									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-md-3">1. Karbohidrat</div> :
-										<div class="col-md-3"><strong><?php echo $konsultasi->energi_karbohidrat; ?></strong> kalori</div> =
-										<div class="col-md-3"> <strong><?php echo $konsultasi->kebutuhan_karbohidrat; ?></strong> gram</div>
-									</div>
-									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-md-3">2. Protein</div> :
-										<div class="col-md-3"> <strong><?php echo $konsultasi->energi_protein; ?></strong> kalori</div> =
-										<div class="col-md-3"> <strong><?php echo $konsultasi->kebutuhan_protein; ?></strong> gram</div>
-									</div>
-									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-md-3">3. Lemak</div> :
-										<div class="col-md-3"> <strong><?php echo $konsultasi->energi_lemak; ?></strong> kalori</div> =
-										<div class="col-md-3"> <strong><?php echo $konsultasi->kebutuhan_lemak; ?></strong> gram</div>
-									</div>
-								</li>
-							</ul>
+							<div class="row">
+								<div class="col-md-8">
+									<ul>
+										<li>
+											<div class="row">
+												<div class="col-md-4">Tinggi Badan</div> :
+												<div class="col-md-4"> <strong><?php echo $konsultasi->tinggi_badan; ?></strong> cm</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-md-4">Berat Badan</div> :
+												<div class="col-md-4"> <strong><?php echo $konsultasi->berat_badan; ?></strong> kg</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-md-4">Usia Kehamilan</div> :
+												<div class="col-md-4"> <strong><?php echo $konsultasi->usia_kehamilan; ?></strong> minggu</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-md-4">Usia Anda</div> :
+												<div class="col-md-4"><strong><?php echo $konsultasi->usia_ibuhamil; ?></strong> tahun</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-md-4">Indeks Masa Tubuh</div> :
+												<div class="col-md-4"> <strong><?php echo $konsultasi->status_gizi; ?></strong> </div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-md-4">Kebutuhan Energi anda</div> :
+												<div class="col-md-4"><strong><?php echo round($konsultasi->tee, 2); ?></strong> kalori/hari</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-md-4">Rata-Rata Kebutuhan Energi anda</div> :
+												<div class="col-md-7">
+													<strong><?php echo round($konsultasi->batas_bawah, 2); ?></strong> kalori - 
+													<strong><?php echo round($konsultasi->batas_atas, 2); ?></strong> kalori (per/hari)
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-md-5">Rincian Gizi</div>
+											</div>
+											<div class="row">
+												<div class="col-md-1"></div>
+												<div class="col-md-3">1. Karbohidrat</div> :
+												<div class="col-md-3"><strong><?php echo round($konsultasi->energi_karbohidrat, 2); ?></strong> kalori</div> =
+												<div class="col-md-3"> <strong><?php echo round($konsultasi->kebutuhan_karbohidrat, 2); ?></strong> gram</div>
+											</div>
+											<div class="row">
+												<div class="col-md-1"></div>
+												<div class="col-md-3">2. Protein</div> :
+												<div class="col-md-3"> <strong><?php echo round($konsultasi->energi_protein, 2); ?></strong> kalori</div> =
+												<div class="col-md-3"> <strong><?php echo round($konsultasi->kebutuhan_protein, 2); ?></strong> gram</div>
+											</div>
+											<div class="row">
+												<div class="col-md-1"></div>
+												<div class="col-md-3">3. Lemak</div> :
+												<div class="col-md-3"> <strong><?php echo round($konsultasi->energi_lemak, 2); ?></strong> kalori</div> =
+												<div class="col-md-3"> <strong><?php echo round($konsultasi->kebutuhan_lemak, 2); ?></strong> gram</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="col md 4">
+									<p>Keterangan : </p>
+									<p  style="border: 1px; border-style: solid;" class="text-center">IMT = BB ÷ (TB ÷ 100)<sup>2 </p>
+									<ul>
+										<li>IMT = Indeks Masa Tubuh <br></li>
+										<li>BB = Berat Badan (kg) <br></li>
+										<li>TB = Berat Badan (cm) </li>
+									</ul>
+									<table border="1 px" width="100%">
+										<tr class="text-center">
+											<th>Status</th>
+											<th>Nilia IMT</th>
+										</tr>
+										<tr>
+											<td>Kurus</td>
+											<td class="text-center"><= 19.8</td>											
+										</tr>
+										<tr>
+											<td>Normal</td>
+											<td class="text-center">19.9 - 26.0</td>
+										</tr>
+										<tr>
+											<td>Gemuk</td>
+											<td class="text-center">26.1 - 29.0</td>
+										</tr>
+										<tr>
+											<td>Obesitas</td>
+											<td class="text-center">> 29.0</td>
+										</tr>
+									</table>									
+								</div>
+							</div>							
 						<?php } ?>
 					</div>
 					<!-- ./col-md-12 -->
@@ -327,46 +384,81 @@
 				<!-- ./col-row -->
 				<hr>
 
-				<h3><i class="fas fa-angle-double-right"></i> Saran Menu Makan</h3>		
+				<h3><i class="fas fa-angle-double-right"></i> Saran Menu Makan</h3>			
 				<?php if (!empty($details)): ?>
-					<?php
-						echo $nilai_batasatas;
-						// echo $total_energimenu->energi_menu;
-						// $hasil = $total_energimenu->energi_menu / 3;
-						$hasil = $nilai_batasatas / 3;						
-						$total = 0;
-						$jam_makan = 1;
-						echo ' - ' .$hasil;
-					?>
-						<h3><?php echo ($jam_makan==1) ? 'Pagi' : '' ?></h3>
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-3" style="padding-left: 0">Nama Menu</div>
+							<div class="col-md-2">Energi Menu</div>
+							<div class="col-md-2">Karbohidrat Menu</div>
+							<div class="col-md-2">Protein Menu</div>
+							<div class="col-md-2">Lemak Menu</div>
+						</div>
+					</div>			
+				<?php
+					$tee = $nilai_batasatas->tee;
+					$batas_bawah = $tee - ($tee * 0.1);
+					// echo nl2br("nilai tee: " .$nilai_batasatas->tee ."
+					// 			\n nilai batas bawah: ". $batas_bawah ." - nilai batas atas: ". $nilai_batasatas->batas_atas ."
+					// 			\n");
+					// echo $total_energimenu->energi_menu;
+					$hasil = $total_energimenu->energi_menu / 3;
+					// $hasil = $tee / 3;						
+					$total = 0;
+					$jam_makan = 1;
+					// echo nl2br(' hasil bagi: ' .$hasil. ' - total energi menu makan: ' .$total_energimenu->energi_menu. " \n");
+
+					// buat kondisi nilai gizi terpenuhi atau tidak susai total energi menu makan
+					// if ($total_energimenu->energi_menu >= $batas_bawah && $total_energimenu->energi_menu <= $nilai_batasatas->batas_atas) {
+					// 	echo nl2br("\nStatus gizi anda terpenuhi");
+					// } else {
+					// 	echo nl2br("\nMaaf! Status gizi anda belum terpenuhi");
+					// }
+					
+				?>					
+					<h3><?php echo ($jam_makan==1) ? 'Pagi' : '' ?></h3>
+					
+					<?php foreach ($details as $detail): ?>
+						<?php $total = $total + $detail->energi_menu; ?>
 						
-						<?php foreach ($details as $detail): ?>
-							<?php $total = $total + $detail->energi_menu; ?>
+						<?php if ($total >= $hasil) : ?>
+							<?php $total = 0; ?>
+							<?php $jam_makan = $jam_makan + 1; ?>
 							
-							<?php if ($total >= $hasil) : ?>
-								<?php $total = 0; ?>
-								<?php $jam_makan = $jam_makan + 1; ?>
-								
-								<h3><?php echo ($jam_makan==2) ? 'Siang' : 'Malam' ?></h3>
-								
-							<?php endif; ?>
-								
-							<p><?php echo $detail->nama_menu.' - '.$detail->energi_menu ?></p>
+							<h3><?php echo ($jam_makan==2) ? 'Siang' : 'Malam' ?></h3>
+							
+						<?php endif; ?>
+						
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-3" style="padding-left: 0"><?php echo $detail->nama_menu; ?></div>
+								<div class="col-md-2"><?php echo $detail->energi_menu. ' kalori' ?></div>
+								<div class="col-md-2"><?php echo $detail->karbohidrat_menu. ' kalori' ?></div>
+								<div class="col-md-2"><?php echo $detail->protein_menu. ' kalori' ?></div>
+								<div class="col-md-2"><?php echo $detail->lemak_menu. ' kalori' ?></div>
+							</div>
+						</div>						
+						
+						<?php //else : ?>
+		
+							<?php //echo $detail->nama_menu.' - '.$detail->energi_menu ?>
+							
+						<?php //endif; ?>
 
-							<?php //else : ?>
-            
-								<p><?php //echo $detail->nama_menu.' - '.$detail->energi_menu ?></p>
-								
-							<?php //endif; ?>
+					<?php endforeach; ?>
+					<hr>
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-3" style="padding-left: 0"></div>
+							<div class="col-md-2"><?php echo $total_energimenu->energi_menu. ' kalori' ?></div>
+							<div class="col-md-2"><?php echo round($total_karbohidrat->karbohidrat_menu, 2). ' kalori' ?></div>
+							<div class="col-md-2"><?php echo round($total_protein->protein_menu, 2). ' kalori' ?></div>
+							<div class="col-md-2"><?php echo round($total_lemak->lemak_menu, 2). ' kalori' ?></div>
+						</div>
+					</div>
+				<?php else: ?>						
 
-						<?php endforeach; ?>
-										
-
-					<?php else: ?>
-
-						<p>kosong</p>
-
-					<?php endif; ?>
+				<?php endif; ?>				
 			</div>
 			<!-- ./col-lg-12 -->
 		</div>

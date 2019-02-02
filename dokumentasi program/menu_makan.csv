@@ -1,0 +1,615 @@
+10,Susu kedele,1,41,3.5,2.5,5,Sajikan
+11,Tahu,1,68,7.8,4.6,1.6,Sajikan
+12,Tempe gembus,1,73,5.7,1.3,10.3,Sajikan
+13,Ayam,1,302,18.2,25,0,Sajikan
+14,Bebek ( itik ),1,326,16,28.6,0,Sajikan
+15,Daging domba,1,206,17.1,14.8,0,Sajikan
+16,Daging kambing,1,154,16.6,9.2,0,Sajikan
+17,Daging asap,1,191,32,6,0,Sajikan
+18,Daging kornet  ( corned beef ),1,241,16,25,0,Sajikan
+19,Dendeng daging sapi,1,433,55,9,0,Sajikan
+20,Sosis daging ( wosrt ),1,452,14.5,42.3,2.3,Sajikan
+21,Telur ayam,1,162,12.8,11.5,0.7,Sajikan
+22,Telur bebek (DKBM P3G '90),1,202,12.5,16.4,0,Sajikan
+23,Telur bebek diasin,1,195,13.6,13.6,1.4,Sajikan
+24,Bandeng,1,129,20,4.8,0,Sajikan
+25,Bawal,1,96,19,1.7,0,Sajikan
+26,Belut air tawar,1,82,6.7,1,10.9,Sajikan
+27,Cumi-cumi,1,75,16.1,0.7,0.1,Sajikan
+28,Ikan mas,1,86,16,2,0,Sajikan
+29,Ikan mujair segar,1,89,18.7,1,0,Sajikan
+30,Kacangan,1,77,15.6,0.9,1.6,Sajikan
+31,Kakap,1,92,20,0.7,0,Sajikan
+32,Kembung,1,103,22,1,0,Sajikan
+33,Kepiting,1,151,13.8,3.8,14.1,Sajikan
+34,Kerang,1,101,14.4,2.6,3.9,Sajikan
+35,Mujahir,1,89,18.7,1,0,Sajikan
+36,"Paling, belut",1,303,14,27,0,Sajikan
+37,Sidat,1,81,11.4,1.9,3.8,Sajikan
+38,Teri segar,1,77,16,1,0,Sajikan
+39,Udang segar,1,91,21,0.2,0.1,Sajikan
+40,Cakalang asin,1,198,36.5,2.2,5.5,Sajikan
+41,Calo . peda,1,81,11.4,1.9,3.8,Sajikan
+42,Dendeng ikan mujair,1,582,68.3,15.2,37.2,Sajikan
+43,Ikan asin kering,1,193,42,1.5,0,Sajikan
+44,"Kerupuk ikan, dengan pati",1,342,16,0.4,65.6,Sajikan
+45,"Kerupuk udang, dengan pati",1,359,17.2,0.6,68.2,Sajikan
+46,Petis ikan,1,161,20,0.2,24,Sajikan
+47,Petis udang,1,220,15,0.1,40,Sajikan
+48,Sardencis dalam kaleng,1,338,21.1,27,1,Sajikan
+49,Sepat kering,1,289,38,14,0,Sajikan
+50,Telur ikan,1,398,16.7,34.8,4.5,Sajikan
+51,Teri bubuk,1,277,60,2.3,1.8,Sajikan
+52,Teri kering,1,170,33.4,3,0,Sajikan
+53,Teri nasi kering,1,144,32.5,0.6,0,Sajikan
+54,Teri tepung,1,347,48.8,6.4,19.6,Sajikan
+55,Udang kering,1,259,62.4,2.3,1.8,Sajikan
+56,Bayam,1,36,3.5,0.5,6.5,Sajikan
+57,Bayam merah,1,51,4.6,0.5,10,Sajikan
+58,Bunga pepaya jantan,1,45,2.6,0.3,8.1,Sajikan
+59,Daun bawang,1,29,1.8,0.7,5.2,Sajikan
+60,Daun beluntas,1,42,1.8,0.5,9.4,Sajikan
+61,Daun gandaria,1,60,3.1,0.3,14,Sajikan
+62,Daun jambu mete muda,1,73,4.6,0.5,16.2,Sajikan
+63,Daun kacang panjang,1,34,4.1,0.4,5.8,Sajikan
+64,Daun katuk,1,59,4.8,1,11,Sajikan
+65,Daun kecipir,1,47,5,0.5,8.5,Sajikan
+66,Daun kelor,1,82,6.7,1.7,14.3,Sajikan
+67,Daun kemangi,1,43,5.5,0.3,7.5,Sajikan
+68,Daun ketela rambat (ubi jalar),1,47,2.8,0.4,10.4,Sajikan
+69,Daun koro,1,23,3,0.3,3.7,Sajikan
+70,Daun labu siam,1,60,4,0.4,4.7,Sajikan
+71,Daun labu waluh,1,30,3.6,0.6,4.5,Sajikan
+72,Daun leunca,1,45,4.7,0.5,8.1,Sajikan
+73,Daun lobak,1,30,2.3,0.4,5.8,Sajikan
+74,Daun lompong tales,1,40,3,0.8,7.4,Sajikan
+75,Daun melinjo,1,99,5,1.3,21.3,Sajikan
+76,Daun oyong,1,22,1,0.1,5.3,Sajikan
+77,Daun pakis,1,35,4,0.3,6.4,Sajikan
+78,Daun pepaya,1,79,8,2,11.9,Sajikan
+79,Daun pete cina,1,128,12,6.5,12.4,Sajikan
+80,Daun singkong,1,73,6.8,1.2,13,Sajikan
+81,Daun tales,1,71,4.1,2.1,12.3,Sajikan
+82,Daun tespong,1,59,2.9,0.3,13.9,Sajikan
+83,Eceng,1,18,1,0.2,3.8,Sajikan
+84,Genjer,1,33,1.7,0.2,7.7,Sajikan
+85,Kangkung,1,29,3,0.3,5.4,Sajikan
+86,Kemangi,1,46,4,0.5,8.9,Sajikan
+87,Krokot,1,21,1.7,0.4,3.8,Sajikan
+88,Kucai,1,45,2.2,0.3,10.3,Sajikan
+89,Kucai muda (lokio),1,42,3.8,0.6,7.8,Sajikan
+90,Seledri,1,20,1,0.1,4.6,Sajikan
+91,Buncis,1,35,2.4,0.2,7.7,Sajikan
+92,Buncis (DKBM P3G '90),1,34,2.4,0.3,7.2,Sajikan
+93,Cabe gembor merah,1,38,1.6,0.8,6.3,Sajikan
+94,Cabe hijau besar,1,23,0.7,0.3,5.2,Sajikan
+95,Cabe merah besar ( kering ),1,311,15.9,6.2,61.8,Sajikan
+96,Cabe merah besar ( segar  ),1,31,1,0.3,7.3,Sajikan
+97,Cabe rawit ( segar ),1,103,4.7,2.4,19.9,Sajikan
+98,Gambas oyong,1,18,0.8,0.2,4.1,Sajikan
+99,"Jagung muda, termasuk tongkol",1,33,2.2,0.1,7.4,Sajikan
+100,Jamur kuping kering,1,128,16,0.9,64.6,Sajikan
+101,Jamur kuping segar,1,15,3.8,0.6,0.9,Sajikan
+102,Jantung pisang segar,1,31,1.2,0.3,7.1,Sajikan
+103,Kacang buncis ( buah ),1,35,2.4,0.2,7.7,Sajikan
+104,Kacang kapri ( biji segar ),1,98,6.7,0.4,17.7,Sajikan
+105,Kacang panjang,1,44,2.7,0.3,7.8,Sajikan
+106,Kapri muda,1,42,3.3,0.2,9,Sajikan
+107,Kecipir ( buah muda ),1,35,2.9,0.2,5.8,Sajikan
+108,"Keluwih, kelawi",1,111,1.5,0.3,27.2,Sajikan
+109,Kembang turi,1,44,1.8,0.6,9.6,Sajikan
+110,Ketimun,1,12,0.7,0.1,2.7,Sajikan
+111,Kool kembang,1,25,2.4,0.2,4.9,Sajikan
+112,"Kool merah, kool putih",1,24,1.4,0.2,5.3,Sajikan
+113,Koro kerupuk ( buah ),1,125,8.3,0.7,22.1,Sajikan
+114,Koro wedus ( buah muda ),1,38,3,0.3,7.9,Sajikan
+115,Kulit melinjo,1,111,4.5,1.1,20.7,Sajikan
+116,Labu air,1,17,0.6,0.2,3.8,Sajikan
+117,Labu siam,1,26,0.6,0.1,6.7,Sajikan
+118,Labu waluh,1,29,1.1,0.3,6.6,Sajikan
+119,Leunca buah (daun leunca),1,33,1.9,0.1,7.4,Sajikan
+120,Lobak,1,19,0.9,0.1,4.2,Sajikan
+121,Melinjo,1,66,5,0.7,13.3,Sajikan
+122,Nangka muda,1,51,2,0.4,11.3,Sajikan
+123,Pare (paria),1,29,1.1,0.3,6.6,Sajikan
+124,Pepaya muda,1,26,2.1,0.1,4.9,Sajikan
+125,Rebung,1,27,2.6,0.3,5.2,Sajikan
+126,Sawi,1,22,2.3,0.3,4,Sajikan
+127,Selada,1,15,1.2,0.2,2.9,Sajikan
+128,Selada air,1,17,1.7,0.3,3,Sajikan
+129,Taoge kacang ijo,1,23,2.9,0.2,4.1,Sajikan
+130,Taoge kacang kedele,1,67,9,2.6,6.4,Sajikan
+131,Taoge kacang tunggak,1,35,5,0.2,5.8,Sajikan
+132,Tebu terubuk,1,25,4.6,0.4,3,Sajikan
+133,Tekokak,1,34,2,0.1,7.9,Sajikan
+134,Tekokak kering,1,294,8.3,1.7,72.6,Sajikan
+135,Terong,1,24,1.1,0.2,5.5,Sajikan
+136,Terong belanda,1,48,1.5,0.3,11.3,Sajikan
+137,Tomat ( sari air tomat ),1,15,1,0.2,3.5,Sajikan
+138,Tomat masak,1,20,1,0.3,4.2,Sajikan
+139,Tomat muda,1,23,2,0.7,2.3,Sajikan
+140,Wortel,1,42,1.2,0.3,9.3,Sajikan
+141,Alpokat,1,85,0.9,6.5,7.7,Sajikan
+142,Anggur,1,50,0.5,0.2,12.8,Sajikan
+143,Apel,1,58,0.3,0.4,14.9,Sajikan
+144,Arbei,1,37,0.8,0.5,8.3,Sajikan
+145,Belimbing,1,36,0.4,0.4,8.8,Sajikan
+146,Bengkuang,1,55,1.4,0.2,12.8,Sajikan
+147,Buah atung,1,23,0.8,0.2,5.2,Sajikan
+148,Buah mentega ( bisbul ),1,39,0.7,0.2,9.7,Sajikan
+149,Buah nona,1,101,1.7,0.6,25.2,Sajikan
+150,Cempedak,1,116,3,0.4,28.6,Sajikan
+151,Duku,1,63,1,0.2,16.1,Sajikan
+152,Durian,1,134,2.5,3,28,Sajikan
+153,Embacang,1,98,1.4,0.2,25.4,Sajikan
+154,Erbis,1,70,0.6,0,18.9,Sajikan
+155,Gandaria,1,68,0.7,0.1,18,Sajikan
+156,Jambu air,1,46,0.6,0.2,11.8,Sajikan
+157,Jambu biji,1,49,0.9,0.3,12.2,Sajikan
+158,Jambu bol,1,56,0.6,0.3,14.2,Sajikan
+159,Jambu monyet ( buah ),1,64,0.7,0.6,15.8,Sajikan
+160,Jeruk bali,1,48,0.6,0.2,12.4,Sajikan
+161,Jeruk garut (jeruk keprok),1,44,0.8,0.3,10.9,Sajikan
+162,Jeruk manis,1,45,0.9,0.2,11.2,Sajikan
+163,Jeruk manis (air sari jeruk),1,44,0.8,0.2,11,Sajikan
+164,Jeruk nipis,1,37,0.8,0.1,12.3,Sajikan
+165,Kedondong masak,1,41,1,0.1,10.3,Sajikan
+166,Kemang,1,48,1,0.2,11.9,Sajikan
+167,Kesemek,1,78,0.8,0.4,20,Sajikan
+168,Kokosan,1,86,1.6,0.2,13,Sajikan
+169,Langsat,1,56,0.9,0.2,14.3,Sajikan
+170,Mangga gedong,1,44,0.7,0.2,11.2,Sajikan
+171,Mangga golek,1,63,0.5,0.2,16.7,Sajikan
+172,Mangga harumanis,1,46,0.4,0.2,11.9,Sajikan
+173,Mangga indramayu,1,72,0.8,0.2,18.7,Sajikan
+174,Mangga kopek,1,56,0.4,0.2,14.6,Sajikan
+175,Mangga muda,1,59,0.5,0.4,15.1,Sajikan
+176,Manggis,1,63,0.6,0.6,15.6,Sajikan
+177,Menteng,1,65,1.7,0.2,16.1,Sajikan
+178,Nanas,1,52,0.4,0.2,13.7,Sajikan
+179,Nangka masak dipohon,1,106,1.2,0.3,27.6,Sajikan
+180,Pala ( dagingnya ),1,42,0.3,0.2,10.9,Sajikan
+181,Pepaya,1,46,0.5,0,12.2,Sajikan
+182,Pisang ambon,1,99,1.2,0.2,25.8,Sajikan
+183,Pisang angleng (pis. ampyang),1,68,1.3,0.2,17.2,Sajikan
+184,Pisang lampung,1,99,1.3,0.2,25.6,Sajikan
+185,Pisang mas,1,127,1.4,0.2,33.6,Sajikan
+186,Pisang raja,1,120,1.2,0.2,31.8,Sajikan
+187,Pisang raja sereh (pis. susu),1,118,1.2,0.2,31.1,Sajikan
+188,Pisang raja uli,1,146,2,0.2,38.2,Sajikan
+189,Rambutan,1,69,0.9,0.1,18.1,Sajikan
+190,Salak,1,77,0.4,0,20.9,Sajikan
+191,Salak bali,1,57,0.5,0.1,13.6,Sajikan
+192,Salak pondoh,1,368,0.8,0.4,90.3,Sajikan
+193,Sawo,1,92,0.5,1.1,22.4,Sajikan
+194,Sawo duren,1,64,1,3.1,8,Sajikan
+195,Sawo kecik,1,111,0.9,2.3,21.6,Sajikan
+196,Semangka,1,28,0.5,0.2,6.9,Sajikan
+197,Sirsak,1,65,1,0.3,16.3,Sajikan
+198,Srikaya,1,101,1.7,0.6,25.2,Sajikan
+199,Srikaya (DKBM P3G '90),1,63,1.1,0.5,13.9,Sajikan
+200,Sukun muda,1,119,1.4,0.2,28.1,Sajikan
+201,Sukun muda (DKBM P3G '90),1,119,1.4,0.2,28.1,Sajikan
+202,Sukun tua,1,126,1.6,0.2,24.5,Sajikan
+203,Sukun tua (DKBM P3G '90),1,129,1.6,0.2,24.5,Sajikan
+204,Tempoyak,1,142,2.7,4.6,22.7,Sajikan
+205,Wuni,1,74,0.8,0.3,17.1,Sajikan
+206,Es krim,1,207,4,12.5,20.6,Sajikan
+207,Keju,1,326,22.8,20.3,13.1,Sajikan
+208,Kepala susu (krim),1,204,2.6,20,4,Sajikan
+209,Mentega,1,725,0.5,81.6,1.4,Sajikan
+210,Susu kambing,1,64,4.3,2.3,6.6,Sajikan
+211,Susu kental manis,1,336,8.2,10,55,Sajikan
+212,Susu kental tak manis,1,138,7,7.9,9.9,Sajikan
+213,Susu kerbau,1,160,6.3,12,7.1,Sajikan
+214,Susu sapi,1,61,3.2,3.5,4.3,Sajikan
+215,Susu skim (susu tak berlemak),1,36,3.5,0.1,5.1,Sajikan
+216,Tepung susu,1,509,24.6,30,36.2,Sajikan
+217,Tepung susu asam untuk bayi,1,418,19,9,65.5,Sajikan
+218,Tepung susu skim,1,362,35.6,1,52,Sajikan
+219,Yoghurt,1,52,3.3,2.5,4,Sajikan
+220,Lemak babi,1,902,0,0,0,Sajikan
+221,Lemak kerbau (lemak sapi),1,818,1.5,90,0,Sajikan
+222,Margarin,1,720,0.6,81,0.4,Sajikan
+223,Minyak hati hiu (eulamia),1,902,0,0,0,Sajikan
+224,Minyak ikan,1,902,0,0,0,Sajikan
+225,Minyak kacang tanah,1,902,0,0,0,Sajikan
+226,Minyak kelapa,1,870,1,98,0,Sajikan
+227,Minyak kelapa sawit,1,902,0,0,0,Sajikan
+228,Minyak wijen,1,902,0,0,0,Sajikan
+229,Bier (4% alkohol),1,48,0.6,0,4.4,Sajikan
+230,Coklat manis ( batang ),1,472,2,29.8,62.7,Sajikan
+231,Coklat pahit ( batang ),1,504,5.5,52.9,29.2,Sajikan
+232,Coklat susu  ( batang ),1,381,9,35,53.6,Sajikan
+233,Dodol,1,395,3,5.7,81.2,Sajikan
+234,Gelatin,1,389,91,0,0,Sajikan
+235,Gula aren,1,368,0,0,95,Sajikan
+236,Gula kelapa,1,386,3,10,76,Sajikan
+237,"Gula merah tebu, belum murni",1,356,0.4,0.5,90.6,Sajikan
+238,Gula pasir,1,364,0,0,94,Sajikan
+239,Jam sele,1,239,0.5,0.6,64.5,Sajikan
+240,"Kopi, bagian yang dapat larut",1,352,17.4,1.3,69,Sajikan
+241,Lemon squash,1,36,0,0,10,Sajikan
+242,Limun,1,30,0,0,8,Sajikan
+243,Madu,1,294,0.3,0,79.5,Sajikan
+244,Melasse,1,276,0,0.1,71,Sajikan
+245,Serbuk coklat,1,298,8,23.8,48.9,Sajikan
+246,"Setrup, sirup",1,213,0,0,55,Sajikan
+247,Teh,1,132,19.5,0.7,67.8,Sajikan
+248,Aci aren,1,355,0.6,1.1,85.6,Sajikan
+249,Agar laut (DKBM P3G '90),1,21,0.1,0.1,4.8,Sajikan
+250,Agar-agar,1,0,0,0.2,0,Sajikan
+251,Alur,1,24,1.8,0.3,4.8,Sajikan
+252,Bonggol pisang,1,43,0.6,0,11.6,Sajikan
+253,Bonggol pisang kering,1,245,3.4,0,66.2,Sajikan
+254,Bulung,1,333,8.2,0.1,64.7,Sajikan
+255,Bulung jajar (agar jajal),1,212,16.9,0.2,47.6,Sajikan
+256,Bulung sangu,1,237,14.7,0.2,56,Sajikan
+257,Cengkeh kering,1,292,5.2,8.9,57.4,Sajikan
+258,Cuka,1,12,0.1,0.1,5,Sajikan
+259,Daun cincau,1,122,6,1,26,Sajikan
+260,Donge-donge,1,16,0.5,0.2,3.6,Sajikan
+261,Jahe,1,51,1.5,1,10.1,Sajikan
+262,Kecap,1,46,5.7,1.3,9,Sajikan
+263,Kelangis,1,230,5.7,20.6,5.5,Sajikan
+264,Kunyit,1,63,2,2.7,9.1,Sajikan
+265,Lawi-lawi,1,18,0.5,0.9,2.6,Sajikan
+266,Lidah buaya,1,4,0.1,0.2,0.4,Sajikan
+267,Merica,1,359,11.5,6.8,64.4,Sajikan
+268,Ragi,1,136,43,2.4,3,Sajikan
+269,Saos tomat,1,98,2,0.4,24.5,Sajikan
+270,Bacang,1,72,2.3,1.9,11.4,Sajikan
+271,Bihun goreng,1,308,5.9,8.9,51,Sajikan
+272,Bubur,1,6,0.1,0,1.3,Sajikan
+273,Bubur beras (Menu Pgln),1,70,1.8,0,0,Sajikan
+274,Bubur kentang (Menu Pgln),1,76,1.3,0,0,Sajikan
+275,Bubur tepung (Menu Pgln),1,363,0.5,0,0,Sajikan
+276,Bubur wortel (Menu Pgln),1,73,1.4,0,0,Sajikan
+277,Buntil,1,106,4.4,6.3,7.9,Sajikan
+278,Buras,1,88,2.3,1.3,16.7,Sajikan
+279,Cassava stick,1,460,0.8,18.7,17.2,Sajikan
+280,Cemplon,1,94,0.5,5.28,12.61,Sajikan
+281,Ceriping getuk singkong,1,462,1.2,20.7,67.7,Sajikan
+282,Chilmil,1,472,18,20,55,Sajikan
+283,Combro,1,105,0.8,3.3,17.9,Sajikan
+284,Deblo,1,52,0.4,3,10.6,Sajikan
+285,Dodongkal,1,7,1.3,0.9,15.8,Sajikan
+286,Gadung kukus,1,88,0.6,0.3,20.9,Sajikan
+287,Ganyong rebus,1,100,0.8,0.2,23.8,Sajikan
+288,Gemblong,1,115,1.7,2.6,21.1,Sajikan
+289,Gemblong (DKBM P3G '90),1,274,1.7,5.4,55.5,Sajikan
+290,Gendar goreng,1,407,6.4,28.2,32,Sajikan
+291,Geplak,1,350,1.4,14.4,53.6,Sajikan
+292,Getuk goreng sukaraja,1,360,1.3,6.4,74.3,Sajikan
+293,Getuk lindri,1,60,0.6,1.4,11.2,Sajikan
+294,Getuk singkong,1,204,0.5,1.4,47.4,Sajikan
+295,Gudangan (urapan),1,84,2.76,3.42,12.06,Sajikan
+296,Hunkwe (Menu Pgln),1,226,2,0,0,Sajikan
+297,Intip goreng,1,474,7.6,21.6,62.3,Sajikan
+298,Intip goreng/kerak nasi,1,474,7.6,21.6,62.3,Sajikan
+299,Jagung gronto metro,1,135,2.2,1.1,28.9,Sajikan
+300,Jagung grontol harapan,1,156,2.7,1.3,33.3,Sajikan
+301,Jagung kering dengan kulit,1,355,9.2,3.9,73.7,Sajikan
+302,Jagung rebus,1,105,2.6,1.1,21.1,Sajikan
+303,Japilus,1,500,1.2,25.1,67.3,Sajikan
+304,Jenang,1,220,2.6,5.7,39.5,Sajikan
+305,Karoket,1,73,1.2,2.8,0.7,Sajikan
+306,Kecimpring singkong,1,464,1.2,18.6,73,Sajikan
+307,Kecimpring sinkong goreng,1,262,1.2,18.6,73,Sajikan
+308,Kelepon,1,107,0.6,2.7,20.1,Sajikan
+309,Kemplang goreng,1,504,5.6,28.1,57.1,Sajikan
+310,Kemplang panggang,1,356,9.7,1.1,76.9,Sajikan
+311,Keremes,1,475,1.6,25.2,64.4,Sajikan
+312,Keripik gadung,1,446,2.8,14.5,76,Sajikan
+313,Keripik singkong,1,478,0.9,20.7,72,Sajikan
+314,Keripik singkong berbumbu,1,481,2.2,19.7,73.6,Sajikan
+315,Kerupuk sayong,1,7,0.2,2.6,12.2,Sajikan
+316,Ketapang,1,34,0.7,1.1,5.4,Sajikan
+317,Ketela kukus,1,153,1.2,0.3,36.4,Sajikan
+318,Ketela tapai,1,169,1.4,0.3,40.2,Sajikan
+319,Ketupat ketan,1,212,4,4.6,38.6,Sajikan
+320,Ketupat tahu,1,274,7.4,6.5,46.6,Sajikan
+321,Komba kukus,1,71,2.3,0.3,15.4,Sajikan
+322,Kue Kutu mayang,1,100,0.5,1.2,21.9,Sajikan
+323,Kue apem,1,84,1.5,0.7,17.8,Sajikan
+324,Kue bugis,1,24,0.3,0.1,5.4,Sajikan
+325,Kue koya,1,366,4.2,4.3,7.9,Sajikan
+326,Kue mangkok,1,91,1.5,0.5,20.2,Sajikan
+327,Kue pacar cina,1,38,0.7,0.2,17.2,Sajikan
+328,Kue pia,1,148,2.3,0.7,33.2,Sajikan
+329,Kue satu,1,59,1.9,0.4,11.9,Sajikan
+330,Kue semprong,1,38,0.1,0.1,9.2,Sajikan
+331,Kue talam,1,18,0.1,0.5,3.2,Sajikan
+332,Kue tambang,1,128,2.2,6.5,15.1,Sajikan
+333,Laksa,1,499,8.2,11.6,88.4,Sajikan
+334,Lemper,1,177,3,2.9,34.7,Sajikan
+335,Lenting getuk,1,422,0.9,10.8,80.4,Sajikan
+336,Leupeut ketan,1,96,3.1,0.2,20.5,Sajikan
+337,Lopis,1,98,1.7,1.3,19.8,Sajikan
+338,Lumpia,1,133,3.43,0.47,28.14,Sajikan
+339,Martabak,1,199,3.5,4.1,37,Sajikan
+340,Martabak telur,1,200,8.9,5.1,29.5,Sajikan
+341,Mi kuning goreng,1,476,0.1,21.1,71.3,Sajikan
+342,Mie +telur (Menu Pgln),1,178,5,0,0,Sajikan
+343,Mie ayam,1,360,5.9,16.15,49.87,Sajikan
+344,Mie goreng,1,117,1.9,5.1,15.6,Sajikan
+345,Mie goreng (mie kering noodle),1,185,5.5,5.3,23.9,Sajikan
+346,Mie laksa basah,1,155,0.2,0.1,38.2,Sajikan
+347,Mie laksa kering,1,347,8,0.2,78.2,Sajikan
+348,Mie sua,1,320,9.1,0.2,70.4,Sajikan
+349,Misro,1,109,0.4,2,25.1,Sajikan
+350,Nasi (Menu Pgln),1,176,3.3,0,0,Sajikan
+351,Nasi Beras giling masak,1,178,2.1,0.1,40.6,Sajikan
+352,Nasi beras giling pelita I/1,1,180,3,0.3,39.8,Sajikan
+353,Nasi beras giling pelita II/1,1,158,4,0.5,33.2,Sajikan
+354,Nasi beras tumbuk pelita I/1,1,166,4.2,0.5,35,Sajikan
+355,Nasi beras tumbuk pelita II/1,1,144,3.6,0.4,30.6,Sajikan
+356,Nasi goreng,1,138,1.6,1.6,15.1,Sajikan
+357,Nasi goreng+telur (Menu Pgln),1,198,6.4,0,0,Sajikan
+358,Nasi tim (Menu Pgln),1,120,2.3,0,0,Sajikan
+359,Nasi uduk,1,152,2.6,2.6,7,Sajikan
+360,Onde-onde,1,101,2.9,3.1,15.5,Sajikan
+361,Ongol-ongol,1,23,0.3,1.2,2.8,Sajikan
+362,Ongol-ongol sagu,1,111,0.3,2.7,21.2,Sajikan
+363,Opak singkong,1,47,1.8,2.1,5.2,Sajikan
+364,Papais,1,107,2.4,1.3,21.6,Sajikan
+365,Pastel,1,208,5.2,15.4,31.4,Sajikan
+366,Perkedel kentang,1,439,15.77,7.13,79.62,Sajikan
+367,Pilus,1,257,0.5,13.9,32.5,Sajikan
+368,Putu,1,21,0.3,0.6,3.7,Sajikan
+369,Rarawuan,1,118,2.9,3.4,19,Sajikan
+370,Risoles,1,134,2.1,1.4,28.2,Sajikan
+371,Roti gambang,1,70,1.5,0.4,15.1,Sajikan
+372,Roti isi coklat,1,215,5.29,1.9,44.95,Sajikan
+373,Roti isi kacang,1,217,6,0.23,45.65,Sajikan
+374,Roti isi kelapa (manis),1,518,13.7,30,48.4,Sajikan
+375,Roti kukus,1,249,5.1,2.1,52.5,Sajikan
+376,Sagu ambon,1,338,0.6,0.3,83.1,Sajikan
+377,Serabi,1,245,6,5,43.9,Sajikan
+378,Singkong goreng,1,57,0.2,3.6,5.6,Sajikan
+379,Siomay,1,162,7.5,3.8,24.4,Sajikan
+380,Soun,1,351,11.3,0,76.5,Sajikan
+381,Sriping talas kebumen,1,478,2.5,21.2,69.2,Sajikan
+382,Supermi (Menu Pgln),1,113,0.6,0,0,Sajikan
+383,Supermi+telor (Menu Pgln),1,166,6.8,0,0,Sajikan
+384,Suweg kukus,1,93,1.5,0.1,21.9,Sajikan
+385,Talas kukus,1,120,1.5,0.3,28.2,Sajikan
+386,Tapai beras ketan hitam,1,166,3.8,1,34.4,Sajikan
+387,Tapai beras ketan putih,1,172,3,0.5,37.5,Sajikan
+388,Ubi jalar goreng,1,48,1.1,0.4,16.6,Sajikan
+389,Ubi jalar kukus,1,100,0.7,0.3,23.8,Sajikan
+390,Ubi jalar rebus,1,74,0.9,6.2,16.6,Sajikan
+391,Ubi jalar sayur,1,110,0.8,0.2,13.5,Sajikan
+392,Ubi kemayung kukus,1,165,0.9,0.2,39.8,Sajikan
+393,Ampas tahu kukus,1,75,4.1,2.1,10.7,Sajikan
+394,Biji jambu mete goreng,1,629,21.5,56.6,19.8,Sajikan
+395,Botok lamtoro,1,186,11.7,9.7,13,Sajikan
+396,Bubur kacang ijo,1,106,3.9,3.6,14.6,Sajikan
+397,Bubur kacang ijo (Menu Pgln),1,204,5.9,0,0,Sajikan
+398,Emping goreng asin,1,431,11.1,16.2,63,Sajikan
+399,Emping goreng manis,1,439,10,16.4,65.7,Sajikan
+400,Emping goreng tipis,1,485,11.5,24.5,59.1,Sajikan
+401,Goreng oncom,1,109,2.2,5.8,12.1,Sajikan
+402,Kacang atom,1,533,27.8,38.1,28.8,Sajikan
+403,Kacang babi bogor goreng,1,479,12.7,23.2,58.9,Sajikan
+404,Kacang babi bogor rebus,1,161,7.7,2.8,27.1,Sajikan
+405,Kacang babi kecipir rebus,1,204,16.9,8.8,17.5,Sajikan
+406,Kacang gude rebus,1,147,9,0.5,27.5,Sajikan
+407,Kacang hijau rebus,1,109,8.7,0.5,18.3,Sajikan
+408,Kacang kapri goreng,1,89,3.8,2.2,13.1,Sajikan
+409,Kacang kedelai goreng,1,521,32.2,37.7,22.9,Sajikan
+410,Kacang kedelai rebus,1,189,20.2,8.2,12.7,Sajikan
+411,Kacang kulit,1,628,30.7,50.5,12.7,Sajikan
+412,Kacang merah kering rebus,1,158,10.3,0.9,28.2,Sajikan
+413,Kacang merah segar rebus,1,144,10,1,24.7,Sajikan
+414,Kacang sari,1,561,25.5,43.8,26,Sajikan
+415,Kacang sukro (DKBM P3G '90),1,484,8.8,26.1,57.7,Sajikan
+416,Kacang sukro putih,1,122,1.3,6.4,14.9,Sajikan
+417,Kacang tanah goreng,1,564,25.5,44.4,25.5,Sajikan
+418,Kacang tanah rebus,1,77,2.8,6.2,2.6,Sajikan
+419,Kacang tanah rebus,1,220,10.6,18,8,Sajikan
+420,Kacang tanah sangan,1,560,29.5,43,24.1,Sajikan
+421,Kacang telur,1,187,2.5,5.2,31.2,Sajikan
+422,Kacang tolo rebus,1,138,10.7,1.1,22.6,Sajikan
+423,Kembang tahu rebus,1,90,10.7,4,4.7,Sajikan
+424,Kripik abadi besar,1,556,15.8,37.1,39.8,Sajikan
+425,Kripik murni,1,542,40.3,42.4,11.6,Sajikan
+426,Kripik murni,1,540,16.7,33.9,42,Sajikan
+427,Kripik oncom,1,598,8.3,43.8,42.6,Sajikan
+428,Kripik sedang,1,510,12.3,27.9,52.4,Sajikan
+429,Kripik telur,1,529,20.8,31.7,40.2,Sajikan
+430,Kripik tempe,1,581,12.1,40.6,41.7,Sajikan
+431,Kripik tempe goreng,1,542,40.3,42.4,11.5,Sajikan
+432,Noga kacang tanah,1,180,4.2,12.5,12.6,Sajikan
+433,Oncom hitam goreng,1,71,3,3.6,3.4,Sajikan
+434,Oncom hitam tepung,1,92,2.7,5.4,8.1,Sajikan
+435,Oncom merah bertepung,1,96,2.8,5.6,9.3,Sajikan
+436,Oncom merah goreng,1,92,1.7,8,3.3,Sajikan
+437,Oncom merah sayur (tumis),1,4,0.2,0.2,0.3,Sajikan
+438,Pepes oncom,1,132,12.7,3.8,13.7,Sajikan
+439,Pepes oncom / ampas tahu,1,76,5.2,1.8,10.6,Sajikan
+440,Pepes taoco,1,184,11.4,5.5,22.2,Sajikan
+441,Rempeyek,1,513,17.5,32.5,44.3,Sajikan
+442,Rempeyek kacang tanah,1,513,17.5,32.5,44.3,Sajikan
+443,Rempeyek kacang tolo,1,451,11.2,20.2,59.7,Sajikan
+444,Rempeyek kacang uci,1,497,17,27.6,50.8,Sajikan
+445,Tahu goreng,1,32,1.4,2.8,0.3,Sajikan
+446,Tahu goreng (DKBM P3G '90),1,115,9.7,8.5,2.5,Sajikan
+447,Tahu goreng (Menu Pgln),1,143,9.6,0,0,Sajikan
+448,Tauco,1,158,11.3,5.4,18.1,Sajikan
+449,Tauco cap beruang,1,347,7.4,5.2,67.6,Sajikan
+450,Tauco cap das,1,358,7.5,4.3,70.4,Sajikan
+451,Tauco cap meong,1,159,7.4,4.9,21.3,Sajikan
+452,Tauji cap singa,1,277,9.1,4.7,49.6,Sajikan
+453,Tempe goreng,1,82,4.6,5.8,3.2,Sajikan
+454,Tempe goreng (Menu Pgln),1,335,23.3,0,0,Sajikan
+455,Tempe murni goreng,1,350,24.5,26.6,10.4,Sajikan
+456,Tempe pasar goreng,1,336,20,28,7.8,Sajikan
+457,Tempe sayur,1,36,0.9,0.4,7.4,Sajikan
+458,Abon sapi,1,212,18,10.6,59.3,Sajikan
+459,Abon sapi asli,1,358,14.6,16.1,38.6,Sajikan
+460,Ati ayam (buras),1,112,18.3,3.2,2.6,Sajikan
+461,Ati ayam (ras),1,105,16.6,3.4,2.1,Sajikan
+462,Ayam goreng (Menu Pgln),1,595,30.5,0,0,Sajikan
+463,Ayam goreng buras mbok berek,1,295,39.2,13.6,1,Sajikan
+464,Ayam paha lengkap kalasan,1,275,37.4,12.2,1.3,Sajikan
+465,Ayam paha pasundan,1,245,33.1,11.4,0.3,Sajikan
+466,Ayam paha sukabumi,1,283,35.7,14.3,0.5,Sajikan
+467,Ayam pasundan,1,246,37.9,9,0.7,Sajikan
+468,Ayam ras dada church toxas,1,338,35.2,20.6,0.4,Sajikan
+469,Ayam ras dada kentucky,1,298,34.2,16.8,0.1,Sajikan
+470,Ayam ras dada pioner,1,295,37.4,14.7,0.6,Sajikan
+471,Ayam ras paha church,1,287,31,15.7,1.7,Sajikan
+472,Ayam ras paha kentucky,1,286,32.1,16.7,1.1,Sajikan
+473,Ayam sayap church,1,295,34,16,1.5,Sajikan
+474,Ayam sayap kentucky,1,297,35.9,15.2,1.6,Sajikan
+475,Ayam sukabumi,1,244,36.7,9.2,1,Sajikan
+476,Babi lawar,1,174,17,10,3,Sajikan
+477,Ceker ayam (buras),1,197,20.6,11.5,2.7,Sajikan
+478,Ceker ayam (ras),1,245,20.8,17.1,2.1,Sajikan
+479,Daging puyuh (goreng),1,187,25.6,8.2,2.8,Sajikan
+480,Dendeng bekicot,1,441,48.7,20.3,15.8,Sajikan
+481,Paru goreng,1,488,39.4,36.5,0.4,Sajikan
+482,Penyu lawar,1,141,23,1.5,7.6,Sajikan
+483,Penyu sate,1,179,22.5,3.5,13.3,Sajikan
+484,Penyu serapah,1,174,13.1,12.2,2.2,Sajikan
+485,Pizza sapi,1,294,17.9,17.5,16.1,Sajikan
+486,Rawon,1,60,5.4,2.5,4,Sajikan
+487,Rempelo ayam,1,108,17.2,4.1,0.4,Sajikan
+488,Rempelo ayam (goreng),1,270,32.3,11.2,9.9,Sajikan
+489,Rendang,1,193,22.6,7.9,7.8,Sajikan
+490,Rujak cingur,1,153,11.3,8.4,8,Sajikan
+491,Sapi rendang,1,193,22.6,7.9,7.8,Sajikan
+492,Sate ayam,1,227,41.3,6.1,1.8,Sajikan
+493,Sate daging kambing,1,211,41.7,4.9,0,Sajikan
+494,Sate daging lembu,1,219,38.9,6.7,0.8,Sajikan
+495,Sate kuah,1,151,14.9,1.3,20,Sajikan
+496,Sate kulit,1,22,3.1,0.1,2.3,Sajikan
+497,Sate perut lembu,1,218,22.6,11.5,6.1,Sajikan
+498,Sate usus,1,19,2.1,1.1,0.2,Sajikan
+499,Soto dengan daging,1,102,2.1,7.5,6.6,Sajikan
+500,Soto tanpa daging,1,82,0.3,6,6.7,Sajikan
+501,Sus isi ragout,1,221,7.5,10.2,24.8,Sajikan
+502,Usus ayam goreng,1,473,45.2,26.3,13.9,Sajikan
+503,Telur ayam dadar,1,251,16.3,19.4,1.4,Sajikan
+504,Telur bebek dadar,1,301,20,23.7,0,Sajikan
+505,Telur ceplok (Menu Pgln),1,240,11,0,0,Sajikan
+506,Telur dadar (Menu Pgln),1,259,11.7,0,0,Sajikan
+507,Telur dadar+terigu (Menu Pgln),1,289,10.7,0,0,Sajikan
+508,Telur puyuh,1,168,12.3,12.7,1.2,Sajikan
+509,Telur rebus (Menu Pgln),1,154,12.2,0,0,Sajikan
+510,Bandeng presto,1,296,17.1,20.3,11.3,Sajikan
+511,Belut dendeng goreng,1,382,55.7,14.1,8,Sajikan
+512,Belut goreng,1,417,25.9,19.4,32,Sajikan
+513,Cumi-cumi goreng,1,265,40.6,10.1,0,Sajikan
+514,Dendeng mujahir goreng,1,598,74.3,26.9,9.2,Sajikan
+515,Empek kapal selam,1,190,13.2,6.6,19.4,Sajikan
+516,Empek kelesan,1,211,12.3,6.1,26.6,Sajikan
+517,Empek tangiri,1,173,7.2,1.2,33.4,Sajikan
+518,Empek-empek belida,1,156,4.2,1.4,31.6,Sajikan
+519,Gurame asam manis,1,192,12.7,10.1,12.7,Sajikan
+520,Ikan mas goreng (Menu Pgln),1,182,18.1,0,0,Sajikan
+521,Ikan mas semur (Menu Pgln),1,225,14.7,0,0,Sajikan
+522,Ikan tongkol (tuna),1,117,23.2,2.7,0,Sajikan
+523,Ikan tongkol masak kuwah,1,119,15.7,3.5,6.1,Sajikan
+524,Kerupuk udang,1,17,0.7,1.5,2.6,Sajikan
+525,Lele dumbo/pecak,1,372,7.8,36.3,3.5,Sajikan
+526,Mujahir acar kuning,1,330,17.8,23.4,12.1,Sajikan
+527,Mujahir goreng,1,416,46.9,23.9,0,Sajikan
+528,Mujahir pepes,1,121,21.7,2.8,0.8,Sajikan
+529,Pecak lele,1,372,7.8,36.3,3.5,Sajikan
+530,Pepes ikan mas,1,209,15.2,11.3,11.8,Sajikan
+531,Petis,1,345,23.8,1.4,59.3,Sajikan
+532,Petis udang,1,345,23.8,1.4,59.3,Sajikan
+533,Tenggiri,1,109,21.5,2.6,0,Sajikan
+534,Teri blado,1,365,23.7,22.3,17.5,Sajikan
+535,Bayam kukus,1,30,1.3,0.7,5.8,Sajikan
+536,Bayam rebus,1,23,1.2,0.6,3.7,Sajikan
+537,Botok lamtoro,1,186,11.7,9.7,13,Sajikan
+538,Brongkos,1,141,15.3,3.3,12.6,Sajikan
+539,Buncis rebus,1,30,2.2,0.2,6.4,Sajikan
+540,Buntil daun talas,1,141,4.4,10.2,8,Sajikan
+541,Gado-gado,1,203,6.7,8.7,24.6,Sajikan
+542,Gudeg,1,160,3.3,9.2,16,Sajikan
+543,Kac. panjang rebus (Menu Pgln),1,38,2.4,0,0,Sajikan
+544,Keredok,1,92,2.2,3.3,14.1,Sajikan
+545,Ketoprak,1,153,7.9,7.7,13,Sajikan
+546,Kripik bayam,1,586,4.9,40.6,50.2,Sajikan
+547,Pecel,1,243,11.14,12.53,31.72,Sajikan
+548,Sayur asem,1,29,0.7,0.6,5,Sajikan
+549,Sayur daging ayam (Menu Pgln),1,451,27.2,0,0,Sajikan
+550,Sayur daging sapi (Menu Pgln),1,239,21.7,0,0,Sajikan
+551,Sayur kacang merah (Menu Pgln),1,321,17.4,0,0,Sajikan
+552,Sayur lodeh,1,240,9.08,12.45,30.65,Sajikan
+553,Sayur lodeh (Menu Pgln),1,108,1.9,0,0,Sajikan
+554,Sayur sop,1,27,1.3,2,1,Sajikan
+555,Sayur sosin (Menu Pgln),1,18,1.9,0,0,Sajikan
+556,Sayur soup (Menu Pgln),1,61,1.4,0,0,Sajikan
+557,Sayur tahu sosin (Menu Pgln),1,92,4.3,0,0,Sajikan
+558,Sayur tahu toge (Menu Pgln),1,114,3.4,0,0,Sajikan
+559,Sayur telur wortel (Menu Pgln),1,140,10.7,0,0,Sajikan
+560,Sayur tempe (Menu Pgln),1,161,9.3,0,0,Sajikan
+561,Semur jengkol,1,77,1.8,2.4,12.1,Sajikan
+562,Semur jengkol kacang kedele,1,212,6,8.7,29.1,Sajikan
+563,Semur telur (Menu Pgln),1,178,5,0,0,Sajikan
+564,Soto,1,135,2.5,8.8,11.5,Sajikan
+565,Toge goreng,1,88,3.2,2.1,14,Sajikan
+566,Tumis Jagung sayur,1,201,3.7,14.1,27.1,Sajikan
+567,Tumis bayam (Menu Pgln),1,193,2,0,0,Sajikan
+568,Tumis bayam + santan,1,48,1.4,4.2,2.6,Sajikan
+569,Tumis kangkung (Menu Pgln),1,92,2.5,0,0,Sajikan
+570,Tumis ketang (Menu Pgln),1,120,1.9,0,0,Sajikan
+571,Tumis labu siam (Menu Pgln),1,88,0.7,0,0,Sajikan
+572,Tumis teri +buncis (Menu Pgln),1,158,33.5,0,0,Sajikan
+573,Cerelac,1,418,9,15.5,68.9,Sajikan
+574,Enfamil,1,525,11.8,29,55,Sajikan
+575,Es krim (coconut milk),1,47,0.9,0.5,9.8,Sajikan
+576,LLM,1,481,20,21,0,Sajikan
+577,Lactogen,1,464,21.6,19,51.6,Sajikan
+578,Morinaga,1,515,13,27,55.1,Sajikan
+579,Promil,1,460,20,18,55,Sajikan
+580,Promina,1,409,12.57,8.78,71.92,Sajikan
+581,S.G.M,1,461,20,18,54.7,Sajikan
+582,Sustagen HP,1,1540,94,14,260,Sajikan
+583,Susu full cream,1,502,27,26,40,Sajikan
+584,Bakpau,1,239,12.2,2.6,41.6,Sajikan
+585,Bakso,1,190,10.3,6.3,23.1,Sajikan
+586,Berondong,1,60,0.6,0.1,14.3,Sajikan
+587,Bika ambon,1,158,2.1,0.2,37,Sajikan
+588,Biskuit mahal (Menu Pgln),1,350,8,0,0,Sajikan
+589,Cake (bolu),1,435,7.1,19.8,57.1,Sajikan
+590,Coklat (Menu Pgln),1,472,2,0,0,Sajikan
+591,Cucur,1,145,2.39,1.28,31.36,Sajikan
+592,Dawet,1,878,11.25,14.9,175.37,Sajikan
+593,Donat,1,357,9.4,10.4,56.5,Sajikan
+594,Geplak,1,350,1.4,14.4,53.6,Sajikan
+595,Kelepon,1,215,3.7,3.7,41.8,Sajikan
+596,Kue bakpia,1,272,3.7,6.7,44.1,Sajikan
+597,Kue karo,1,110,2,0.9,23.4,Sajikan
+598,Kue wijen,1,565,18.2,38.4,36.8,Sajikan
+599,Lapis legit,1,389,6.6,15.7,55.5,Sajikan
+600,Ledre pisang,1,405,4.8,5.1,84.9,Sajikan
+601,Lempog durian,1,320,3.5,5.7,63.7,Sajikan
+602,Lupis ketan,1,164,1.8,2.1,34.5,Sajikan
+603,Mendoan,1,92,4.89,1.04,16.19,Sajikan
+604,Mendut/mata kebo,1,86,3.11,1.19,16.35,Sajikan
+605,Mpek-mpek,1,182,9.2,3.8,27.8,Sajikan
+606,Nopia spesial,1,387,5.3,7.6,74.3,Sajikan
+607,Pisang getuk,1,144,1.1,0.4,34.1,Sajikan
+608,Pisang goreng,1,132,1.4,3.8,23.1,Sajikan
+609,Pisang kripik lampung,1,485,1.7,22.2,69.7,Sajikan
+610,Pudding (Menu Pgln),1,194,1.9,0,0,Sajikan
+611,Putu cangkir,1,304,5.3,7,54.9,Sajikan
+612,Rujak,1,228,7.6,15.5,14.5,Sajikan
+613,Sagon,1,84,0.98,1.1,18.1,Sajikan
+614,Satru ponorogo,1,380,13.9,2.1,76.4,Sajikan
+615,Sempril sagu,1,477,0.7,18.4,77.3,Sajikan
+616,Suwir-suwir,1,317,0.5,0.9,84.2,Sajikan
+617,Taro,1,523,5.8,28.2,61.3,Sajikan
+618,Wafer,1,53,2.7,28.7,66.7,Sajikan
+619,Wajit camilan,1,303,6.3,2.7,63.3,Sajikan
+620,Wedang jahe,1,59,0.14,0.09,15.07,Sajikan
+621,Wedang jeruk,1,60,0.12,0.03,15.75,Sajikan
+622,Widaran,1,424,1.3,10.7,80.7,Sajikan
+623,Wingko babat,1,355,3.2,15.1,51.4,Sajikan
+624,Yangko,1,254,3,1.1,58.1,Sajikan

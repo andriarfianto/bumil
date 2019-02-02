@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit ('No direct script access allowed');
 
-class Menu extends CI_Controller
+class Menu extends MY_Controller
 {
     public function __construct()
     {
@@ -66,7 +66,7 @@ class Menu extends CI_Controller
 
                 // lakukan simpan ke tabel detail
                 $this->menu_model->save_detail($data_detail); // simpan ke tb menu
-                            print_r($_POST); die();
+                            // print_r($_POST); die();
             }
 
             $data['id_menu'] = $id_menu_terbaru;

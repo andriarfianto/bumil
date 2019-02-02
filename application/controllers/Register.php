@@ -40,9 +40,23 @@ class Register extends CI_Controller
         return TRUE;
     }
 
+    // fungsi pengecekan username yang sudah ada didatabase
+    public function check_usernamelama($username_inputan) {
+        $username_db = $this->user_model->checkUsernameLama($username_inputan)->row();
+        // var_dump($username_db); die('ds');
+
+        if (!empty($username_db)) {
+            $this->form_validation->set_message('check_usernamelama', 'Username yang anda inputkan sudah ada');
+            return FALSE;
+        }
+        return TRUE;
+    }
+
     public function index()
-    {   
-        // $check = $this->user_model->checkEmailLama();
+    {
+        // $username_inputan = $this->session->userdata('username');
+        // $username_db = $this->user_model->checkUsernameLama($username_inputan)->row();
+        // var_dump($username_db); die('ds');
         // var_dump($check); die('dsad');
         $data = array(
             'username'         => $this->input->post('username'),
@@ -51,25 +65,30 @@ class Register extends CI_Controller
             'email'            => $this->input->post('email'),
             'tanggal_lahir'    => $this->input->post('tanggal_lahir'),
             'no_telp'          => $this->input->post('no_telp'),
-            'foto'             => 'default.jpg',
             'alamat'           => $this->input->post('alamat'),
             'level'            => '2',
+            'foto'             => 'default.jpg',
         );
 
-        $this->form_validation->set_rules('username','Username','required');
+        // var_dump($data);
+        $this->form_validation->set_rules('username','Username','required|callback_check_usernamelama');
+        $this->form_validation->set_rules('email','Email','required|valid_email|callback_check_emaillama');
+
         $this->form_validation->set_rules('password','Password','required');
         $this->form_validation->set_rules('nama','Nama Lengkap','required');
-        $this->form_validation->set_rules('email','Email','required|callback_check_emaillama');
+        
         $this->form_validation->set_rules('tanggal_lahir','Tanggal Lahir','required|callback_validasi_tgllahir');
         $this->form_validation->set_rules('no_telp','No. Telephone','required');
         $this->form_validation->set_rules('alamat','Alamat','required');
         $this->form_validation->set_error_delimiters('<span class="text-danger">','</span>');
         
-        if ($this->form_validation->run()) {            
+        if ($this->form_validation->run()) {
+        
             $file = $_FILES;
             // var_dump($file['foto']["name"]); die('a');
             if (!empty($file['foto']["name"])) {
                 $filename = $file['foto']["name"]; // $post['id'].'-'.$mapel;
+                // var_dump($filename); die('a');
 
                 $config['upload_path']   = './upload/user/';
                 $config['allowed_types'] = 'gif|jpg|png';
@@ -78,7 +97,7 @@ class Register extends CI_Controller
                 // $config['max_height']    = 768;
                 $config['file_name'] 	 = $filename;
 
-                $this->load->library('upload', $config);
+                $this->load->library('upload', $config);                
 
                 if (!$this->upload->do_upload('foto')) {
                     echo $this->upload->display_errors();
@@ -92,9 +111,8 @@ class Register extends CI_Controller
                     $uploaded = $this->upload->data();
                     $data['foto'] = $uploaded['file_name'];
                     // var_dump($file); die('a');
-                }
-            }
-            
+                }                
+            }          
             $this->register_model->save($data);
 
             $this->session->set_flashdata('success', 'Selamat! Akun anda berhasil terdaftar');
@@ -106,11 +124,7 @@ class Register extends CI_Controller
         // }
 
         $this->load->view('register', $data);
-    }
-    // user input data form
-    // lakukan form validasi Data
-    // kalau benar maka muncul notifikasi data user berhasil ditambah
-    // kalau gagal kembali lagi ke halaman register untuk memeriksa inputan form
+    }    
 }
 
 /**

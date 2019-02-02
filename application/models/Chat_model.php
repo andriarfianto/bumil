@@ -7,7 +7,7 @@ class Chat_model extends CI_Model
     
     public function getId($id = null)
     {
-        return $this->db->get_where($this->_table, ['id_ibu' => $id])->result();
+        return $this->db->get_where($this->_table, ['id_ibu' => $id]);
         
     }
 

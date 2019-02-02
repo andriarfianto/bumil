@@ -36,85 +36,139 @@
 						</a>
 					</div>
 
-					<div class="card-body">
-						<!-- Success validation error -->
-						<!-- <div class="form_error">
-							echo validation_errors('<div class="alert alert-danger" role="alert">','</div>'); ?>
-						</div> -->
+					<div class="card-body">						
+						<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-8">
+										<form action="<?php echo site_url('admin/bahan/add'); ?>" method="post" enctype="multipart/form-data">
+											
+											<div class="row">
+												<div class="col-md-3">
+													<label for="nama_bahan">Nama Bahan*</label>													
+												</div>
+												<div class="col-md-1">:</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="nama_bahan" value="<?php echo $nama_bahan; ?>" placeholder="Nama Bahan">
+													<span style="color: red">
+														<?php echo form_error('nama_bahan'); ?>
+													</span>
+												</div>
+											</div>
+											<br>									
 
-						<!-- Failed validation error -->
-						<!-- <div class="invalid-feedback">
-							echo form_error('username'); ?>
-						</div> -->
+											<div class="row">
+												<div class="col-md-3">
+													<label for="berat_takaran">Berat Takaran*</label>
+												</div>
+												<div class="col-md-1">:</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="berat_takaran" value="<?php echo $berat_takaran; ?>" placeholder="Berat Takaran">
+													<span style="color: red">
+														<?php echo form_error('berat_takaran'); ?>
+													</span>
+												</div>
+											</div>
+											<br>										
 
-						<form action="<?php echo site_url('admin/bahan/add'); ?>" method="post" enctype="multipart/form-data">
-							<div class="form-group">
-								<label for="nama_bahan">Nama Bahan*</label>
-								<input type="text" class="form-control" name="nama_bahan" value="<?php echo $nama_bahan; ?>" placeholder="Nama Bahan">
-								<span style="color: red">
-									<?php echo form_error('nama_bahan'); ?>
-								</span>
-							</div>
+											<div class="row">
+												<div class="col-md-3">
+													<label for="golongan">Golongan*</label>
+												</div>
+												<div class="col-md-1">:</div>
+												<div class="col-md-8">
+													<select class="form-control" id="golongan" name="golongan">
+														<option value="0">Silahkan Pilih</option>
+														<option <?php if ($golongan == 1 ) echo 'selected' ; ?> value="1">Buah</option>
+														<option <?php if ($golongan == 2 ) echo 'selected' ; ?> value="2">Daging</option>
+														<option <?php if ($golongan == 3 ) echo 'selected' ; ?> value="3">Ikan</option>
+														<option <?php if ($golongan == 4 ) echo 'selected' ; ?> value="4">Sayuran</option>
+														<option <?php if ($golongan == 5 ) echo 'selected' ; ?> value="5">Serelia/Umbi</option>								
+													</select>
+													<span style="color: red">
+														<?php echo form_error('golongan'); ?>
+													</span>
+												</div>
+											</div>
+											<br>									
 
-							<div class="form-group">
-								<label for="berat_takaran">Berat Takaran*</label>
-								<input type="text" class="form-control" name="berat_takaran" value="<?php echo $berat_takaran; ?>" placeholder="Berat Takaran">
-								<span style="color: red">
-									<?php echo form_error('berat_takaran'); ?>
-								</span>
-							</div>
+											<div class="row">
+												<div class="col-md-3">
+													<label for="energi_bahan">Energi Bahan*</label>
+												</div>
+												<div class="col-md-1">:</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="energi_bahan" value="<?php echo $energi_bahan; ?>" placeholder="Energi Bahan">
+													<span style="color: red">
+														<?php echo form_error('energi_bahan'); ?>
+													</span>
+												</div>
+											</div>
+											<br>								
 
-							<div class="form-group">
-								<label for="golongan">Golongan*</label>
-								<select class="form-control" id="golongan" name="golongan">
-									<option value="0">Silahkan Pilih</option>
-									<option <?php if ($golongan == 1 ) echo 'selected' ; ?> value="1">Buah</option>
-									<option <?php if ($golongan == 2 ) echo 'selected' ; ?> value="2">Daging</option>
-									<option <?php if ($golongan == 3 ) echo 'selected' ; ?> value="3">Ikan</option>
-									<option <?php if ($golongan == 4 ) echo 'selected' ; ?> value="4">Sayuran</option>
-									<option <?php if ($golongan == 5 ) echo 'selected' ; ?> value="5">Serelia/Umbi</option>								
-								</select>
-								<span style="color: red">
-									<?php echo form_error('golongan'); ?>
-								</span>
-							</div>
+											<div class="row">
+												<div class="col-md-3">
+													<label for="karbohidrat_bahan">Karbohidrat Bahan*</label>
+												</div>
+												<div class="col-md-1">:</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="karbohidrat_bahan" value="<?php echo $karbohidrat_bahan; ?>" placeholder="Karbohidrat Bahan">
+													<span style="color: red">
+														<?php echo form_error('karbohidrat_bahan'); ?>
+													</span>
+												</div>
+											</div>
+											<br>										
 
-							<div class="form-group">
-								<label for="energi_bahan">Energi Bahan*</label>
-								<input type="text" class="form-control" name="energi_bahan" value="<?php echo $energi_bahan; ?>" placeholder="Energi Bahan">
-								<span style="color: red">
-									<?php echo form_error('energi_bahan'); ?>
-								</span>
-							</div>
+											<div class="row">
+												<div class="col-md-3">
+													<label for="protein_bahan">Protein Bahan*</label>
+												</div>
+												<div class="col-md-1">:</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="protein_bahan" value="<?php echo $protein_bahan; ?>" placeholder="Protein Bahan">
+													<span style="color: red">
+														<?php echo form_error('protein_bahan'); ?>
+													</span>
+												</div>
+											</div>
+											<br>										
 
-							<div class="form-group">
-								<label for="karbohidrat_bahan">Karbohidrat Bahan*</label>
-								<input type="text" class="form-control" name="karbohidrat_bahan" value="<?php echo $karbohidrat_bahan; ?>" placeholder="Karbohidrat Bahan">
-								<span style="color: red">
-									<?php echo form_error('karbohidrat_bahan'); ?>
-								</span>
-							</div>
+											<div class="row">
+												<div class="col-md-3">
+													<label for="lemak_bahan">Lemak Bahan*</label>
+												</div>
+												<div class="col-md-1">:</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="lemak_bahan" value="<?php echo $lemak_bahan; ?>" placeholder="Lemak Bahan">
+													<span style="color: red">
+														<?php echo form_error('lemak_bahan'); ?>
+													</span>
+												</div>
+											</div>
+											<br>											
 
-							<div class="form-group">
-								<label for="protein_bahan">Protein Bahan*</label>
-								<input type="text" class="form-control" name="protein_bahan" value="<?php echo $protein_bahan; ?>" placeholder="Protein Bahan">
-								<span style="color: red">
-									<?php echo form_error('protein_bahan'); ?>
-								</span>
-							</div>
+											<div class="row">
+												<div class="col-md-9"></div>
+												<div class="text-right">
+													<a href="http://localhost/ci-ibuhamil/admin/user">
+														<button type="button" class="btn btn-primary pull-right">
+														<i class="fas fa-arrow-left"></i> Kembali</button>
+													</a>                                               
 
-							<div class="form-group">
-								<label for="lemak_bahan">Lemak Bahan*</label>
-								<input type="text" class="form-control" name="lemak_bahan" value="<?php echo $lemak_bahan; ?>" placeholder="Lemak Bahan">
-								<span style="color: red">
-									<?php echo form_error('lemak_bahan'); ?>
-								</span>
-							</div>
-							
-							<button type="submit" class="btn btn-success">
-								<i class="far fa-save"></i> Save
-                            </button>
-						</form>
+													<button type="submit" class="btn btn-success pull-right">
+														<i class="far fa-save"></i> Save
+													</button>
+												</div>
+											</div>
+											<!-- <button type="submit" class="btn btn-success">
+												<i class="far fa-save"></i> Save
+											</button> -->
+										</form>
+									</div>
+									<div class="col-md-3"></div>
+								</div>
+						</div>						
 					</div>
 				</div>
 

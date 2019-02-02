@@ -31,7 +31,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						Detail Data User
+						Detail Menu Makan
 					</div>
 
 					<div class="card-body">

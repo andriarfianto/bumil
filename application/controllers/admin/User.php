@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit ('No direct script access allowed');
 
-class User extends CI_Controller
+class User extends MY_Controller
 {
     public function __construct()
     {
@@ -11,7 +11,7 @@ class User extends CI_Controller
 
     public function index()
     {
-        $data['users'] = $this->user_model->getAll();
+        $data['users'] = $this->user_model->getIbuHamil();
         $this->load->view('admin/user/list_user', $data);
     }
 
@@ -128,6 +128,7 @@ class User extends CI_Controller
             'password' => md5($this->input->post('password')),
             'nama' => $this->input->post('nama'),
             'email' => $this->input->post('email'),
+            'tanggal_lahir' => $this->input->post('tanggal_lahir'),            
             'level' => 2,
             'alamat' => $this->input->post('alamat'),
             'no_telp' => $this->input->post('no_telp'),
@@ -138,7 +139,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('email','Email Address','required|valid_email');
-        // $this->form_validation->set_rules('level', 'Level User', 'required');
+        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('no_telp', 'No. Telephone', 'required|numeric');
 
@@ -175,7 +176,7 @@ class User extends CI_Controller
             }
             $this->user_model->save($data);
 
-            $this->session->set_flashdata('success', 'Data user berhasil ditambah');
+            $this->session->set_flashdata('success', 'Data ibu hamil berhasil ditambah');
 
             redirect(base_url('admin/user'));
         }
@@ -240,7 +241,7 @@ class User extends CI_Controller
 
             $this->user_model->update($post_data, $id);
 
-            $this->session->set_flashdata('success', 'Data user berhasil diubah');
+            $this->session->set_flashdata('success', 'Data ibu hamil berhasil diubah');
 
             redirect(base_url('admin/user'));
         }

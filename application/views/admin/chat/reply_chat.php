@@ -36,7 +36,7 @@
 
 					<div class="card-body">
                         <div class="card md-3">
-                            <div class="card-body">
+                            <div class="card-body">                            
                                 <div class="well" style="width:100%; height: 300px; max-height: 300px; overflow-y: auto;">
                                     <?php foreach ($pesans as $pesan): ?>
                                         <?php if ($pesan->pengirim == 1): ?>
@@ -48,7 +48,7 @@
                                                     ?>
                                                 </span>
                                             </p>
-                                        <?php elseif($pesan->pengirim == 2): ?>
+                                        <?php elseif($pesan->pengirim == $user->id_ibu): ?>
                                             <p class="alert alert-info" style="border-radius: 20px 20px 20px 0px; background-color: #23A127; border-color: #1f8422; width: 50%;right: 0%;">
                                                 <strong><?php echo $pesan->isi_pesan; ?></strong><br>
                                                 <span class="text-default small">
@@ -68,8 +68,14 @@
                             <div class="form-group">
                                 <textarea required="" name="isi_pesan" id="isi_pesan" class="form-control" placeholder="Tuliskan pesan anda disini"></textarea>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success" style="float: right;"><i class="fa fa-paper-plane"></i> Kirim</button>
+                            
+                            <div class="text-right">
+                                <a href="http://localhost/ci-ibuhamil/admin/chat">
+                                    <button type="button" class="btn btn-primary pull-right">
+                                        <i class="fas fa-arrow-left"></i> Kembali
+                                    </button>
+                                </a>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i> Kirim</button>
                             </div>
                         </form>
                     </div>

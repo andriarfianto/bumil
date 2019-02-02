@@ -29,6 +29,17 @@
                 <b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
                 echo $date->format('d/m/Y');?> <br> <br>
 
+                <b>Umur</b>
+                <?php								
+                    $birthday = new DateTime($user->tanggal_lahir);
+                    $today = new DateTime();
+
+                    $interval = $today->diff($birthday);
+                    $usia_ibu = $interval->y;
+                    
+                    echo $usia_ibu. ' Tahun';
+                ?> <br> <br>
+
                 <b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
 
                 <b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
@@ -93,8 +104,16 @@
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">Umur</th>
-                                                        <td>
-                                                            : Sementara kosong dulu
+                                                        <td>                                                                                                
+                                                            : <?php										
+                                                                $birthday = new DateTime($user->tanggal_lahir);
+                                                                $today = new DateTime();
+
+                                                                $interval = $today->diff($birthday);
+                                                                $usia_ibu = $interval->y;
+                                                                
+                                                                echo $usia_ibu. ' Tahun';
+                                                            ?>
                                                         </td>
                                                     </tr>
                                                     <tr>

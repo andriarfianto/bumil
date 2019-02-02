@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 	<title>Pendaftaran Ibu Hamil</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Bootstrap core CSS-->
+	<link href="<?php echo base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,9 +31,9 @@
 		}
 
 		.signup-form {
-			width: 590px;
+			width: 600px;
 			margin: 0 auto;
-			padding: 30px 0;
+			padding: 20px 0;
 		}
 
 		.signup-form form {
@@ -42,6 +44,8 @@
 			border: 1px solid #f3f3f3;
 			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 			padding: 30px;
+			padding-bottom: 0px;
+    		padding-top: 25px;
 		}
 
 		.signup-form h2 {
@@ -77,7 +81,7 @@
 			font-weight: bold;
 			background: #3598dc;
 			border: none;
-			min-width: 120px;
+			min-width: 100px;
 		}
 
 		.signup-form .btn:hover,
@@ -110,12 +114,13 @@
 
 		<!-- Notifikasi data berhasil di simpan -->
 		<?php if ($this->session->flashdata('success')): ?>
-		<div class="alert alert-primary" role="alert">
-			<?php echo $this->session->flashdata('success'); ?>
-		</div>
+			<div class="alert alert-primary alert-dismissable" role="alert">
+				<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+				<?php echo $this->session->flashdata('success'); ?>
+			</div>
 		<?php endif; ?>
-
-		<form action="<?php echo base_url('register'); ?>" method="post">
+		
+		<form action="<?php echo base_url('register'); ?>" method="post" enctype="multipart/form-data">
 			<fieldset>
 				<h2 class="text-center">Pendaftaran</h2>
 				<p class="text-center">Silahkan isi formulir pendaftaran sesuai data diri anda</p>
@@ -136,7 +141,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Tanggal Lahir</label>
-								<input type="date" class="form-control" name="tanggal_lahir">
+								<input type="date" class="form-control" name="tanggal_lahir" value="<?php echo $tanggal_lahir; ?>">
 								<span style="color: red">
 									<?php echo form_error('tanggal_lahir'); ?>
 								</span>
@@ -192,33 +197,43 @@
 					</div>
 
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-6">
 							<!-- Foto -->
 							<div class="form-group">
-								<label>Foto</label>
+								<label for="foto">Foto</label>
 								<input type="file" class="form-control" name="foto" placeholder="Foto">
-							</div>
+								<!-- <span style="color: red">
+									<?php //echo form_error('foto'); ?>
+								</span>	 -->
+							</div>																			
 						</div>
-						<div class="col-md-12">
+						<div class="col-md-6">
 							<div class="form-group">
 								<label for="alamat">Alamat</label>
-								<textarea class="form-control" name="alamat" placeholder="Alamat" rows="8"><?php echo $alamat; ?></textarea>
+								<textarea class="form-control" name="alamat" placeholder="Alamat" rows="4"><?php echo $alamat; ?></textarea>
 								<span style="color: red">
 									<?php echo form_error('alamat'); ?>
 								</span>
 							</div>
 						</div>
 					</div>
-					<div class="form-group" style="float: right;">
-						<button type="submit" class="btn btn-primary btn-lg pull-right">Daftar</button>
-					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="text-center">Sudah punya akun?
+								<a href="<?php echo base_url('login'); ?>">Silahkan Login</a>
+							</div>
+						</div>
+						<div class="col md 6">
+							<div class="form-group" style="float: right;">
+								<button type="submit" class="btn btn-primary btn-lg pull-right">Daftar</button>
+							</div>
+						</div>
+					</div>					
 				</div>
-			</fieldset>
-		</form>
-		<div class="text-center">Sudah punya akun?
-			<a href="<?php echo base_url('login'); ?>">Silahkan Login</a>
-		</div>
-	</div>
+			</fieldset>			
+		</form>		
+	</div>	
 </body>
 
 </html>

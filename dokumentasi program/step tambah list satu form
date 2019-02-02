@@ -1,0 +1,34 @@
+1. Tombol tambah list
+
+2. element dengan atribut id untuk list 
+    <table>
+        <thead>
+            <tr>
+                <th>No<th>
+                <th>Nama<th>
+                <th>Jumlah<th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="ListBahan"></tbody>
+    </table>
+    <input id="no_list" value="1">
+
+3. Script js untuk tambah list tr dengan append() dipangggil di button tambah list, definisikan apa yg mau ditambah di list sesuai dengan headnya
+    '<tr>'+
+        '<td>1</td>'+
+        '<td>Nama Budi</td>'+
+        '<td><input type="number" name="jumlah['+no_list+']" id="jumlah-'+no_list+'"</td>'+
+        '<td>'+
+            '<input type="hidden" name="bahan['+no_list+']" id="bahan-'+no_list+'">'
+            '<button type="button" onlick"browse('+no_list+')">Browse</button>'+
+        '</td>'+
+    '</tr>'
+
+    no_list diupdate tambahkan 1 lagi => 1 + 1 = 2, 2 + 1 = 3; 
+
+4. Tombol browse di setiap list yang baru ditambahkan
+
+5. fungsi browse ajax muncul popup klik pilih salah satu popoup close masukkan pilihan ke dalam input list sesuai no list
+
+

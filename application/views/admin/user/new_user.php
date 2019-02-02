@@ -38,80 +38,155 @@
 						</a>
 					</div>
 
-					<div class="card-body">						
-						<form action="<?php echo site_url('admin/user/add'); ?>" method="post" enctype="multipart/form-data">
-							<div class="form-group">
-								<label for="username">Username*</label>
-								<input type="text" class="form-control" name="username" value="<?php echo $username; ?>" placeholder="Username">
-								<span style="color: red">
-									<?php echo form_error('username'); ?>
-								</span>
+					<div class="card-body">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-8">
+									<form action="<?php echo site_url('admin/user/add'); ?>" method="post" enctype="multipart/form-data">
+										
+										<div class="row">
+											<div class="col-md-2">
+												<label for="username">Username*</label>
+											</div>
+											<div class="col-md-1">:</div>
+											<div class="col-md-9">
+												<input type="text" class="form-control" name="username" value="<?php echo $username; ?>" placeholder="Username">
+												<span style="color: red">
+													<?php echo form_error('username'); ?>
+												</span>
+											</div>
+										</div>
+										<br>
+
+										<div class="row">
+											<div class="col-md-2">
+												<label for="password">Password*</label>
+											</div>
+											<div class="col-md-1">:</div>
+											<div class="col-md-9">
+												<input type="password" class="form-control" name="password" placeholder="Password">
+												<span style="color: red">
+													<?php echo form_error('password'); ?>
+												</span>
+											</div>
+										</div>
+										<br>								
+
+										<div class="row">
+											<div class="col-md-2">
+												<label for="nama">Nama Lengkap*</label>
+											</div>
+											<div class="col-md-1">:</div>
+											<div class="col-md-9">
+												<input type="text" class="form-control" name="nama" value="<?php echo $nama; ?>" placeholder="Nama Lengkap">
+												<span style="color: red">
+													<?php echo form_error('nama'); ?>
+												</span>
+											</div>
+										</div>
+										<br>			
+
+										<div class="row">
+											<div class="col-md-2">
+												<label for="email">Alamat Email*</label>
+											</div>
+											<div class="col-md-1">:</div>
+											<div class="col-md-9">
+												<input type="text" class="form-control" name="email" value="<?php echo $email; ?>" placeholder="Alamat Email">
+												<span style="color: red">
+													<?php echo form_error('email'); ?>
+												</span>
+											</div>
+										</div>
+										<br>
+
+										<div class="row">
+											<div class="col-md-2">
+												<label for="tanggal_lahir">Tanggal Lahir*</label>
+											</div>
+											<div class="col-md-1">:</div>
+											<div class="col-md-9">
+												<input type="date" class="form-control" name="tanggal_lahir" value="<?php echo $tanggal_lahir; ?>">
+												<span style="color: red">
+													<?php echo form_error('tanggal_lahir'); ?>
+												</span>
+											</div>
+										</div>
+										<br>
+
+										<!-- <div class="row">
+											<div class="col-md-2">
+												<label for="tanggal_lahir">Umur</label>
+											</div>
+											<div class="col-md-1">:</div>
+											<div class="col-md-8">
+												<input type="number" class="form-control" name="umur" placeholder="Umur">
+											</div>
+										</div>
+										<br> -->
+
+										<div class="row">
+											<div class="col-md-2">
+												<label for="alamat">Alamat*</label>
+											</div>
+											<div class="col-md-1">:</div>
+											<div class="col-md-9">
+												<textarea class="form-control" name="alamat" placeholder="Alamat"><?php echo $alamat; ?></textarea>
+												<span style="color: red">
+													<?php echo form_error('alamat'); ?>
+												</span>
+											</div>
+										</div>
+										<br>
+
+										<div class="row">
+											<div class="col-md-2">
+												<label for="no_telp">No. Telp*</label>
+											</div>
+											<div class="col-md-1">:</div>
+											<div class="col-md-9">
+												<input type="text" class="form-control" name="no_telp" value="<?php echo $no_telp; ?>" placeholder="No. Telephone">
+												<span style="color: red">
+													<?php echo form_error('no_telp'); ?>
+												</span>
+											</div>
+										</div>
+										<br>		
+
+										<div class="row">
+											<div class="col-md-2">
+												<label for="foto">Foto*</label>
+											</div>
+											<div class="col-md-1">:</div>
+											<div class="col-md-9">
+												<input type="file" class="form-control-file" name="foto">
+												<span style="color: red">
+													<?php echo form_error('foto'); ?>
+												</span>
+											</div>
+										</div>
+										<br>																
+
+										<div class="row">
+											<div class="col-md-9"></div>
+											<div class="text-right">
+												<a href="http://localhost/ci-ibuhamil/admin/user">
+													<button type="button" class="btn btn-primary pull-right">
+													<i class="fas fa-arrow-left"></i> Kembali</button>
+												</a>                                               
+
+												<button type="submit" class="btn btn-success pull-right">
+													<i class="far fa-save"></i> Save
+												</button>
+											</div>
+										</div>								
+
+									</form>
+								</div>
+								<div class="col-md-3"></div>
 							</div>
-
-							<div class="form-group">
-								<label for="password">Password*</label>
-								<input type="password" class="form-control" name="password" placeholder="Password">
-								<span style="color: red">
-									<?php echo form_error('password'); ?>
-								</span>
-							</div>
-
-							<div class="form-group">
-								<label for="nama">Nama*</label>
-								<input type="text" class="form-control" name="nama" value="<?php echo $nama; ?>" placeholder="Nama">
-								<span style="color: red">
-									<?php echo form_error('nama'); ?>
-								</span>
-							</div>
-
-							<div class="form-group">
-								<label for="email">Email*</label>
-								<input type="text" class="form-control" name="email" value="<?php echo $email; ?>" placeholder="Email">
-								<span style="color: red">
-									<?php echo form_error('email'); ?>
-								</span>
-							</div>							
-
-							<!-- <div class="form-group">
-								<label for="level">Level*</label>							
-								<select class="form-control" id="select" name="level">
-									<option value="0">Silahkan Pilih</option>
-									<option value="1">Ibu Hamil</option>
-									<option value="2">Petugas Kesehatan</option>																		
-								</select>
-								<span style="color: red">
-									<?php echo form_error('select'); ?>
-								</span>													
-							</div> -->
-
-							<div class="form-group">
-								<label for="alamat">Alamat*</label>
-								<textarea class="form-control" name="alamat" placeholder="Alamat"><?php echo $alamat; ?></textarea>
-								<span style="color: red">
-									<?php echo form_error('alamat'); ?>
-								</span>
-							</div>
-
-							<div class="form-group">
-								<label for="no_telp">No. Telp*</label>
-								<input type="text" class="form-control" name="no_telp" value="<?php echo $no_telp; ?>" placeholder="No. Telephone">
-								<span style="color: red">
-									<?php echo form_error('no_telp'); ?>
-								</span>
-							</div>
-
-							<div class="form-group">
-								<label for="foto">Foto*</label>
-								<input type="file" class="form-control-file" name="foto">
-								<span style="color: red">
-									<?php echo form_error('foto'); ?>
-								</span>
-							</div>							
-							
-							<button type="submit" class="btn btn-success">
-								<i class="far fa-save"></i> Save
-                            </button>
-						</form>
+						</div>						
 					</div>
 				</div>
 

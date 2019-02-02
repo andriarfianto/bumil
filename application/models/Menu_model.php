@@ -30,7 +30,7 @@ class Menu_model extends CI_Model
     public function detail_bahan($id)
     {
         $db = $this->db->join('bahan_makan', 'bahan_makan.id_bahan = detail_menu.id_bahan')
-              ->get_where('detail_menu', ["id_menu" => $id])->result();
+            ->get_where('detail_menu', ["id_menu" => $id])->result();
 
         return $db;
 

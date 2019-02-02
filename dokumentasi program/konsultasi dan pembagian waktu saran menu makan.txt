@@ -1,0 +1,299 @@
+BACK UP FILE CODE YANG NGAK TERPAKAI TAPI SEWAKTU WAKTU BISA DIGUNAKAN
+
+PART 1
+=======================================================================================
+Catatan: Ngacak menu makan dari hasil konsultasi berdasarkan energi_menu makan (Gagal - Data saran menu makan tidak sama/sesuai dengan hasil konsultasi)
+
+// inisailisasi batas atas dan bawah
+$persen    = $tee * 0.1;
+$ten_atas  = $tee + $persen;
+
+$menu = $this->konsultasi_model->getMenuRandom();
+$menus = $menu->result();
+
+$total = 0;
+// simpan data saran makanan, tb = detail_konsultasi
+foreach ($menus as $key => $val)
+{
+    // var_dump($key); die('cek saran key');
+    // var_dump($val); die('cek saran val');
+
+    if ($total <= $ten_atas) {
+        // prose simpan ke database
+        $id_menu_disarankan = $val->id_menu;
+
+        $data = array(
+            'id_konsultasi' => $id_konsultasi_terbaru,
+            'id_menu' => $id_menu_disarankan,
+        );
+
+        //input kedb lewat model
+        $this->konsultasi_model->saveDetail($data);
+
+        // tambah total, agar total energi yang disimpan sebagai saran tidak melebihi batas atas
+        $total += $val->energi_menu;
+    }
+    else {
+        break;
+    }
+}
+
+SELECT SUM(menu_makan.energi_menu)
+FROM `detail_konsultasi`
+JOIN menu_makan ON menu_makan.id_menu = detail_konsultasi.id_menu
+WHERE id_konsultasi = 2
+=======================================================================================
+
+PART 2
+=======================================================================================
+Catatan: 
+Pembagian Waktu Makan (Cara menampilkan menu makan sesuai waktu pagi, siang dan sore)
+(Gagal - Salah cara menampilkan informasi dan yang dimaksud eko, harusnya menampilkan dengan cara membagi waktu yang berada di view new_konsultasi)
+
+/**
+         * TES - Ambil data Energi Menu Makan berdasarkan id_konsultasi
+         * $saran = $this->konsultasi_model->getEnergiMenu($id_konsultasi);
+         * $sarans = $saran->result();
+         * var_dump($sarans);
+         * die('dbsh');
+         */                
+        
+        /**
+         * Success - pembagian waktu makan
+         * $total_makan = $this->konsultasi_model->getTotalEnergi($id_konsultasi)->row(); // total menu makan berdasarkan id_konsultasi
+         * $waktu_makan = (float) $total_makan->energi_menu / 3;
+         * $data['waktu'] = round($waktu_makan, 2);
+         * var_dump($data['waktu']); 
+         */ 
+
+        /**
+         * TES - get Total Menu Makanan
+         * Ambil data Energi Menu Makan berdasarkan id_konsultasi lalu di Jumlahkan
+         * $total = $this->konsultasi_model->getTotalEnergi($id_konsultasi)->row();
+         * var_dump($total);
+         * die('dbsh');
+         */
+
+        // parameter 1 = NULL
+        // if id_konsultasi not null ambil data dari database
+        // kalau parameter ada isi nya
+        // jalankan fungsi data - manggil get dari id_konsultasi = parameter
+        // tampung variabel dibawa ke view yang sama
+
+        // diview harus ada kondisi kalau parameter kosong form kosong kalau ada tampilkan
+        if (!empty($id_konsultasi)) {
+            $data_konsultasi = $this->konsultasi_model->getId($id_konsultasi);
+            // ambil data dari database where id parameter id_konsultasi
+            // tampung ke variabel untuk menampilkan view
+            $data['konsultasi'] = $data_konsultasi;
+
+            /**
+             * Catatan penting
+             * Jalankan fungsi pembagian menu makan mulai dari sini
+             * 1. Select total energi dari saran makanan sesusai id_konsultasi
+             * 2. Total energi menu yang sudah dapat dibagi 3 jenis waktu (pembulatan)
+             * 3. $hasil_bagi = $total / 3;
+             * 4. Pembulatan 2 angka dibelakang koma - round($hasil_bagi, 2) - skip sementara
+             * 5. Variabel hasil pembagian berdasarkan jumlah waktu makan dikirimkan ke view dengan membawa sebuah variabel
+             * 6. $data['hasilbagi'] = $hasil_bagi;
+             * 7. Sebelum di foreach inisialisasi dulu $total = 0
+             * 8. Saat di foreach (asumsi pagi) setiap val/saran total + jumlah energi
+             */
+            
+            /**
+             * Implementasi - Coba terus sampai bisa
+             */                 
+            
+            $total_makan = $this->konsultasi_model->getTotalEnergi($id_konsultasi)->row(); // total menu makan berdasarkan id_konsultasi
+            $waktu_makan = (float) $total_makan->energi_menu / 3;
+            $makan = round($waktu_makan);
+
+            // ambil data
+            $sarans = $this->konsultasi_model->getEnergiMenu($id_konsultasi)->result();            
+
+            // catatan : buat model untuk mengambil semua data
+            // energi menu yang berada di tabel detail_konsultasi
+            // berdasarkan id_konsultasi dari user
+            
+            $jam_makan = 1;
+            $total = 0;
+
+            foreach ($sarans as $key => $val) {
+
+                // var_dump($key); die('cek saran key');
+                // var_dump($val); die('cek saran val');
+
+                $total = $total + $val->energi_menu;
+                // var_dump($total);
+                // var_dump($makan);
+
+                if ($total >= $makan) {
+                    // var_dump($val->energi_menu);
+                    $total = 0;
+                    $jam_makan = $jam_makan + 1;
+                    echo "SIANG: ";
+                    var_dump($val->nama_menu);
+                } else {
+                    // var_dump($val->nama_menu);
+                }
+
+                // if ($total >= $waktu_makan) {
+                //     print "waktu makan: " + $total;
+                //     // $total = 0;
+                //     // $jam_makan = $jam_makan + 1; // $jam_makan = 2 == siang
+                //     // $total = $total + $val->energi_menu;
+                // }
+            }
+
+            /**
+             * Eko :
+             * echo PAGI :            
+            * $total = 0;
+            * foreach ($sarans as key => $saran) {
+            *   $total = $total + $saran->jumlah_energi; // $total +=
+            *
+            *    // kondisi jika total lebih dari hasil bagi maka ini sudah masuk jam makan selanjutnya
+            *    if ($total >= $hasil_bagi ) {
+            *        $total = 0;
+            *        $jam_makan = $jam_makan + 1; // = 2 == siang
+            *        // echo if 2 = SIANG : || if 3 = MALEM
+            *
+            *        // echo nama saran menu
+            *    }
+            *    else {
+            *        // echo nama saran menu
+            *    }
+            *}
+             */
+
+            $data_detail = $this->konsultasi_model->getDetail($id_konsultasi)->result();
+            $data['details'] = $data_detail;
+            // var_dump($data['details']); die('dsd');
+            // $this->load->view('ibuhamil/konsultasi/new_konsultasi', $data_konsultasi);
+        }
+
+
+         foreach ($sarans as $key => $val) {
+
+                $total = $total + $val->energi_menu;                
+
+                if ($total >= $makan) {                    
+                    $total = 0;
+                    $jam_makan = $jam_makan + 1;
+                    echo "SIANG: ";
+                    var_dump($val->nama_menu);
+                } else {
+                    // var_dump($val->nama_menu);
+                }               
+            }
+
+
+            /**
+             * Eko :
+             * echo PAGI :            
+            * $total = 0;
+            * foreach ($sarans as key => $saran) {
+            *   $total = $total + $saran->jumlah_energi; // $total +=
+            *
+            *// kondisi jika total lebih dari hasil bagi maka ini sudah masuk jam makan selanjutnya
+            *    if ($total >= $hasil_bagi ) {
+            *        $total = 0;
+            *        $jam_makan = $jam_makan + 1; // = 2 == siang
+            *        // echo if 2 = SIANG : || if 3 = MALEM
+            *
+            *        // echo nama saran menu
+            *    }
+            *    else {
+            *        // echo nama saran menu
+            *    }
+            *}
+             */
+=======================================================================================
+
+Part 3
+=======================================================================================
+Catatan 
+    Tahap 1 (Menampilkan data saran menu makan menggunakan table - Ganti)
+    Tahap 2 (Menampilkan data saran menu makan dengan pembagian waktu pagi, siang dan malam - pembagian dalam 3 waktu. Masih gagal dalam keakuratan dari pembagian waktu. Saran menu makan berlebih dengan hasil konsultasi - permasalahan di perulangan dan percabangan dengan continue break)
+
+<table class="table table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <td>No</td>
+            <td>Nama Menu</td>
+            <td>Kategori</td>
+            <td>Energi</td>
+            <td>Karbohidrat</td>
+            <td>Protein</td>
+            <td>Lemak</td>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if (!empty($details)): ?>
+            <?php $no=1; ?>
+            <?php foreach ($details as $detail): ?>
+                <?php
+                    if ($detail->kategori_menu == "1")
+                    $showKat = "Buah";
+                    elseif ($detail->kategori_menu == "2")
+                    $showKat = "Daging";
+                    elseif ($detail->kategori_menu == "3")
+                    $showKat = "Ikan";
+                    elseif ($detail->kategori_menu == "4")
+                    $showKat = "Sayuran";
+                    elseif ($detail->kategori_menu == "5")
+                    $showKat = "Serelia/Umbi";
+                    else
+                    $showKat = '';								 
+                ?>
+                <tr>
+                    <td><?php echo $no; ?></td>
+                    <td><?php echo $detail->nama_menu; ?></td>
+                    <td><?php echo $showKat; ?></td>
+                    <td><?php echo $detail->energi_menu; ?> kalori</td>
+                    <td><?php echo $detail->karbohidrat_menu; ?> gram</td>
+                    <td><?php echo $detail->protein_menu; ?> gram</td>
+                    <td><?php echo $detail->lemak_menu; ?> gram</td>
+                </tr>
+            <?php $no++; endforeach; ?>
+        <?php endif; ?>
+    </tbody>
+</table>
+
+<?php if (!empty($details)): ?>
+<?php					
+    echo $nilai_batasatas;
+    $hasil = $total_energimenu->energi_menu / 3;					
+    $total = 0;
+    $jam_makan = 1;
+    echo ' - ' .$hasil;
+?>
+    <h3><?php echo ($jam_makan==1) ? 'Pagi' : '' ?></h3>
+    
+    <?php foreach ($details as $detail): ?>
+        <?php $total = $total + $detail->energi_menu; ?>
+        
+        <?php if ($total >= $hasil) : ?>
+            <?php $total = 0; ?>
+
+            <?php $jam_makan = $jam_makan + 1; ?>
+            
+            <h3><?php echo ($jam_makan==2) ? 'Siang' : 'Malam' ?></h3>
+
+        <?php else : ?>
+            
+            <p><?php echo $detail->nama_menu.' - '.$detail->energi_menu ?></p>
+            
+        <?php endif; ?>
+
+    <?php endforeach; ?>
+    
+
+<?php else: ?>
+
+    <p>kosong</p>
+
+<?php endif; ?>
+
+// dites apakah yang di pakai nilai_batasatas atau total_energimenu->energi_menu
+// lalu coba kalikan batas atas 15%

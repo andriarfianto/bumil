@@ -1,29 +1,37 @@
 <?php
 class Dashboard extends MY_Controller
 {
-    public function ___construct()
+    public function __construct()
     {
         parent::__construct();
         if ($this->session->userdata('username')=="") {
             redirect('auth');
         }
+        $this->load->model('chart_model');
+        $this->load->model('user_model');
     }
 
     public function index()
     {
         // memanggil session
         $id = $this->session->userdata('id_user');
-        $this->load->model('user_model');        
-        $data['user'] = $this->user_model->getById($id);
+        $data['user'] = $this->user_model->getById($id);        
         if (!$data['user']) show_404();
 
+        // $this->load->view('ibuhamil/overview', $data);
         // $this->load->view('admin/_partials/navbar', $data);
-        $this->load->view('ibuhamil/overview', $data);
 
         // var_dump($this->session->userdata);
 
         // load view admin/overview.php
         // $this->load->view("ibuhamil/overview");
+
+        // menampilkan data chart ibu hamil        
+        // var_dump($id); die('fd');
+        // var_dump($user_konsultasi); die('ds');
+        $user_konsultasi = $this->chart_model->getById($id)->result();
+        $data['konsultasi'] = json_encode($user_konsultasi);
+        $this->load->view('ibuhamil/overview', $data); 
     }
 
     public function logout() {

@@ -15,12 +15,10 @@
 	<link href="<?php echo base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom fonts for this template-->
-	<link href="<?php echo base_url('assets/fontawesome-free/css/all.min.css'); ?>"
-	 rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('assets/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
 
 	<!-- Page level plugin CSS-->
-	<link href="<?php echo base_url('assets/datatables/dataTables.bootstrap4.css'); ?>"
-	 rel="stylesheet">
+	<link href="<?php echo base_url('assets/datatables/dataTables.bootstrap4.css'); ?>" rel="stylesheet">
 
 	<!-- Custom styles for this template-->
 	<link href="<?php echo base_url('css/sb-admin.css'); ?>" rel="stylesheet">
@@ -29,8 +27,7 @@
 
 <body id="page-top">
 
-
-    	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -79,8 +76,7 @@
         </div>
     </nav>
 
-
-	 <div id="wrapper">
+	<div id="wrapper">
 
 		<div id="content-wrapper">
 
@@ -90,23 +86,68 @@
 					<li><a href="http://localhost/ci-ibuhamil/home">Home</a></li>
 				</ul>
 
-				<div class="jumbotron" style="background-color: #e3e3e3;">
+				<!-- <div class="jumbotron" style="background-color: #e3e3e3;">
 					<center>
 					<h1>Sistem Pemenuhan Gizi Ibu Hamil</h1>
 					    <h3>Menggunakan Metode Harris Benedict</h3>
 					    <h4>Andri Arfianto</h4>
 					    <h4>3125111382</h4>
 					</center>
-				</div>
+				</div> -->
 				<hr>
-<!--
+
 				<div class="col-lg-12">
 					<div class="row">
-						<div class="col-lg-4">Satu</div>
-						<div class="col-lg-4">Dua</div>
-						<div class="col-lg-4">Tiga</div>
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8">
+							<p>
+							<center>
+								<h1>Sistem Pemenuhan Gizi Ibu Hamil</h1>
+								<h3>Menggunakan Metode Harris Benedict</h3>
+								<h4>Andri Arfianto</h4>
+								<h4>3125111382</h4>
+							</center>
+							</p>
+						</div>
+						<div class="col-lg-2"></div>
 					</div>
-				</div> -->
+				</div>
+				<hr>
+				
+				<div class="col-lg-12">
+					<div class="row">
+						<div class="col-lg-4">
+							<p>
+								<ul>
+									<li><strong><h4>Informasi website :</h4></strong></li>
+									Website ini digunakan sebagai implementasi dari tugas akhir yang berjudul "Sistem pemenuhan gizi ibu hamil menggunakan metode harris benedict."
+									Aplikasi ini digunakan untuk menghitung dan mengetahui jumlah kebutuhan gizi dari ibu hamil dari proses perhitungan : 
+									energi basal metabolisme ditambah nilai aktifitas fisik ditambah hasil olah makanan dan usia_kehamilan yang diambil dari parameter
+									tinggi badan ibu hamil, berat badan ibu hamil, usia ibu hamil.							
+								</ul>
+							</p>
+						</div>
+						<div class="col-lg-4">
+							<p>
+								<ul>
+									<li><strong><h4>Pengguna aplikasi :</h4></strong></li>
+									Aplikasi ini digunakan oleh ibu hamil sebagai sarana untuk mengetahui kondisi kesehatan dan gizi ibu hamil dari pekan per pekan dengan pemberian
+									saran makan dari hasil konsultasi perhitungan nilai gizi ibu hamil
+								</ul>
+							</p>
+						</div>
+						<div class="col-lg-4">
+							<p>
+								<ul>									
+									<li><strong><h4>Cara penggunaan :</h4></strong></li>
+									Pengguna akan memasukkan data tinggi badan, berat badan, usia ibu hamil, usia kandungan dan aktifitas fisik.
+									Kemudian, sistem akan mengolah data tersebut dengan metode harris benedict untuk menghitung jumlah kebutuhan gizi ibu hamil.
+									Dari kebutuhan energi gizi tersebut akan dijadikan saran menu makan yang sesuai dengan nilai hasil hitung yang didapat.						
+								</ul>
+							</p>
+						</div>
+					</div>
+				</div>
 
 			</div>
 			<!-- /.container-fluid -->

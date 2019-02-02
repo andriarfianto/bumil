@@ -5,12 +5,13 @@ defined('BASEPATH') OR exit ('No direct script access allowed');
  * Class Controller Profile
  * untuk update data user ibu hamil
  */
-class Profile extends CI_Controller
+class Profile extends MY_Controller
 {
 
     function __construct()
     {
         parent::__construct();
+        $this->load->model('user_model');
         $this->load->model('user_model');
     }
 
@@ -18,23 +19,81 @@ class Profile extends CI_Controller
     {
         // memanggil session
         $id = $this->session->userdata('id_user');
-        $data['user'] = $this->user_model->getById($id);
+
+        // ambil data dari get konsultasi
+        $data['user'] = $this->user_model->getById($id);        
         if (!$data['user']) show_404();
 
         $this->load->view('ibuhamil/profile', $data);
+    }  
+
+    // fungsi pengecekan usia tanggal lahir
+    public function validasi_tgllahir($date)
+    {
+        $birthday = new DateTime($date);
+        $today = new DateTime();
+
+        $interval = $today->diff($birthday);
+        $usia_ibu = $interval->y;
+
+        if ($usia_ibu < 17) {
+            $this->form_validation->set_message('validasi_tgllahir', 'Umur anda terlalu muda, usia minimal 17 tahun');
+            return FALSE;            
+        }
+        return TRUE;
+        // var_dump($birthday->format('d/m/y')); die('dsh');
+        // var_dump($interval->y." Tahun"); die('sajk');
+    }
+
+    // fungsi pengecekan email yang sudah ada didatabase
+    public function check_emaillama($email_inputan)
+    {
+        // id ibu yg login - selain ibu yang login
+        $id_ibulogin = $this->session->userdata('id_user');
+        // var_dump($id_ibulogin ); die('dsd');
+
+        $email_db = $this->user_model->updateEmail($email_inputan, $id_ibulogin)->row();
+        // var_dump($email_db); die('ds');
+
+        if (!empty($email_db)) {
+            $this->form_validation->set_message('check_emaillama', 'Email yang anda inputkan sudah ada');
+            return FALSE;
+        }
+        return TRUE;
+    }
+
+    // fungsi pengecekan username yang sudah ada didatabase
+    public function check_usernamelama($username_inputan)
+    {
+        // id ibu yg login - selain ibu yang login
+        $id_ibulogin = $this->session->userdata('id_user');
+        // var_dump($id_ibulogin ); die('dsd');
+
+        $username_db = $this->user_model->updateUsername($username_inputan, $id_ibulogin)->row();
+        // var_dump($username_db); die('ds');
+
+        if (!empty($username_db)) {
+            $this->form_validation->set_message('check_usernamelama', 'Username yang anda inputkan sudah ada');
+            return FALSE;
+        }
+        return TRUE;
     }
 
     public function edit($id = null)
     {
+        // $username_inputan = $this->session->userdata('username');
+        // $username_db = $this->user_model->checkUsernameLama($username_inputan)->row();
+        // var_dump($username_db); die('ds');
         // memanggil session
         if (!isset($id)) redirect('ibuhamil/profile');
 
         $data['user'] = $this->user_model->getById($id);
         if (!$data['user']) show_404();
 
-        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required|callback_check_usernamelama');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('email','Email Address','required|valid_email');
+        $this->form_validation->set_rules('email','Email Address','required|valid_email|callback_check_emaillama');
+        $this->form_validation->set_rules('tanggal_lahir','Tanggal Lahir','required|callback_validasi_tgllahir');        
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('no_telp', 'No. Telephone', 'required|numeric');
 
@@ -62,7 +121,8 @@ class Profile extends CI_Controller
                 'email' => $this->input->post('email'),                
                 'alamat' => $this->input->post('alamat'),
                 'no_telp' => $this->input->post('no_telp'),
-                'foto' => 'default.jpg',
+                'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+                // 'foto' => 'default.jpg',
             );
             // var_dump($post_data); die('$post_data');
 
@@ -94,14 +154,22 @@ class Profile extends CI_Controller
                     $post_data['foto'] = $uploaded['file_name'];
                     // var_dump($data); die('a');
                 }
+            } else {
+                $this->input->post('old_image');
             }
 
             $this->user_model->update($post_data, $id);
 
-            $this->session->set_flashdata('success', 'Data user berhasil diubah');
+            $this->session->set_flashdata('success', 'Data anda berhasil diubah');
 
             redirect(base_url('ibuhamil/profile'));
         }
+        // else {
+        //     var_dump($_POST($username_db)); die('dsd');
+        // }
+        // else {
+        //     if (!empty($_POST)) die(validation_errors());
+        // }
 
         $this->load->view('ibuhamil/edit_profile', $data);
     }

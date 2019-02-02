@@ -36,6 +36,8 @@ class konsultasi_model extends CI_Model
         $this->db->insert('detail_konsultasi', $data);
     }
 
+    // Menjumlahkan total menu makan dari hasil konsultasi
+    // Total menu makan berdasarkan menu makan yang disarankan
     public function getTotalEnergiMenuSaran($id = null)
     {
         // return $this->db->get_where($this->_table, ['tee' => $id]);
@@ -48,6 +50,30 @@ class konsultasi_model extends CI_Model
         // FROM `detail_konsultasi`
         // JOIN menu_makan ON menu_makan.id_menu = detail_konsultasi.id_menu
         // WHERE id_konsultasi = 2
+    }
+
+    // Menjumlahkan total karbohidrat menu makan dari hasil konsultasi    
+    public function getTotalKarbohidratMenuMakan($id = null)
+    {
+        $this->db->select_sum('menu_makan.karbohidrat_menu');
+        $this->db->join('menu_makan', 'menu_makan.id_menu = detail_konsultasi.id_menu');
+        return $this->db->get_where('detail_konsultasi', ['id_konsultasi' => $id]);
+    }
+
+    // Menjumlahkan total protein menu makan dari hasil konsultasi    
+    public function getTotalProteinMenuMakan($id = null)
+    {
+        $this->db->select_sum('menu_makan.protein_menu');
+        $this->db->join('menu_makan', 'menu_makan.id_menu = detail_konsultasi.id_menu');
+        return $this->db->get_where('detail_konsultasi', ['id_konsultasi' => $id]);
+    }
+
+    // Menjumlahkan total lemak menu makan dari hasil konsultasi    
+    public function getTotalLemakMenuMakan($id = null)
+    {
+        $this->db->select_sum('menu_makan.lemak_menu');
+        $this->db->join('menu_makan', 'menu_makan.id_menu = detail_konsultasi.id_menu');
+        return $this->db->get_where('detail_konsultasi', ['id_konsultasi' => $id]);
     }
 
     public function getEnergiMenu($id = null)

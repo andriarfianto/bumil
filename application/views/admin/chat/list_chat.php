@@ -23,9 +23,9 @@
 
 				<!-- Notifikasi data berhasil di simpan -->
 				<?php if ($this->session->flashdata('success')): ?>
-				<div class="alert alert-primary" role="alert">
-					<?php echo $this->session->flashdata('success'); ?>
-				</div>
+					<div class="alert alert-primary" role="alert">
+						<?php echo $this->session->flashdata('success'); ?>
+					</div>
 				<?php endif; ?>
 
 				<!-- DataTables -->

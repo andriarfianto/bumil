@@ -54,7 +54,7 @@
 			<a class="dropdown-item" href="<?php echo site_url('admin/bahan/add'); ?>">Tambah Bahan</a>
 			<a class="dropdown-item" href="<?php echo site_url('admin/bahan'); ?>">Daftar Bahan</a>
 		</div>
-	</li>
+	</li>	
 	<!-- Konsultasi -->
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'konsultasi' ?  'active' : ''?>">
 		<a class="nav-link" href="<?php echo site_url('admin/konsultasi'); ?>">

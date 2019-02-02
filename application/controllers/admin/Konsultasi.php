@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit ('No direct script access allowed');
 
-class Konsultasi extends CI_Controller
+class Konsultasi extends MY_Controller
 {
     function __construct()
     {

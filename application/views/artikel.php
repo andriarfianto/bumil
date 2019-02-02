@@ -22,7 +22,7 @@
                     <a class="nav-link" href="<?php echo base_url('home/informasi') ?>">Informasi</a>
                 </li>
 				<li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('home/artikel') ?>">Kontak</a>
+                    <a class="nav-link" href="<?php echo base_url('home/kontak') ?>">Kontak</a>
                 </li>
 				<li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/tentang') ?>">Tentang</a>
@@ -72,24 +72,24 @@
 							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 						</ol>
-						<div class="carousel-inner">
+						<div class="carousel-inner" style=" width:100%; height: 200px !important;">
 							<div class="carousel-item active">
 								<img class="d-block w-100" src="<?php echo base_url('upload/admin/slides.jpg'); ?>" alt="First slide">
-								<div class="carousel-caption">
+								<div class="carousel-caption" style="margin-bottom: 17%">
 									<h3>Hello Ibu</h3>
 									<p>Cek Kandungan Anda Rutin Setiap Bulan.</p>
 								</div>
 							</div>
 							<div class="carousel-item">
 								<img class="d-block w-100" src="<?php echo base_url('upload/admin/slides.jpg'); ?>" alt="Second slide">
-								<div class="carousel-caption">
+								<div class="carousel-caption" style="margin-bottom: 17%">
 									<h3>Jaga Kesehatan</h3>
 									<p>Makanlah Sesuai Resep & Kebutuhan Kalori Anda</p>
 								</div>
 							</div>
 							<div class="carousel-item">
 								<img class="d-block w-100" src="<?php echo base_url('upload/admin/slides.jpg'); ?>" alt="Third slide">
-								<div class="carousel-caption">
+								<div class="carousel-caption" style="margin-bottom: 17%">
 									<h3>Obrolkan</h3>
 									<p>Punya Pertanyaan ?, Silahkan Gunakan Fitur Chat Dokter.</p>
 								</div>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit ('No direct script access allowed');
 
-class Konsultasi extends CI_Controller
+class Konsultasi extends MY_Controller
 {
     public function __construct()
     {
@@ -14,12 +14,14 @@ class Konsultasi extends CI_Controller
     {
         $tee = 2603.336;
         $persen    = $tee * 0.1;
-        $ten_atas  = $tee + $persen;
-        $ten_bawah  = $tee - $persen;
+        $ten_atas  = $tee + $persen; // batas atas
+        $ten_bawah  = $tee - $persen; // batas bawah
 
         echo 'tee = '.$tee.' && atas = '.$ten_atas.' && bwh = '.$ten_bawah.'<br/>';
 
         // ambil data menu makanan dengan random dan cek yang jika jumlah energinya lebih batas bawah dan kurang dari batas atas
+        // kalau lebih besar dari batas atas harus dikurangi tapi
+        // kalau kurang dari batas bawah ditambah sampai nilai mencukupi
 
         $menu = $this->konsultasi_model->getMenuRandom();
         $menus = $menu->result();
@@ -57,7 +59,10 @@ class Konsultasi extends CI_Controller
     }
 
     public function index($id_konsultasi = null)
-    {       
+    {
+        // $total_makan = $this->konsultasi_model->getTotalKarbohidratMenu($id_konsultasi)->row(); // total menu makan berdasarkan id_konsultasi        
+        // var_dump($total_makan);
+        // die('der');
         // parameter 1 = NULL
         // if id_konsultasi not null ambil data dari database
         // kalau parameter ada isi nya
@@ -71,9 +76,23 @@ class Konsultasi extends CI_Controller
             // tampung ke variabel untuk menampilkan view
             $data['konsultasi'] = $data_konsultasi;
             
+            // Menjumlahkan total menu makan dari hasil konsultasi
+            // Total menu makan berdasarkan menu makan yang disarankan
             $total_makan = $this->konsultasi_model->getTotalEnergiMenuSaran($id_konsultasi)->row(); // total menu makan berdasarkan id_konsultasi
             $data['total_energimenu'] = $total_makan;
-            // var_dump($data['total_energimenu']); die('fe');            
+            // var_dump($data['total_energimenu']); die('fe');
+            
+            // total karbohidrat menu makan berdasarkan id_konsultasi
+            $total_karbohidrat = $this->konsultasi_model->getTotalKarbohidratMenuMakan($id_konsultasi)->row();
+            $data['total_karbohidrat'] = $total_karbohidrat;
+
+            // total protein menu makan berdasarkan id_konsultasi
+            $total_protein = $this->konsultasi_model->getTotalProteinMenuMakan($id_konsultasi)->row();
+            $data['total_protein'] = $total_protein;
+
+            // total protein menu makan berdasarkan id_konsultasi
+            $total_lemak = $this->konsultasi_model->getTotalLemakMenuMakan($id_konsultasi)->row();
+            $data['total_lemak'] = $total_lemak;
             
             // $waktu_makan = (float) $total_makan->energi_menu / 3;
             // $makan = round($waktu_makan);
@@ -85,9 +104,11 @@ class Konsultasi extends CI_Controller
             // energi menu yang berada di tabel detail_konsultasi
             // berdasarkan id_konsultasi dari user                  
 
-            $batas_atas = $this->konsultasi_model->getWhere(array('id_konsultasi' => $id_konsultasi))->row();
-            $data['nilai_batasatas'] = $batas_atas->batas_atas;       
+            $batas_atas = $this->konsultasi_model->getWhere(array('id_konsultasi' => $id_konsultasi))->row();            
+            $data['nilai_batasatas'] = $batas_atas;
 
+            // $tee = $this->konsultasi_model->getWhere($id_konsultasi)->row();
+            // $data['tee'] = $tee;
 
             $data_detail = $this->konsultasi_model->getDetail($id_konsultasi)->result();
             $data['details'] = $data_detail;
@@ -100,9 +121,19 @@ class Konsultasi extends CI_Controller
         $data['user'] = $this->user_model->getById($id);
         if (!$data['user']) show_404();
 
+        // untuk mengisi data usi_ibuhamil - ini diambil dari data session user yang sedang login
+        // $tanggal_lahir = $this->session->userdata('tanggal_lahir');
+        // $birthday = new DateTime($tanggal_lahir);
+		// $today = new DateTime();
+        // $interval = $today->diff($birthday);
+        // $usia_ibu = $interval->y;
+
         $berat_badan = $this->input->post('berat_badan'); // $_POST
         $tinggi_badan = $this->input->post('tinggi_badan');
+        
+        // menyimpan data usia ibu hamil dari hasil perhitungan form input tanggal lahir ibu hamil
         $usia_ibuhamil = $this->input->post('usia_ibuhamil');
+
         $usia_kehamilan = $this->input->post('usia_kehamilan');
         $aktifitas_fisik = $this->input->post('aktifitas_fisik');
         $id_user = $this->session->userdata('id_user');
@@ -115,12 +146,13 @@ class Konsultasi extends CI_Controller
 
         if ($this->form_validation->run()) {
 
+            // var_dump($_POST); die('fd');
             // fungsi mencari nilai imt
             $imt = $berat_badan / (($tinggi_badan / 100) * ($tinggi_badan / 100));
             // var_dump($imt);
 
             // untuk mencari kriteria berat badan ibu hamil
-            if ($imt < 19.8) {
+            if ($imt <= 19.8) {
                 $status_gizi = "Kurus";
             }
             elseif ($imt >= 19.9 && $imt <= 26.0) {
@@ -160,7 +192,7 @@ class Konsultasi extends CI_Controller
              * bee = 65,5 + (9.6 * BB) + (1.8 * TB) - (4.7 * Usia ibu hamil) - perhitungan benar
              */
             $bee = 655 + (9.6 * $berat_badan) + (1.8 * $tinggi_badan) - (4.7 * $usia_ibuhamil);
-            // var_dump($bee);
+            var_dump($bee);
 
             /**
              * % aktifitas * BEE - perhitungan benar
@@ -206,8 +238,15 @@ class Konsultasi extends CI_Controller
             /**
             * tee = bee() + nilai_aktifitas_fisik() + faktor pertumbuhan
             */
-            $tee = $bee + $nilai_aktifitas_fisik + $fit + $usia_kehamilan;
-            // var_dump($tee);
+            // var_dump($nilai_trisemester);
+            $tee = $bee + $nilai_aktifitas_fisik + $fit + $nilai_trisemester;
+            
+            $nilai1 = $bee + $nilai_aktifitas_fisik;
+            $nilai2 = $bee + $nilai_aktifitas_fisik + $fit;
+
+            // var_dump($nilai1);
+            // var_dump($nilai2);
+            // var_dump($tee); die('fdf');
 
             // kurang mengubah nilai kedalam bentuk karbihidrat, protein dan lemak
             $energi_karbohidrat = $tee * 0.6;
@@ -217,8 +256,11 @@ class Konsultasi extends CI_Controller
             $karbohidrat = $energi_karbohidrat / 4;
             $protein = $energi_protein / 4;
             $lemak = $energi_lemak / 9;
-
+            
+            // disimpan kedatabas - batas atas & batas bawah dari nilai total energi menu
             $batas_atas = $tee + ($tee * 0.1);
+            $batas_bawah = $tee - ($tee * 0.1);
+
             // var_dump('kebutuhan karbihidrat anda: ', $karbohidrat ,' gram');
             // var_dump('kebutuhan protein anda: ', $protein ,' gram');
             // var_dump('kebutuhan lemak anda: ', $lemak ,' gram');
@@ -239,6 +281,7 @@ class Konsultasi extends CI_Controller
                 'status_gizi' => $status_gizi,
                 'bbih' => $bbih,
                 'batas_atas' => $batas_atas,
+                'batas_bawah' => $batas_bawah,
                 'tee' => $tee,
                 'energi_karbohidrat' => $energi_karbohidrat,
                 'energi_protein' => $energi_protein,
@@ -260,7 +303,7 @@ class Konsultasi extends CI_Controller
             // inisailisasi batas atas dan bawah
             $persen    = $tee * 0.1;
             $ten_atas  = $tee + $persen;
-            $ten_bawah  = $tee - $persen;
+            $ten_bawah = $tee - $persen;
 
             // ambil data menu makanan dengan random dan cek yang jika jumlah energinya lebih batas bawah dan kurang dari batas atas
 
@@ -275,7 +318,21 @@ class Konsultasi extends CI_Controller
                 // var_dump($key); die('cek saran key');
                 // var_dump($val); die('cek saran val');
 
-                if ($total <= $ten_atas) {
+                // tambah total, agar total energi yang disimpan sebagai saran tidak melebihi batas atas
+                $total += $val->energi_menu;
+
+                if ($total >= $ten_atas) {
+                    // total melebihi batas atas dikurangi energi menu
+                    $total -= $val->energi_menu;
+                    
+                    // lebih dari batas diberikan else lebih dari batas atas
+                    if ($total <= $ten_bawah) {
+                        continue;
+                    } else {
+                        break;
+                    }                
+                }
+                elseif ($total < $ten_atas) {
                     // prose simpan ke database
                     $id_menu_disarankan = $val->id_menu;
 
@@ -286,20 +343,6 @@ class Konsultasi extends CI_Controller
 
                     //input kedb lewat model
                     $this->konsultasi_model->saveDetail($data);
-
-                    // tambah total, agar total energi yang disimpan sebagai saran tidak melebihi batas atas
-                    $total += $val->energi_menu;
-                }
-                else {                    
-                    // catatan
-                    // lebih dari batas diberikan else lebih dari batas atas
-                    if ($total <= $ten_bawah) {
-                        $total += $val->energi_menu;
-                        continue;
-                    } elseif ($total >= $ten_atas) {
-                        break;
-                    }
-                    
                 }
             }
 
@@ -309,7 +352,7 @@ class Konsultasi extends CI_Controller
             redirect(base_url('ibuhamil/konsultasi/index/'. $id_konsultasi_terbaru));
             // atau load view dengan modal menampilkan hasil dengan id terbaru
         }
-
+        
         // $this->load->view('ibuhamil/konsultasi/new_konsultasi');
         $this->load->view('ibuhamil/konsultasi/new_konsultasi', $data);
     }
@@ -341,17 +384,34 @@ class Konsultasi extends CI_Controller
         $this->load->view('ibuhamil/konsultasi/riwayat_konsultasi', $data);
     }
 
-    public function detail($id = null)
+    public function detail($id_konsultasi = null)
     {
         $id = $this->session->userdata('id_user');
         $this->load->model('user_model');
         $data['user'] = $this->user_model->getById($id);
         // cuma memanggila data yang ada didatabase
-        $data['konsultasi'] = $this->konsultasi_model->getId($id);
+        $data['konsultasi'] = $this->konsultasi_model->getId($id_konsultasi);
 
         // cuma memanggila data yang ada didatabase
-        $data_detail = $this->konsultasi_model->getDetail($id)->result();
+        $data_detail = $this->konsultasi_model->getDetail($id_konsultasi)->result();
         $data['details'] = $data_detail;
+
+        // Menjumlahkan total menu makan dari hasil konsultasi
+        // Total menu makan berdasarkan menu makan yang disarankan
+        $total_makan = $this->konsultasi_model->getTotalEnergiMenuSaran($id_konsultasi)->row(); // total menu makan berdasarkan id_konsultasi
+        $data['total_energimenu'] = $total_makan;
+        
+        // total karbohidrat menu makan berdasarkan id_konsultasi
+        $total_karbohidrat = $this->konsultasi_model->getTotalKarbohidratMenuMakan($id_konsultasi)->row();
+        $data['total_karbohidrat'] = $total_karbohidrat;
+
+        // total protein menu makan berdasarkan id_konsultasi
+        $total_protein = $this->konsultasi_model->getTotalProteinMenuMakan($id_konsultasi)->row();
+        $data['total_protein'] = $total_protein;
+
+        // total protein menu makan berdasarkan id_konsultasi
+        $total_lemak = $this->konsultasi_model->getTotalLemakMenuMakan($id_konsultasi)->row();
+        $data['total_lemak'] = $total_lemak;
 
         $this->load->view('ibuhamil/konsultasi/detail_konsultasi', $data);
         // var_dump($data['konsultasis']);

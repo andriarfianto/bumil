@@ -29,6 +29,17 @@
                 <b>Tanggal Lahir</b> <?php $date = new DateTime($user->tanggal_lahir);
                 echo $date->format('d/m/Y');?> <br> <br>
 
+                <b>Umur</b> 
+				<?php										
+					$birthday = new DateTime($user->tanggal_lahir);
+					$today = new DateTime();
+
+					$interval = $today->diff($birthday);
+					$usia_ibu = $interval->y;
+					
+					echo $usia_ibu. ' Tahun';
+				?> <br> <br>
+
                 <b>No. Telp</b> <?php echo $user->no_telp; ?> <br> <br>
 
                 <b>Alamat</b> <?php echo $user->alamat; ?> <br> <br>
@@ -62,7 +73,7 @@
                                         <form action="<?php echo site_url('ibuhamil/password/edit/'.$user->id_user); ?>" method="post" enctype="multipart/form-data">
                                             <div class="row">
                                                     <!-- Password Lama -->
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-5">
                                                         <label>Password Lama :</label>
                                                     </div>
                                                     <div class="col-md-7">
@@ -76,7 +87,7 @@
 
                                                 <!-- Password Baru -->
                                                 <div class="row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-5">
                                                         <label>Password Baru :</label>
                                                     </div>
                                                     <div class="col-md-7">
@@ -90,7 +101,7 @@
 
                                                 <!-- Confirm Password -->
                                                 <div class="row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-5">
                                                         <label>Confirm Password Baru :</label>
                                                     </div>
                                                     <div class="col-md-7">
@@ -101,7 +112,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-11">
+                                                    <div class="col-md-12">
                                                         <button type="submit" name="btn" class="btn btn-success" style="float: right; margin-top: 3%;"> <i class="fas fa-edit"></i> Update</button>
                                                     </div>
                                                     <div class="col-md-2"></div>
