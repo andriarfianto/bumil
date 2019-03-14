@@ -204,17 +204,25 @@
                                                             <?php echo $bahan->berat_takaran ?>											
                                                         </td>
                                                         <td>
-                                                            <?php if ($bahan->golongan == "1") {
-                                                                echo "Buah";
-                                                            } elseif ($bahan->golongan == "2") {
-                                                                echo "Daging";
-                                                            } elseif ($bahan->golongan == "3") {
-                                                                echo "Ikan";
-                                                            } elseif ($bahan->golongan == "4") {
-                                                                echo "Sayuran";
-                                                            } elseif ($bahan->golongan == "5") {
-                                                                echo "Serelia/Umbi";
-                                                            } ?>																					
+                                                        <?php
+                                                            if ($bahan->golongan == "1")
+                                                            $golongan = "Ringan";
+                                                            elseif ($bahan->golongan == "2")
+                                                            $golongan = "Daging";
+                                                            elseif ($bahan->golongan == "3")
+                                                            $golongan = "Ikan";
+                                                            elseif ($bahan->golongan == "4")
+                                                            $golongan = "Sayuran";
+                                                            elseif ($bahan->golongan == "5")
+                                                            $golongan = "Serelia/Umbi";
+                                                            elseif ($bahan->golongan == "6")
+                                                            $golongan = "Bahan Pokok";
+                                                            elseif ($bahan->golongan == "7")
+                                                            $golongan = "Umum";
+                                                            else
+                                                            $golongan = '';
+                                                            ?>
+                                                            <?php echo $golongan; ?>																					
                                                         </td>	
                                                         <td>
                                                             <?php echo $bahan->energi_bahan; ?>
@@ -243,14 +251,7 @@
                                                 </tbody>
                                                 <!-- ./tbody -->
                                         </table>
-                                        <!-- ./table -->
-                                            
-                                        <div class="text-right">
-                                            <a href="<?php echo site_url('ibuhamil/menu'); ?>">
-                                                <button type="button" class="btn btn-primary pull-right">
-                                                    <i class="fas fa-arrow-left"></i> Back</button>
-                                            </a>
-                                        </div>
+                                        <!-- ./table -->                                        
                                         </form>					
                                     <!-- </div> -->
                                 <!-- </div> -->

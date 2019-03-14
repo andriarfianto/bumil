@@ -31,7 +31,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						Detail Data User
+						Detail Data Bahan Makan
 					</div>
 
 					<div class="card-body">
@@ -53,7 +53,7 @@
 							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<th scope="row" style="width: 224px;">Nama Bahan</th>
+										<th style="width: 200px;">Nama Bahan</th>
 										<td>
 											: <?php echo $bahan->nama_bahan; ?>
 										</td>
@@ -67,21 +67,29 @@
 									<tr>
 										<th scope="row">Golongan</th>
 										<td>
-											: <?php if ($bahan->golongan == "1") {
-												echo "Buah";
-											} elseif ($bahan->golongan == "2") {
-												echo "Daging";
-											} elseif ($bahan->golongan == "3") {
-												echo "Ikan";
-											} elseif ($bahan->golongan == "4") {
-												echo "Sayuran";
-											} elseif ($bahan->golongan == "5") {
-												echo "Serelia/Umbi";
-											} ?>
+											<?php
+												if ($bahan->golongan == "1")
+												$golongan = "Ringan";
+												elseif ($bahan->golongan == "2")
+												$golongan = "Daging";
+												elseif ($bahan->golongan == "3")
+												$golongan = "Ikan";
+												elseif ($bahan->golongan == "4")
+												$golongan = "Sayuran";
+												elseif ($bahan->golongan == "5")
+												$golongan = "Serelia/Umbi";
+												elseif ($bahan->golongan == "6")
+												$golongan = "Bahan Pokok";
+												elseif ($bahan->golongan == "7")
+												$golongan = "Umum";
+												else
+												$golongan = '';
+												?>
+											: <?php echo $golongan; ?>
 										</td>
 									</tr>
 									<tr>
-										<th scope="row">Energi Bahan</th>										
+										<th scope="row">Energi Bahan</th>
 										<td>
 											: <?php echo $bahan->energi_bahan; ?> kalori
 										</td>
@@ -93,7 +101,7 @@
 										</td>
 									</tr>
 									<tr>
-										<th scope="row">Protein Bahan</th>					
+										<th scope="row">Protein Bahan</th>				
 										<td>
 											: <?php echo $bahan->protein_bahan; ?> gram
 										</td>
@@ -103,14 +111,14 @@
 										<td>
 											: <?php echo $bahan->lemak_bahan; ?> gram
 										</td>
-									</tr>										
+									</tr>		
 								</tbody>
 							</table>
 
 							<div class="text-right">
 								<a href="<?php echo site_url('admin/bahan'); ?>">
 									<button type="button" class="btn btn-primary pull-right">
-										<i class="fas fa-arrow-left"></i> Back</button>
+										<i class="fas fa-arrow-left"></i> Kembali</button>
 								</a>
 							</div>
 						</form>

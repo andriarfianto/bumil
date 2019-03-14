@@ -33,15 +33,16 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/user'); ?>">
+						Tambah Data Ibu Hamil
+						<!-- <a href="<?php //echo site_url('admin/user'); ?>">
 							<i class="fas fa-arrow-left"></i> Kembali
-						</a>
+						</a> -->
 					</div>
 
 					<div class="card-body">
 						<div class="col-md-12">
 							<div class="row">
-								<div class="col-md-1"></div>
+								<div class="col-md-2"></div>
 								<div class="col-md-8">
 									<form action="<?php echo site_url('admin/user/add'); ?>" method="post" enctype="multipart/form-data">
 										
@@ -50,7 +51,7 @@
 												<label for="username">Username*</label>
 											</div>
 											<div class="col-md-1">:</div>
-											<div class="col-md-9">
+											<div class="col-md-8">
 												<input type="text" class="form-control" name="username" value="<?php echo $username; ?>" placeholder="Username">
 												<span style="color: red">
 													<?php echo form_error('username'); ?>
@@ -64,7 +65,7 @@
 												<label for="password">Password*</label>
 											</div>
 											<div class="col-md-1">:</div>
-											<div class="col-md-9">
+											<div class="col-md-8">
 												<input type="password" class="form-control" name="password" placeholder="Password">
 												<span style="color: red">
 													<?php echo form_error('password'); ?>
@@ -78,7 +79,7 @@
 												<label for="nama">Nama Lengkap*</label>
 											</div>
 											<div class="col-md-1">:</div>
-											<div class="col-md-9">
+											<div class="col-md-8">
 												<input type="text" class="form-control" name="nama" value="<?php echo $nama; ?>" placeholder="Nama Lengkap">
 												<span style="color: red">
 													<?php echo form_error('nama'); ?>
@@ -92,7 +93,7 @@
 												<label for="email">Alamat Email*</label>
 											</div>
 											<div class="col-md-1">:</div>
-											<div class="col-md-9">
+											<div class="col-md-8">
 												<input type="text" class="form-control" name="email" value="<?php echo $email; ?>" placeholder="Alamat Email">
 												<span style="color: red">
 													<?php echo form_error('email'); ?>
@@ -106,7 +107,7 @@
 												<label for="tanggal_lahir">Tanggal Lahir*</label>
 											</div>
 											<div class="col-md-1">:</div>
-											<div class="col-md-9">
+											<div class="col-md-8">
 												<input type="date" class="form-control" name="tanggal_lahir" value="<?php echo $tanggal_lahir; ?>">
 												<span style="color: red">
 													<?php echo form_error('tanggal_lahir'); ?>
@@ -128,11 +129,11 @@
 
 										<div class="row">
 											<div class="col-md-2">
-												<label for="alamat">Alamat*</label>
+												<label for="alamat">Alamat Tinggal*</label>
 											</div>
 											<div class="col-md-1">:</div>
-											<div class="col-md-9">
-												<textarea class="form-control" name="alamat" placeholder="Alamat"><?php echo $alamat; ?></textarea>
+											<div class="col-md-8">
+												<textarea class="form-control" name="alamat" placeholder="Alamat Tinggal"><?php echo $alamat; ?></textarea>
 												<span style="color: red">
 													<?php echo form_error('alamat'); ?>
 												</span>
@@ -145,7 +146,7 @@
 												<label for="no_telp">No. Telp*</label>
 											</div>
 											<div class="col-md-1">:</div>
-											<div class="col-md-9">
+											<div class="col-md-8">
 												<input type="text" class="form-control" name="no_telp" value="<?php echo $no_telp; ?>" placeholder="No. Telephone">
 												<span style="color: red">
 													<?php echo form_error('no_telp'); ?>
@@ -159,7 +160,7 @@
 												<label for="foto">Foto*</label>
 											</div>
 											<div class="col-md-1">:</div>
-											<div class="col-md-9">
+											<div class="col-md-8">
 												<input type="file" class="form-control-file" name="foto">
 												<span style="color: red">
 													<?php echo form_error('foto'); ?>
@@ -169,7 +170,7 @@
 										<br>																
 
 										<div class="row">
-											<div class="col-md-9"></div>
+											<div class="col-md-8"></div>
 											<div class="text-right">
 												<a href="http://localhost/ci-ibuhamil/admin/user">
 													<button type="button" class="btn btn-primary pull-right">

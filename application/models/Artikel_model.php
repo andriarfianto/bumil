@@ -12,6 +12,24 @@ class Artikel_model extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function getLimit($limit)
+    {
+        $this->db->select('artikel.*, user.nama');
+        $this->db->join('user', 'user.id_user = '.$this->_table.'.id_user');
+        $this->db->order_by('id_artikel', 'DESC');
+        return $this->db->get($this->_table, $limit)->result();
+    }
+
+    // pakai group by - SELECT kategori FROM `artikel` GROUP BY kategori
+    public function getKategori()
+    {
+        $this->db->select('kategori');        
+        $this->db->group_by('kategori');
+        return $this->db->get($this->_table)->result();
+    }
+
+    // get where yang dipilih - SELECT * FROM `artikel` where kategori = 1
+
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["id_artikel" => $id])->row();
@@ -19,7 +37,7 @@ class Artikel_model extends CI_Model
 
     public function limit()
     {
-        return $this->db->order_by('id_artikel', 'DESC')->get($this->_table)->limit(3);
+        return $this->db->order_by('id_artikel', 'DESC')->get($this->_table)->limit();
 
         // $this->db->get('artikel')->order_by('id_artikel', 'desc')->limit(15); // Limit, 15 entries
 
@@ -58,5 +76,12 @@ class Artikel_model extends CI_Model
     public function delete($id)
     {
         $this->db->delete($this->_table, array('id_artikel' => $id));
+    }
+
+    // paging
+    public function getListArtikel($limit, $start)
+    {
+        $query = $this->db->get('artikel', $limit, $start)->result();
+        return $query;
     }
 }

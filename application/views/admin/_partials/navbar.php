@@ -33,7 +33,7 @@
 			</a>
 			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 				<a class="dropdown-item" href="<?php echo site_url('admin/user/profile/'); ?>">Profile</a>
-				<a class="dropdown-item" href="#"> Ganti Password</a>
+				<a class="dropdown-item" href="<?php echo site_url('admin/password/'); ?>"> Ganti Password</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
 			</div>

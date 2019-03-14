@@ -66,19 +66,19 @@
 										</td>
 										<td>											
 											<?php if ($menu->kategori_menu == "1") {
-												echo "Sayur Mayur";
+												echo "Makanan Pokok";
 											} elseif ($menu->kategori_menu == "2") {
 												echo "Lauk Pauk";
 											} elseif ($menu->kategori_menu == "3") {
-												echo "Olahan Buah";
+												echo "Sayur Mayur";
 											} elseif ($menu->kategori_menu == "4") {
-												echo "Olahan Daging";
+												echo "Buah-Buahan";
 											} elseif ($menu->kategori_menu == "5") {
-												echo "Susu";
+												echo "Makanan Siap Santap";
 											} elseif ($menu->kategori_menu == "6") {
-												echo "Camilan";
+												echo "Makanan Ringan";
 											} elseif ($menu->kategori_menu == "7") {
-												echo "Serelia/Umbi";
+												echo "Minuman";
 											}
 											?>
 										</td>
@@ -105,7 +105,7 @@
 												<i class="fas fa-edit"></i> Edit
 											</a>
 											<a onclick="deleteConfirm('<?php echo site_url('admin/menu/delete/'.$menu->id_menu); ?>')"
-											 href="#!" class="btn btn-small btn-danger">
+											href="#!" class="btn btn-small btn-danger">
 												<i class="fas fa-trash"></i> Hapus
 											</a>
 										</td>

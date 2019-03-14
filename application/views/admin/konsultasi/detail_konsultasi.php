@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="col-md-6" style="margin-top: 5px;">
                                     <a href="<?php echo base_url('admin/konsultasi'); ?>">
-                                        <i class="fas fa-arrow-left"></i> Back
+                                        <i class="fas fa-arrow-left"></i> Kembali
                                     </a>
                                 </div>    
                                 <div class="col-md-6 text-right">
@@ -124,27 +124,27 @@
                                     <li>
                                         <div class="row">
                                             <div class="col-md-2">Jumlah Energi yang anda butuhkan</div> :
-                                            <div class="col-md-6"><strong><?php echo $konsultasi->tee; ?></strong> kalori</div>
+                                            <div class="col-md-6"><strong><?php echo round($konsultasi->tee, 2); ?></strong> kalori</div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="row">
                                             <div class="col-md-2">Rincian Gizi</div> :
-                                            <div class="col-md-3">1. Karbohidrat</div> :
-                                            <div class="col-md-3"><strong><?php echo $konsultasi->energi_karbohidrat; ?></strong> kalori</div> =
-                                            <div class="col-md-2"><strong><?php echo $konsultasi->kebutuhan_karbohidrat; ?></strong> gram</div>
+                                            <div class="col-md-2">1. Karbohidrat</div> :
+                                            <div class="col-md-2"><strong><?php echo round($konsultasi->energi_karbohidrat, 2); ?></strong> kalori</div> =
+                                            <div class="col-md-2"><strong><?php echo round($konsultasi->kebutuhan_karbohidrat, 2); ?></strong> gram</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-2"></div> :
-                                            <div class="col-md-3">2. Protein</div> :
-                                            <div class="col-md-3"><strong><?php echo $konsultasi->energi_protein; ?></strong> kalori</div> =
-                                            <div class="col-md-2"><strong><?php echo $konsultasi->kebutuhan_protein; ?></strong> gram</div>
+                                            <div class="col-md-2">2. Protein</div> :
+                                            <div class="col-md-2"><strong><?php echo round($konsultasi->energi_protein, 2); ?></strong> kalori</div> =
+                                            <div class="col-md-2"><strong><?php echo round($konsultasi->kebutuhan_protein, 2); ?></strong> gram</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-2"></div> :
-                                            <div class="col-md-3">3. Lemak</div> :
-                                            <div class="col-md-3"><strong><?php echo $konsultasi->energi_lemak; ?></strong> kalori</div> =
-                                            <div class="col-md-2"><strong><?php echo $konsultasi->kebutuhan_lemak; ?></strong> gram</div>
+                                            <div class="col-md-2">3. Lemak</div> :
+                                            <div class="col-md-2"><strong><?php echo round($konsultasi->energi_lemak, 2); ?></strong> kalori</div> =
+                                            <div class="col-md-2"><strong><?php echo round($konsultasi->kebutuhan_lemak, 2); ?></strong> gram</div>
                                         </div>
                                     </li>
                                 </ul>
@@ -167,36 +167,35 @@
                                         <?php
                                         $no=1;
                                         foreach ($details as $detail): ?>
-                                        <tr>
-                                            <td><?php echo $no; ?></td>
-                                            <td><?php echo $detail->nama_menu; ?></td>
-                                            <td>
-                                                <?php
-                                                if ($detail->kategori_menu == 1)
-                                                $showKat = "Sayur Mayur";
-                                                elseif ($detail->kategori_menu == 2)
-                                                $showKat = "Lauk Pauk";
-                                                elseif ($detail->kategori_menu == 3)
-                                                $showKat = "Olahan Buah";
-                                                elseif ($detail->kategori_menu == 4)
-                                                $showKat = "Olahan Daging";
-                                                elseif ($detail->kategori_menu == 5)
-                                                $showKat = "Olahan Daging";
-                                                elseif ($detail->kategori_menu == 6)
-                                                $showKat = "Camilan";
-                                                elseif ($detail->kategori_menu == 7)
-                                                $showKat = "Serelia/Umbi";
-                                                else $showKat = '';
-                                                ?>
-                                                <?php echo $showKat; ?></td>
+                                            <tr>
+                                                <td><?php echo $no; ?></td>
+                                                <td><?php echo $detail->nama_menu; ?></td>
+                                                <td>
+                                                    <?php if ($detail->kategori_menu == "1") {
+                                                        echo "Makanan Pokok";
+                                                    } elseif ($detail->kategori_menu == "2") {
+                                                        echo "Lauk Pauk";
+                                                    } elseif ($detail->kategori_menu == "3") {
+                                                        echo "Sayur Mayur";
+                                                    } elseif ($detail->kategori_menu == "4") {
+                                                        echo "Buah-Buahan";
+                                                    } elseif ($detail->kategori_menu == "5") {
+                                                        echo "Makanan Siap Santap";
+                                                    } elseif ($detail->kategori_menu == "6") {
+                                                        echo "Makanan Ringan";
+                                                    } elseif ($detail->kategori_menu == "7") {
+                                                        echo "Minuman";
+                                                    }
+                                                    ?>
+                                                </td>
                                                 <td><?php echo $detail->energi_menu; ?> kalori</td>
                                                 <td><?php echo $detail->karbohidrat_menu; ?> gram</td>
                                                 <td><?php echo $detail->protein_menu; ?> gram</td>
                                                 <td><?php echo $detail->lemak_menu; ?> gram</td>
                                             </tr>
-                                            <?php $no++; endforeach; ?>
-                                        </tbody>
-                                    </table>
+                                        <?php $no++; endforeach; ?>
+                                    </tbody>
+                                </table>
                             </div>
                             <!-- ./col-lg-12 -->
                         </div>

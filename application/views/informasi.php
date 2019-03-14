@@ -21,9 +21,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/informasi') ?>">Informasi</a>
                 </li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/kontak') ?>">Kontak</a>
-                </li>
+                </li> -->
 				<li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/tentang') ?>">Tentang</a>
                 </li>
@@ -58,7 +58,7 @@
         </div>
     </nav>
 
-	 <div id="wrapper">
+	<div id="wrapper">
 
 		<div id="content-wrapper">
 
@@ -72,37 +72,63 @@
 								<li class="breadcrumb-item"><a href="<?php echo base_url('home'); ?>">Home</a>
                                 <li class="breadcrumb-item active">Informasi</li>
                                 </li>
-							</ol>
+							</ol>                            
 
-                            <hr>
+							<div class="row">
+								<div class='col-sm-12' style="margin-top: 1%; margin-bottom: 3%;">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class='card md-3'>
+												<div class="card-header">
+													<span class='h4'>Informasi Pengguna</span><br>
+													<span class='small text-muted'>Silahkan baca informasi berikut</span>
+												</div>
 
-							<div class='col-sm-12' style="margin-top: 4%; margin-bottom: 3%;">
-								<div class='card md-3'>
-                                    <div class="card-header">
-                                        <span class='h4'>Informasi Pengguna</span><br>
-										<span class='small text-muted'>Silahkan baca informasi berikut</span>
-                                    </div>
+												<div class='card-body'>
+													<h4>Artikel : </h4>
+													<p>berisi tentang informasi dan pengetahuan mengenai ibu hamil seputar kesehatan ibu hamil, kehamilan ibu hamil dan kebutuhan gizi ibu hamil</p>
+													<!-- <h4>Kontak : </h4>
+													<p>Jika anda ingin menghubungi informasi penulis silahkan hubungi kontak yang tertera atau apabila belum jelas silahkan kirim pertanyaan pada kolom yang telah tertera</p> -->
+													<h4>Login : </h4>
+													<p>Apabila anda sudah memiliki akun silahkan login dengan mengisi data username dan password dengan benar</p>
+													<h4>Register : </h4>
+													<p>Silahkan daftarkan diri anda apabila belum memiliki akun untuk mengakses sistem dengan memilih tombol menu pada bagian kanan atas menu</p>
+													<h4>Tentang : </h4>
+													<p>Berisi informasi tentang penulis dan keterangan dari aplikasi yang dibuat</p>
+												</div>
 
-									<div class='card-body'>
-										<h3>Artikel : </h3>
-										<p>digunakan untuk mengetahui informasi dan pengetahui sepeutar kesehatan ibu hamil, kandungan ibu hamil dan kebutuhan gizi ibu hamil</p>
-										<br>
-										<h3>Kontak : </h3>
-										<p>Jika anda ingin menghubungi informasi penulis silahkan hubungi kontak yang tertera atau apabila belum jelas silahkan kirim pertanyaan pada kolom yang telah tertera</p>
-										<br>
-										<h3>Login : </h3>
-										<p>Apabila anda sudah mendaftar maka masukkan dengan mengisi kolom username dan password yang sudah anda lakukan saat registrasi</p>
-										<br>
-										<h3>Register : </h3>
-										<p>Silahkan register atau daftar dimenu bagian atas apabila anda belum mempunyai akun dan ingin mengetahui informasi gizi yang anda butuhkan</p>
-										<br>
-										<h3>Tentang : </h3>
-										<p>Berisi tentang informasi penulis dan aplikasi dibuat</p>
-										<br>
-									</div>
+												<div class="card-footer">
+													Footer
+												</div>
+											</div>
+										</div>
 
-									<div class="card-footer">
-										Footer
+										<div class="col-sm-6">
+											<div class='card md-3'>
+												<div class="card-header">
+													<span class='h4'>Kontak Informasi</span><br>
+													<span class='small text-muted'>Informasi Kontak Penulis</span>
+												</div>
+
+												<div class='card-body'>
+													Silahkan hubungi administrator atau penulis dengan cara hubungi nomer yang tertera dibawah
+													<br> atau melalui email
+													Jika ada informasi lain belum dimengerti silahkan ditanyakan melakukan 
+													<br> formulir pertanyaan dibawah ini <br> <br>
+
+													Tugas Akhir - Teknik Informatika <br>
+													Jl. Ringroad utara, Jombor <br>
+													Sleman, Yogyakarta <br>						
+
+													Phone : +6289640291150 <br>										
+													Email : aarfianto11@gmail.com <br>
+												</div>
+
+												<div class="card-footer">
+													Footer
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -114,16 +140,25 @@
 									<h3 class="panel-title">Kontak Informasi</h3>
 								</div>
 								<div class="card-body">
+									<li>
+										<a  href="<?php echo base_url('home') ?>">Home Page</a>
+									</li>
 									<li><a href="<?php echo base_url('home/artikel') ?>"> Artikel</a></li>
 									<li>
 										<a  href="<?php echo base_url('home/informasi') ?>">Informasi</a>
 									</li>
-									<li>
+									<!-- <li>
 										<a  href="<?php echo base_url('home/artikel') ?>">Kontak</a>
-									</li>
+									</li> -->
 									<li>
 										<a  href="<?php echo base_url('home/tentang') ?>">Tentang</a>
 									</li>
+									<!-- <li>
+										<a  href="<?php echo base_url('login') ?>">Login</a>
+									</li>
+									<li>
+										<a  href="<?php echo base_url('register') ?>">Register</a>
+									</li> -->
 								</div>
 							</div>
 						</div>

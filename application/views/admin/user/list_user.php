@@ -44,10 +44,10 @@
 									<tr>
 										<td>No.</td>
 										<td>Username</td>
-										<td>Nama</td>
-										<td>Email</td>
-										<td>Level</td>
-										<td>Alamat</td>
+										<td>Nama Lengkap</td>
+										<td>Alamat Email</td>
+										<td>Tanggal Lahir</td>
+										<td>Alamat Tinggal</td>
 										<td>No. Telp</td>
 										<td>Foto</td>										
 										<td>Action</td>
@@ -71,14 +71,9 @@
 										<td>
 											<?php echo $user->email; ?>
 										</td>
-										<td>											
-											<?php if ($user->level == "1") {
-												echo "Admin";
-											} elseif ($user->level == "2") {
-												echo "Ibu Hamil";
-											} elseif ($user->level == "3") {
-												echo "Petugas Kesehatan";
-											} ?>
+										<td>
+											<?php $date = new DateTime($user->tanggal_lahir); ?>
+                							<?php echo $date->format('d/m/Y');?>											
 										</td>
 										<td>
 											<?php echo $user->alamat; ?>
@@ -100,7 +95,7 @@
 											</a>
 
 											<a onclick="deleteConfirm('<?php echo site_url('admin/user/delete/'.$user->id_user); ?>')"
-											 href="#!" class="btn btn-small btn-danger <?php echo $user->level === "1" ? "disabled" : null ?>">
+											href="#!" class="btn btn-small btn-danger <?php echo $user->level === "1" ? "disabled" : null ?>">
 												<i class="fas fa-trash"></i> Hapus
 											</a>
 										</td>

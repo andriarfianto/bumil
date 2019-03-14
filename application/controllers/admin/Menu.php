@@ -23,7 +23,7 @@ class Menu extends MY_Controller
 
         if (!$data['menu']) show_404();
 
-//         var_dump($data);
+        // var_dump($data);
 
         $this->load->view('admin/menu/detail_menu', $data);
     }
@@ -66,7 +66,7 @@ class Menu extends MY_Controller
 
                 // lakukan simpan ke tabel detail
                 $this->menu_model->save_detail($data_detail); // simpan ke tb menu
-                            // print_r($_POST); die();
+                // print_r($_POST); die();
             }
 
             $data['id_menu'] = $id_menu_terbaru;
@@ -88,6 +88,8 @@ class Menu extends MY_Controller
         if (!isset($id)) redirect('admin/menu/');
 
         $data['menu'] = $this->menu_model->getById($id);
+        $data['bahans'] = $this->menu_model->detail_bahan($id);
+        // var_dump($data['bahans']); die('dsd');
         if (!$data['menu']) show_404();
 
         $this->form_validation->set_rules('nama_menu', 'Nama Menu', 'required');
@@ -99,6 +101,7 @@ class Menu extends MY_Controller
         $this->form_validation->set_rules('cara_membuat', 'Cara Membuat', 'required');
 
         if ($this->form_validation->run()) {
+            // var_dump($_POST); die('fdf');
             $post_data = array(
                 'nama_menu' => $this->input->post('nama_menu'),
                 'kategori_menu' => $this->input->post('kategori_menu'),
@@ -109,7 +112,66 @@ class Menu extends MY_Controller
                 'cara_membuat' => $this->input->post('cara_membuat'),
             );
 
-            $this->menu_model->update($post_data, $id);
+            $this->menu_model->update($post_data, $id); // update menu
+
+            // panggil model, fungsi get_id_menu_terakhir(), taruh di variabel - EDIT
+            // $id_menu_terbaru = $this->menu_model->get_id_menu_terakhir(); // menu baru
+
+            $id_menu_edit = $id; // ini id menu yg diedit
+            
+            $post = $this->input->post();
+            // var_dump($post); die('fd');
+
+            foreach ($post['id_bahan_edit'] as $key => $val) {
+                // inisalisasi id detail menu yg mau diupdate
+                $id_detail_menu = $post['id_detail_menu_edit'][$key];
+
+                // inlisasi yg mau disimpan ke tabel detail menu
+                $data_detail_edit = array(
+                    'id_menu' => $id_menu_edit,
+                    'id_bahan' => $post['id_bahan_edit'][$key],
+                    // 'nama_bahan' => $post['nama_bahan_edit'][$key],
+                    // 'berat_takaran' => $post['berat_takaran_edit'][$key],
+                    // 'golongan' => $post['golongan_edit'][$key],
+                    // 'energi_bahan' => $post['energi_bahan_edit'][$key],
+                    // 'karbohidrat_bahan' => $post['karbohidrat_bahan_edit'][$key],
+                    // 'protein_bahan' => $post['protein_bahan_edit'][$key],
+                    // 'lemak_bahan' => $post['lemak_bahan_edit'][$key],
+                    'jumlah_bahan' => $post['jumlah_bahan_edit'][$key],
+                    'satuan_takaran' => $post['satuan_takaran_edit'][$key],
+                );
+
+                // var_dump($data_detail_edit); die('fdk');
+
+                // lakukan update ke tabel detail
+                // print_r($_POST); die();
+                $this->menu_model->update_detail($data_detail_edit, $id_detail_menu); // update ke tb menu
+            }
+
+            // list detail bahan baru
+            if (!empty($post['id_bahan'])) {
+                foreach ($post['id_bahan'] as $key => $val) {
+                    // inlisasi yg mau disimpan ke tabel detail menu
+                    $data_detail = array(
+                        'id_menu' => $id_menu_edit,
+                        'id_bahan' => $post['id_bahan'][$key],
+                        'jumlah_bahan' => $post['jumlah_bahan'][$key],
+                        'satuan_takaran' => $post['satuan_takaran'][$key],
+                    );
+    
+                    // lakukan simpan ke tabel detail
+                    $this->menu_model->save_detail($data_detail); // simpan ke tb menu
+                                // print_r($_POST); die();
+                }
+            }
+
+            // $data['id_menu'] = $id_menu_terbaru;
+
+            //var_dump($data);
+
+            // $this->menu_model->save_menu($data); // simpan ke tb menu
+
+            // $this->bahan_model->update($post_data, $id);
 
             $this->session->set_flashdata('success', 'Data menu berhasil diubah');
 
@@ -136,5 +198,18 @@ class Menu extends MY_Controller
         // ambil semua bahan dibawa ke view browse
         $data['bahans'] = $this->bahan_model->getAll();
         $this->load->view('admin/menu/browse', $data);
+    }
+
+    public function edit_browse()
+    {
+        // $data = null;
+        $data['no_edit'] = $this->input->get('no_edit');
+
+        // ambil semua bahan dibawa ke view browse
+        $data['bahans'] = $this->bahan_model->getAll(); // getBahanById
+        // $bahan = $data['bahan'];
+        // $nama = $bahan->nama_bahan;
+        // var_dump($data['bahan']); die('df');
+        $this->load->view('admin/menu/edit_browse', $data);
     }
 }

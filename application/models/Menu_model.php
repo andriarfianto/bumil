@@ -34,9 +34,9 @@ class Menu_model extends CI_Model
 
         return $db;
 
-//         $this->db->select('artikel.*, user.nama');
-//         $this->db->join('user', 'user.id_user = '.$this->_table.'.id_user');
-//         return $this->db->get($this->_table)->result();
+        //$this->db->select('artikel.*, user.nama');
+        //$this->db->join('user', 'user.id_user = '.$this->_table.'.id_user');
+        //return $this->db->get($this->_table)->result();
     }
 
     public function save_menu($data)
@@ -47,6 +47,11 @@ class Menu_model extends CI_Model
     public function save_detail($data)
     {
         $this->db->insert('detail_menu', $data);
+    }
+
+    public function update_detail($data, $id_detail_menu)
+    {
+        $this->db->where('id_detail_menu', $id_detail_menu)->update('detail_menu', $data);
     }
 
     public function update($data, $id)

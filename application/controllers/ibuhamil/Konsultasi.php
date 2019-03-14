@@ -192,7 +192,7 @@ class Konsultasi extends MY_Controller
              * bee = 65,5 + (9.6 * BB) + (1.8 * TB) - (4.7 * Usia ibu hamil) - perhitungan benar
              */
             $bee = 655 + (9.6 * $berat_badan) + (1.8 * $tinggi_badan) - (4.7 * $usia_ibuhamil);
-            var_dump($bee);
+            // var_dump($bee);
 
             /**
              * % aktifitas * BEE - perhitungan benar
@@ -636,6 +636,26 @@ class Konsultasi extends MY_Controller
         );
 
         $this->load->view('ibuhamil/konsultasi/hasil_konsultasi', $data);
+    }
+
+    public function print_detail($id_konsultasi = null)
+    {        
+        // $this->load->model('user_model');
+        // $data['user'] = $this->user_model->getById($id);
+        // cuma memanggil data yang ada didatabase
+
+        $data['konsultasi'] = $this->konsultasi_model->getId($id_konsultasi);
+        // var_dump($data['konsultasi']); die('sa');
+
+        // cuma memanggil data yang ada didatabase
+        $data_detail = $this->konsultasi_model->getDetail($id_konsultasi)->result();
+        $data['details'] = $data_detail;
+
+        // ambil data nama ibu dengan join
+        $data['ibu'] = $this->konsultasi_model->getIbu($id_konsultasi);
+        // var_dump($data['ibu']);
+
+        $this->load->view('ibuhamil/konsultasi/print_detail', $data);
     }
 
 }

@@ -46,10 +46,31 @@
 					<span aria-hidden="true">×</span>
 				</button>
 			</div>
-			<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+			<div class="modal-body">
+				<ul>
+					<li>Aktifitas Ringan :</li> 
+						ibu rumah tangga, mengerjakan pekerjaan rumah tangga dengan bantuan mekanik, menyapu
+						dengan ayunan perlahan, memasak, mencuci piring, menata meja, pekerja
+						kantor profesional (pengacara, dokter, guru, arsitek, akuntan, dll).
+						<br><br>
+
+					<li>Aktifitas Sedang :</li>
+						wanita pekerja pada industri ringan (memperbaiki jam, menggambar, dan melukis), ibu rumah tangga tanpa alat
+						bantu mekanik (membersihkan jendela, mengepel lantai, membelah kayu untuk
+						memasak, berbelanja), dan penjaga toko dipasar swalayan.
+						<br><br>
+
+					<li>Aktifitas Berat :</li>
+						menyikat lantai, memukul
+						karpet, kerja di pertanian, penari dan atlet
+						<br><br>
+
+					<li>Aktifitas Sangat Berat :</li>
+						pekerja konstruksi (bangunan)						
+				</ul>
+			</div>
 			<div class="modal-footer">
-				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary" href="<?php echo base_url('login/logout'); ?>">Logout</a>
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>				
 			</div>
 		</div>
 	</div>

@@ -10,7 +10,8 @@ class Chart_model extends CI_Model
 
     public function getById($id)
     {
-        $data_user = $this->db->select("tee, CONCAT('Kehamilan minggu ke - ', usia_kehamilan) as usia_kehamilan, berat_badan")->where('id_user = '.$id)->get('konsultasi');
+        // $data_user = $this->db->select("tee, CONCAT('Kehamilan minggu ke - ', usia_kehamilan) as usia_kehamilan, berat_badan")->where('id_user = '.$id)->get('konsultasi');
+        $data_user = $this->db->select("tee, CONCAT('Kehamilan minggu ke - ', usia_kehamilan) as usia_kehamilan, CONCAT(berat_badan, ' kg') as berat_badan")->where('id_user = '.$id)->get('konsultasi');
         return $data_user;
 
         // $this->db->select("konsultasi.batas_bawah, konsultasi.usia_kehamilan , konsultasi.batas_atas");

@@ -54,19 +54,34 @@
 							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<th scope="row">Nama Menu</th>										
+										<th scope="row" style="width: 170px;">Nama Menu</th>
 										<td>
 											: <?php echo $menu->nama_menu; ?>
 										</td>
 									</tr>
 									<tr>
-										<th scope="row">Kategori Menu</th>										
+										<th scope="row">Kategori Menu</th>
 										<td>
-											: <?php echo $menu->kategori_menu; ?>
+											<?php if ($menu->kategori_menu == "1") {
+												echo ": Makanan Pokok";
+											} elseif ($menu->kategori_menu == "2") {
+												echo ": Lauk Pauk";
+											} elseif ($menu->kategori_menu == "3") {
+												echo ": Sayur Mayur";
+											} elseif ($menu->kategori_menu == "4") {
+												echo ": Buah-Buahan";
+											} elseif ($menu->kategori_menu == "5") {
+												echo ": Makanan Siap Santap";
+											} elseif ($menu->kategori_menu == "6") {
+												echo ": Makanan Ringan";
+											} elseif ($menu->kategori_menu == "7") {
+												echo ": Minuman";
+											}
+											?>
 										</td>
 									</tr>
 									<tr>
-										<th scope="row">Energi Menu</th>										
+										<th scope="row">Energi Menu</th>
 										<td>
 											: <?php echo $menu->energi_menu; ?> kalori
 										</td>
@@ -78,19 +93,19 @@
 										</td>
 									</tr>
 									<tr>
-										<th scope="row">Protein Menu</th>						
+										<th scope="row">Protein Menu</th>
 										<td>
 											: <?php echo $menu->protein_menu; ?> gram
 										</td>
 									</tr>
 									<tr>
-										<th scope="row">Lemak Menu</th>						
+										<th scope="row">Lemak Menu</th>					
 										<td>
 											: <?php echo $menu->lemak_menu; ?> gram
 										</td>
 									</tr>
 									<tr>
-										<th scope="row">Cara Membuat</th>										
+										<th scope="row">Cara Membuat</th>
 										<td style="width: 874px;">
 											: <?php echo $menu->cara_membuat; ?>
 										</td>
@@ -103,16 +118,16 @@
 							<table class="table table-hover table-striped" id="data-table" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <td>ID. Bahan</td>
-                                            <td>Nama Bahan</td>
-                                            <td>Berat Takaran</td>
-                                            <td>Golongan</td>
-                                            <td>Energi Bahan</td>
-                                            <td>Karbohidrat Bahan</td>
-                                            <td>Protein Bahan</td>
-                                            <td>Lemak Bahan</td>
-                                            <td>Jumlah</td>
-                                            <td>Takaran</td>                                            
+                                            <th>No. Bahan</th>
+                                            <th>Nama Bahan</th>
+                                            <th>Berat Takaran</th>
+                                            <th>Golongan</th>
+                                            <th>Energi Bahan</th>
+                                            <th>Karbohidrat Bahan</th>
+                                            <th>Protein Bahan</th>
+                                            <th>Lemak Bahan</th>
+                                            <th>Jumlah</th>
+                                            <th>Takaran</th>                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -132,17 +147,25 @@
     											<?php echo $bahan->berat_takaran ?>											
     										</td>
     										<td>
-    											<?php if ($bahan->golongan == "1") {
-    												echo "Buah";
-    											} elseif ($bahan->golongan == "2") {
-    												echo "Daging";
-    											} elseif ($bahan->golongan == "3") {
-    												echo "Ikan";
-    											} elseif ($bahan->golongan == "4") {
-    												echo "Sayuran";
-    											} elseif ($bahan->golongan == "5") {
-    												echo "Serelia/Umbi";
-    											} ?>																					
+											<?php
+												if ($bahan->golongan == "1")
+												$golongan = "Ringan";
+												elseif ($bahan->golongan == "2")
+												$golongan = "Daging";
+												elseif ($bahan->golongan == "3")
+												$golongan = "Ikan";
+												elseif ($bahan->golongan == "4")
+												$golongan = "Sayuran";
+												elseif ($bahan->golongan == "5")
+												$golongan = "Serelia/Umbi";
+												elseif ($bahan->golongan == "6")
+												$golongan = "Bahan Pokok";
+												elseif ($bahan->golongan == "7")
+												$golongan = "Umum";
+												else
+												$golongan = '';
+												?>
+												<?php echo $golongan; ?>																					
     										</td>	
     										<td>
     											<?php echo $bahan->energi_bahan; ?>
@@ -165,18 +188,16 @@
     									</tr>
     									<?php
     									$no++; }
-    									?>										
-										
-										
+    									?>
                                     </tbody>
                                     <!-- ./tbody -->
-                             </table>
-                             <!-- ./table -->
+                            </table>
+                            <!-- ./table -->
                                 
 							<div class="text-right">
 								<a href="<?php echo site_url('admin/menu'); ?>">
 									<button type="button" class="btn btn-primary pull-right">
-										<i class="fas fa-arrow-left"></i> Back</button>
+										<i class="fas fa-arrow-left"></i> Kembali</button>
 								</a>
 							</div>
 						</form>

@@ -31,7 +31,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						Detail Data User
+						Detail Data Artikel
 					</div>
 
 					<div class="card-body">
@@ -45,69 +45,76 @@
 							echo form_error('username'); ?>
 						</div> -->
 
-						<form enctype="multipart/form-data">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-10">
+									<form enctype="multipart/form-data">
 
-							<input type="hidden" name="id" value="<?php echo $artikel->id_artikel; ?>">
+										<input type="hidden" name="id" value="<?php echo $artikel->id_artikel; ?>">
 
-							<!-- <span></span> -->
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<th scope="row" style="width: 174px;">Judul Artikel</th>										
-										<td>
-											: <?php echo $artikel->judul_artikel; ?>
-										</td>
-									</tr>									
-									<tr>
-										<th scope="row">Kategori</th>										
-										<td>
-											: <?php if ($artikel->kategori == "1") {
-												echo "Kesehatan";
-											} elseif ($artikel->kategori == "2") {
-												echo "Nutrisi";
-											} elseif ($artikel->kategori == "3") {
-												echo "Buah Hati";
-											} elseif ($artikel->kategori == "4") {
-												echo "Tips-Tips";
-											} elseif ($artikel->kategori == "5") {
-												echo "Umum";
-											} ?>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">Penulis</th>										
-										<td>
-											: <?php echo $artikel->id_user; ?>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">Tanggal Posting</th>										
-										<td>
-											: <?php echo $artikel->tanggal; ?>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">Photo</th>										
-										<td>
-											: <img src="<?php echo base_url('upload/artikel/'.$artikel->foto); ?>" width="64">
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">Isi Artikel</th>										
-										<td>
-											: <?php echo $artikel->isi_artikel; ?>											
-										</td>
-									</tr>
-								</tbody>
-							</table>
+										<!-- <span></span> -->
+										<table class="table table-striped">
+											<tbody>
+												<tr>
+													<th scope="row" style="width: 174px;">Judul Artikel</th>
+													<td>
+														: <?php echo $artikel->judul_artikel; ?>
+													</td>
+												</tr>									
+												<tr>
+													<th scope="row">Kategori</th>
+													<td>
+														: <?php if ($artikel->kategori == "1") {
+															echo "Kesehatan";
+														} elseif ($artikel->kategori == "2") {
+															echo "Nutrisi";
+														} elseif ($artikel->kategori == "3") {
+															echo "Buah Hati";
+														} elseif ($artikel->kategori == "4") {
+															echo "Tips-Tips";
+														} elseif ($artikel->kategori == "5") {
+															echo "Umum";
+														} ?>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">Penulis</th>
+													<td>
+														<?php $penulis =  $artikel->id_user; ?>
+														: <?php if ($penulis == 1) echo "Administrator"; ?>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">Tanggal Posting</th>
+													<td>														
+														<?php $date = new DateTime($artikel->tanggal); ?>
+														: <?php echo $date->format('d/m/Y');?>
+													</td>
+												</tr>												
+												<tr>
+													<th scope="row">Isi Artikel</th>
+													<td>
+														: <?php echo $artikel->isi_artikel; ?>											
+													</td>
+												</tr>
+											</tbody>
+										</table>
 
-							<div class="text-right">
-								<a href="<?php echo site_url('admin/artikel'); ?>">
-									<button type="button" class="btn btn-default pull-right btn-primary">
-										<i class="fas fa-arrow-left"></i> Back</button>
-								</a>
+										<div class="text-right">
+											<a href="<?php echo site_url('admin/artikel'); ?>">
+												<button type="button" class="btn btn-default pull-right btn-primary">
+													<i class="fas fa-arrow-left"></i> Kembali</button>
+											</a>
+										</div>
+									</form>
+								</div>
+								<div class="col-md-2">
+									<div class="row">
+										<img src="<?php echo base_url('upload/artikel/'.$artikel->foto); ?>" width="100%" height="100%">										
+									</div>
+								</div>
 							</div>
-						</form>
+						</div>
 					</div>
 				</div>
 

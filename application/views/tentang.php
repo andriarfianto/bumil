@@ -21,9 +21,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/informasi') ?>">Informasi</a>
                 </li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/kontak') ?>">Kontak</a>
-                </li>
+                </li> -->
 				<li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/tentang') ?>">Tentang</a>
                 </li>
@@ -58,7 +58,7 @@
         </div>
     </nav>
 
-	 <div id="wrapper">
+	<div id="wrapper">
 
 		<div id="content-wrapper">
 
@@ -74,24 +74,30 @@
                                 </li>
 							</ol>
 
-                            <hr>
+							<div class='col-sm-12' style="margin-top: 1%; margin-bottom: 3%;">
+								<div class="row">
+									<div class='card md-3'>
+										<div class="card-header">
+											<span class='h4'>Tentang Aplikasi</span><br>
+											<span class='small text-muted'>Data Profile Penulis</span>
+										</div>
 
-							<div class='col-sm-12' style="margin-top: 4%; margin-bottom: 3%;">
-								<div class='card md-3'>
-                                    <div class="card-header">
-                                        <span class='h4'>Tentang Aplikasi</span><br>
-										<span class='small text-muted'>Data Profile Penulis</span>
-                                    </div>
+										<div class='card-body'>
+											<div class="row">
+												<div class="col-sm-3">
+													<img src="<?php echo base_url('upload/admin/profile data diri.png') ?>" alt="Profile Data Diri">
+												</div>
+												<div class="col-sm-9">
+													<h5>Aplikasi ini merupakan Proyek Tugas Akhir yang digunakan sebagai salah satu syarat mencapai derajat Sarjana S-1 Program Studi Teknik Informatik Universitas Teknologi Yogyakarta (UTY).</h5>
+													<h5>Penulis bernama Andri Arfianto dengan Nim 3125111382 mahasiswa prodi Teknik Informatika tahun 2012 yang mengambil judul Sistem Pemenuhan Gizi Ibu Hamil menggunakan Metode Harris Benedict.</h5>
+													<h5>Aplikasi ini berguna untuk mengetahui kebutuhan gizi ibu hamil menggunakan metode Harris Benedict dengan memasukkan data tinggi badan ibu hamil, berat badan ibu hamil, usia ibu hamil, usia kandungan dan kondisi ibu hamil.</h5>
+												</div>
+											</div>
+										</div>
 
-									<div class='card-body text-center'>
-										<img src="<?php echo base_url('upload/admin/profile data diri.png') ?>" alt="Profile Data Diri"> <br> <br>
-                                        <h5>Aplikasi ini merupakan proyek tugas akhir mahasiswa Universitas Teknologi Yogyakarta (UTY) <br> Andri Arfianto - (3125111382) mahasiswa jurusan Teknik Informatika tahun 2012 yang berjudul Sistem Pemenuhan Gizi Ibu Hamil menggunakan Metode Harris Benedict</h5> <br>
-
-                                        <h5>Aplikasi berguna untuk mengetahui kebutuhan gizi ibu hamil menggunakan metode Harris Benedict <br> dengan memasukkan data tinggi badan ibu hamil, berat badan ibu hamil, usia ibu hamil, usia kandungan dan kondisi ibu hamil.</h5>
-									</div>
-
-									<div class="card-footer">
-										Footer
+										<div class="card-footer">
+											Footer
+										</div>
 									</div>
 								</div>
 							</div>
@@ -104,16 +110,25 @@
 									<h3 class="panel-title">Kontak Informasi</h3>
 								</div>
 								<div class="card-body">
+									<li>
+										<a  href="<?php echo base_url('home') ?>">Home Page</a>
+									</li>
 									<li><a href="<?php echo base_url('home/artikel') ?>"> Artikel</a></li>
 									<li>
 										<a  href="<?php echo base_url('home/informasi') ?>">Informasi</a>
 									</li>
-									<li>
+									<!-- <li>
 										<a  href="<?php echo base_url('home/artikel') ?>">Kontak</a>
-									</li>
+									</li> -->
 									<li>
 										<a  href="<?php echo base_url('home/tentang') ?>">Tentang</a>
 									</li>
+									<!-- <li>
+										<a  href="<?php echo base_url('login') ?>">Login</a>
+									</li>
+									<li>
+										<a  href="<?php echo base_url('register') ?>">Register</a>
+									</li> -->
 								</div>
 							</div>
 						</div>

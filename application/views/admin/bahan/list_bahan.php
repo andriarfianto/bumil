@@ -54,62 +54,66 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php 
-										$no=1;
-										foreach($bahans as $bahan): 
-									?>
-									<tr>
-										<td>
-											<?php echo $no; ?>
-										</td>
-										<td>
-											<?php echo $bahan->nama_bahan; ?>
-										</td>
-										<td>
-											<?php echo $bahan->berat_takaran; ?> Gram
-										</td>
-										<td>
-											<?php if ($bahan->golongan == "1") {
-												echo "Buah";
-											} elseif ($bahan->golongan == "2") {
-												echo "Daging";
-											} elseif ($bahan->golongan == "3") {
-												echo "Ikan";
-											} elseif ($bahan->golongan == "4") {
-												echo "Sayuran";
-											} elseif ($bahan->golongan == "5") {
-												echo "Serelia/Umbi";
-											} ?>																					
-										</td>		
-										<td>
-											<?php echo $bahan->energi_bahan; ?>
-										</td>									
-										<td>
-											<?php echo $bahan->karbohidrat_bahan; ?>
-										</td>
-										<td>
-											<?php echo $bahan->protein_bahan; ?>
-										</td>
-										<td>
-											<?php echo $bahan->lemak_bahan; ?>
-										</td>									
-										<td width="300">
-											<a href="<?php echo site_url('admin/bahan/detail/'.$bahan->id_bahan); ?>" class="btn btn-info">
-												<i class="fas fa-eye"></i> Read
-											</a>
-											<a href="<?php echo site_url('admin/bahan/edit/'.$bahan->id_bahan); ?>" class="btn btn-primary">
-												<i class="fas fa-edit"></i> Edit
-											</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/bahan/delete/'.$bahan->id_bahan); ?>')"
-											 href="#!" class="btn btn-small btn-danger">
-												<i class="fas fa-trash"></i> Hapus
-											</a>
-										</td>
-									</tr>
-									<?php
-										$no++;
-										endforeach;
-									?>
+									<?php $no=1; ?>
+									<?php foreach($bahans as $bahan) { ?>
+										<tr>
+											<td>
+												<?php echo $no; ?>
+											</td>
+											<td>
+												<?php echo $bahan->nama_bahan; ?>
+											</td>
+											<td>
+												<?php echo $bahan->berat_takaran; ?> Gram
+											</td>
+											<td>
+												<?php
+												if ($bahan->golongan == "1")
+												$golongan = "Ringan";
+												elseif ($bahan->golongan == "2")
+												$golongan = "Daging";
+												elseif ($bahan->golongan == "3")
+												$golongan = "Ikan";
+												elseif ($bahan->golongan == "4")
+												$golongan = "Sayuran";
+												elseif ($bahan->golongan == "5")
+												$golongan = "Serelia/Umbi";
+												elseif ($bahan->golongan == "6")
+												$golongan = "Bahan Pokok";
+												elseif ($bahan->golongan == "7")
+												$golongan = "Umum";
+												else
+												$golongan = '';
+												?>
+												<?php echo $golongan; ?>
+											</td>		
+											<td>
+												<?php echo $bahan->energi_bahan; ?>
+											</td>									
+											<td>
+												<?php echo $bahan->karbohidrat_bahan; ?>
+											</td>
+											<td>
+												<?php echo $bahan->protein_bahan; ?>
+											</td>
+											<td>
+												<?php echo $bahan->lemak_bahan; ?>
+											</td>									
+											<td width="300">
+												<a href="<?php echo site_url('admin/bahan/detail/'.$bahan->id_bahan); ?>" class="btn btn-info">
+													<i class="fas fa-eye"></i> Read
+												</a>
+												<a href="<?php echo site_url('admin/bahan/edit/'.$bahan->id_bahan); ?>" class="btn btn-primary">
+													<i class="fas fa-edit"></i> Edit
+												</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/bahan/delete/'.$bahan->id_bahan); ?>')"
+												href="#!" class="btn btn-small btn-danger">
+													<i class="fas fa-trash"></i> Hapus
+												</a>
+											</td>
+										</tr>										
+									<?php $no++; ?>
+									<?php } ?>
 								</tbody>
 							</table>
 						</div>
@@ -139,5 +143,4 @@
 	}
 	</script>
 </body>
-
 </html>

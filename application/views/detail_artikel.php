@@ -55,7 +55,7 @@
         </div>
     </nav>
 
-	 <div id="wrapper">
+	<div id="wrapper">
 
 		<div id="content-wrapper">
 
@@ -105,7 +105,6 @@
 				</div>
 				<hr> -->
 
-
 				<div class="col-lg-12">
 					<div class="row">
 						<!-- Sisi Kiri -->
@@ -118,25 +117,26 @@
 
 							<!-- <?php // foreach ($artikels as $artikel): ?> -->
 
-                            <hr>
                             <input type="hidden" name="id" value="<?php echo $artikel->id_artikel; ?>">
 
-							<div class='col-sm-12' style="margin-top: 4%; margin-bottom: 3%;">
-								<div class='card md-3'>
-                                    <div class="card-header" style="background-color: #d0d0d0">
-                                        <span class='h4'><?php echo $artikel->judul_artikel; ?></span><br>
-										<span class='small text-muted'>Ditulis Oleh Administrator</span>
-                                    </div>
+							<div class='col-sm-12' style="margin-top: 1%; margin-bottom: 3%;">
+								<div class="row">
+									<div class='card md-3'>
+										<div class="card-header">
+											<span class='h4'><?php echo $artikel->judul_artikel; ?></span><br>
+											<span class='small text-muted'>Ditulis Oleh Administrator</span>
+										</div>
 
-									<div class='card-body'>
-                                        <img src="<?php echo base_url('upload/artikel/'.$artikel->foto); ?>" width="30%" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;">
-                                        <p><?php echo $artikel->isi_artikel?>                                        </p>
-									</div>
+										<div class='card-body'>
+											<img src="<?php echo base_url('upload/artikel/'.$artikel->foto); ?>" width="30%" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;">
+											<p><?php echo $artikel->isi_artikel?>                                        </p>
+										</div>
 
-									<div class="card-footer" align='right' style="background-color: #d0d0d0">
-										<a href="<?php echo base_url('home/artikel') ?>">
-                                            <i class="fas fa-arrow-left"></i> Kembali
-                                        </a>
+										<div class="card-footer" align='right'>
+											<a href="<?php echo base_url('home/artikel') ?>">
+												<i class="fas fa-arrow-left"></i> Kembali
+											</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -144,14 +144,21 @@
 						</div>
 
 						<div class="col-md-3">
+							<!-- List Artikel Terbaru -->
 							<div class="card md-3">
 								<div class="card-header">
-									<h3 class="panel-title">Panel Informasi</h3>
+									<h3 class="panel-title">Artikel Terbaru</h3>
 								</div>
 								<div class="card-body">
-									<li><a href="#">Makanan Untuk Ibu Hamil yang Baik Untuk Pertumbuhan Otak Janin</a></li><li><a href="#">Tips Agar Produksi ASI Banyak</a></li><li><a href="#">Air Kelapa Untuk Ibu Hamil dan Kandungan Gizinya</a></li>
+                                    <?php foreach ($list_artikel as $artikel): ?>
+									    <li>
+											<a href="<?php echo site_url('home/detail_artikel/'.$artikel->id_artikel); ?>">
+												<?php echo $artikel->judul_artikel; ?>
+											</a>
+										</li>
+                                    <?php endforeach; ?>
 								</div>
-							</div>
+							</div>													
 						</div>
 					</div>
 				</div>

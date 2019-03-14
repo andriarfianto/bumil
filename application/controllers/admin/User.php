@@ -65,7 +65,7 @@ class User extends MY_Controller
                 'email' => $this->input->post('email'),                
                 'alamat' => $this->input->post('alamat'),
                 'no_telp' => $this->input->post('no_telp'),
-                'foto' => 'default.jpg',
+                // 'foto' => 'default.jpg',
             );
             // var_dump($post_data); die('$post_data');
 
@@ -97,6 +97,8 @@ class User extends MY_Controller
                     $post_data['foto'] = $uploaded['file_name'];
                     // var_dump($data); die('a');
                 }
+            } else {
+                $this->input->post('old_image');
             }
 
             $this->user_model->update($post_data, $id);
@@ -193,8 +195,7 @@ class User extends MY_Controller
 
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('email','Email Address','required|valid_email');
-        $this->form_validation->set_rules('level', 'Level User', 'required');
+        $this->form_validation->set_rules('email','Email Address','required|valid_email');        
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('no_telp', 'No. Telephone', 'required|numeric');
 
@@ -202,11 +203,10 @@ class User extends MY_Controller
             $post_data = array(
                 'username' => $this->input->post('username'),
                 'nama' => $this->input->post('nama'),
-                'email' => $this->input->post('email'),
-                'level' => $this->input->post('level'),
+                'email' => $this->input->post('email'),                
                 'alamat' => $this->input->post('alamat'),
                 'no_telp' => $this->input->post('no_telp'),
-                'foto' => 'default.jpg',
+                // 'foto' => 'default.jpg',
             );
 
             // edit foto
@@ -237,6 +237,8 @@ class User extends MY_Controller
                     $post_data['foto'] = $uploaded['file_name'];
                     // var_dump($data); die('a');
                 }
+            } else {
+                $this->input->post('old_image');
             }
 
             $this->user_model->update($post_data, $id);

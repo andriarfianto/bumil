@@ -21,9 +21,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/informasi') ?>">Informasi</a>
                 </li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/kontak') ?>">Kontak</a>
-                </li>
+                </li> -->
 				<li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/tentang') ?>">Tentang</a>
                 </li>
@@ -64,7 +64,7 @@
 
 			<div class="container-fluid">
 
-				<div class="col-sm-12">
+				<!-- <div class="col-sm-12">
 
 					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
@@ -106,7 +106,7 @@
 					</div>
 
 				</div>
-				<hr>
+				<hr> -->
 
 				<div class="col-lg-12">
 					<div class="row">
@@ -118,49 +118,90 @@
                                 </li>
 							</ol>
 
-							<?php foreach ($artikels as $artikel): ?>
+							<div class="row">
+								<div class='col-sm-12' style="margin-top: 1%; margin-bottom: 3%;">
+									<div class="row">
+										<?php foreach ($artikels as $artikel): ?>
+											<div class="col-sm-4">
+												<div class='card md-3'>
+													<div class="card-header">
+														<span class='h4'><?php echo $artikel->judul_artikel; ?></span><br>
+														<span class='small text-muted'>Ditulis Oleh Administrator</span>
+													</div>
 
-                            <hr>
+													<div class='card-body'>
+														<p><?php echo substr($artikel->isi_artikel, 0, 280); ?> ...</p>
+													</div>
 
-							<div class='col-sm-12' style="margin-top: 4%; margin-bottom: 3%;">
-								<div class='card md-3'>
-                                    <div class="card-header">
-                                        <span class='h4'><?php echo $artikel->judul_artikel; ?></span><br>
-										<span class='small text-muted'>Ditulis Oleh Administrator</span>
-                                    </div>
+													<div class="card-footer" align='right'>
+														<!-- <a href='?source=detail-artikel&ref=".$row['id_artikel']."'>Baca Selanjutnya</a> -->
 
-									<div class='card-body'>
-										<p><?php echo substr($artikel->isi_artikel, 0, 300); ?> ...</p>
-									</div>
-
-									<div class="card-footer" align='right'>
-										<!-- <a href='?source=detail-artikel&ref=".$row['id_artikel']."'>Baca Selanjutnya</a> -->
-
-                                        <a href="<?php echo site_url('home/detail_artikel/'.$artikel->id_artikel); ?>">
-                                            Baca Selanjutnya
-                                        </a>
-									</div>
+														<a href="<?php echo site_url('home/detail_artikel/'.$artikel->id_artikel); ?>">
+															Baca Selanjutnya
+														</a>
+													</div>
+												</div>
+											</div>
+										<?php endforeach; ?>										
+									</div>								
 								</div>
 							</div>
-							<?php endforeach; ?>
 						</div>
 
 						<div class="col-md-3">
+							<!-- Link Kontak Informasi -->
+							<div class="card md-3">
+								<div class="card-header">
+									<h3 class="panel-title">Kontak Informasi</h3>
+								</div>
+								<div class="card-body">
+									<li>
+										<a  href="<?php echo base_url('home') ?>">Home Page</a>
+									</li>
+									<li><a href="<?php echo base_url('home/artikel') ?>"> Artikel</a></li>
+									<li>
+										<a  href="<?php echo base_url('home/informasi') ?>">Informasi</a>
+									</li>
+									<!-- <li>
+										<a  href="<?php echo base_url('home/artikel') ?>">Kontak</a>
+									</li> -->
+									<li>
+										<a  href="<?php echo base_url('home/tentang') ?>">Tentang</a>
+									</li>
+									<!-- <li>
+										<a  href="<?php echo base_url('login') ?>">Login</a>
+									</li>
+									<li>
+										<a  href="<?php echo base_url('register') ?>">Register</a>
+									</li> -->
+								</div>
+							</div>
+							<br>
+
+							<!-- List Artikel Terbaru -->
 							<div class="card md-3">
 								<div class="card-header">
 									<h3 class="panel-title">Artikel Terbaru</h3>
 								</div>
 								<div class="card-body">
-                                    <?php foreach ($artikels as $artikel): ?>
-									    <li><a href="<?php echo site_url('home/detail_artikel/'.$artikel->id_artikel); ?>"><?php echo $artikel->judul_artikel; ?></li>
+                                    <?php foreach ($list_artikel as $artikel): ?>
+									    <li>
+											<a href="<?php echo site_url('home/detail_artikel/'.$artikel->id_artikel); ?>">
+												<?php echo $artikel->judul_artikel; ?>
+											</a>
+										</li>
                                     <?php endforeach; ?>
 								</div>
 							</div>
 						</div>
 					</div>
-
 				</div>
-
+				<!-- ./col-lg-12 -->
+				<div class="row">
+					<div class="col">
+						<?php echo $pagination; ?>
+					</div>
+				</div>
 			</div>
 			<!-- /.container-fluid -->
 		</div>

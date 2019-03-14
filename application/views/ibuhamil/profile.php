@@ -51,6 +51,7 @@
 
     				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
+				    <!-- Notifikasi data berhasil di simpan -->
     				<?php if ($this->session->flashdata('success')): ?>
     				<div class="alert alert-success" role="alert">
 						<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
@@ -65,7 +66,6 @@
     					</div>
 
     					<div class="card-body">
-
                             <div class="col-md-12">
                                 <div class="row">
                                     <!-- Sisi kiri -->

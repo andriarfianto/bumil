@@ -76,16 +76,24 @@
 							<?php
 								date_default_timezone_set('Asia/Jakarta');
 								echo $timestamp = date('H:i:s');
-							?>
+							?>							
 						</div>
 						<!-- ./card-footer -->
 					</div>
-				</div>
+					<hr>
+				</div>				
 				<!-- /.container-fluid -->
 
 				<!-- untuk menampilkan data chart ibu hamil -->
 				<div class="container-fluid">
-					<div id="graph"></div>					
+					<span><h4>Grafik Berat Badan Ibu Hamil</h4></span>
+					<div id="chart-beratbadan"></div>
+					<hr>				
+				</div>				
+
+				<div class="container-fluid">
+					<span><h4>Grafik Kebutuhan Energi Ibu Hamil</h4></span>
+					<div id="chart-energiibuhamil"></div>					
 				</div>
 			</div>
 			<!-- /.content-wrapper -->
@@ -124,12 +132,28 @@
 	<?php $this->load->view("ibuhamil/_partials/js.php") ?>
 
 	<script>
+		// Morris.Bar({
+		// 	element: 'graph',
+		// 	data: <?php echo $konsultasi;?>,
+		// 	xkey: 'usia_kehamilan',
+		// 	ykeys: ['berat_badan', 'tee'],
+		// 	labels: ['berat badan', 'energi']
+		// });
+
 		Morris.Bar({
-			element: 'graph',
+			element: 'chart-beratbadan',
+			data: <?php echo $konsultasi; ?>,
+			xkey: 'usia_kehamilan',
+			ykeys: ['berat_badan'],
+			labels: ['berat badan']
+		});
+
+		Morris.Bar({
+			element: 'chart-energiibuhamil',
 			data: <?php echo $konsultasi;?>,
 			xkey: 'usia_kehamilan',
-			ykeys: ['berat_badan', 'tee'],
-			labels: ['berat badan', 'energi']
+			ykeys: ['tee'],
+			labels: ['kebutuhan energi']
 		});
 	</script>
 </body>

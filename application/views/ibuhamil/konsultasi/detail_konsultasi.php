@@ -67,9 +67,21 @@
 					<!-- Menampilkan data -->
 					<div class="card mb-3">
 						<div class="card-header">
-							<a href="<?php echo site_url('ibuhamil/konsultasi/riwayat'); ?>">
-								<i class="fas fa-arrow-left"></i> Kembali
-							</a>
+							<div class="col-md-12"></div>
+							<div class="row">
+								<div class="col-md-6" style="margin-top: 5px;">
+									<a href="<?php echo site_url('ibuhamil/konsultasi/riwayat'); ?>">
+										<i class="fas fa-arrow-left"></i> Kembali
+									</a>
+								</div>
+								<div class="col-md-6 text-right">
+                                    <a href="<?php echo base_url("ibuhamil/konsultasi/print_detail/".$konsultasi->id_konsultasi); ?>" target="_blank">
+                                        <button type="button" class="btn btn-warning"><i class="fa fa-print" aria-hidden="true"></i> Print</button></div>
+                                    </a>
+                                </div>
+							</div>
+
+							
 						</div>
 
 						<div class="card-body">

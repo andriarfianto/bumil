@@ -2,24 +2,24 @@
 	<table class="table table-hover table-striped" width="100%" cellspacing="0">
 		<thead>
 			<tr>
-				<td>No.</td>
+				<td>ID. Bahan</td>
 				<td>Nama Bahan</td>
 				<td>Berat Takaran</td>
 				<td>Golongan</td>
 				<td>Energi Bahan</td>
 				<td>Karbohidrat Bahan</td>
 				<td>Protein Bahan</td>
-				<td>Lemak Bahan</td>										
-				<td>Action</td>
+				<td>Lemak Bahan</td>
+                <td>Action</td>			
 			</tr>
 		</thead>
 		<tbody>
 			<?php 
 				$no_data=1;
-				foreach($bahans as $bahan): 
-			?>
-			<tr>
-				<td>
+				foreach($bahans as $bahan): 				
+			?>			
+            <tr>
+                <td>
 					<?php echo $no_data; ?>
                     <input type="hidden" id="master-id_bahan-<?php echo $no_data; ?>" name="id_bahan" value="<?php echo $no_data; ?>">
                     <input type="hidden" id="master-nama_bahan-<?php echo $no_data; ?>" name="nama_bahan" value="<?php echo $bahan->nama_bahan; ?>">
@@ -38,17 +38,25 @@
 					<?php echo $bahan->berat_takaran; ?> Gram
 				</td>
 				<td>
-					<?php if ($bahan->golongan == "1") {
-						echo "Buah";
-                    } elseif ($bahan->golongan == "2") {
-						echo "Daging";
-                    } elseif ($bahan->golongan == "3") {
-						echo "Ikan";
-                    } elseif ($bahan->golongan == "4") {
-						echo "Sayuran";
-                    } elseif ($bahan->golongan == "5") {
-						echo "Serelia/Umbi";
-                    } ?>
+                    <?php
+                    if ($bahan->golongan == "1")
+                    $golongan = "Ringan";
+                    elseif ($bahan->golongan == "2")
+                    $golongan = "Daging";
+                    elseif ($bahan->golongan == "3")
+                    $golongan = "Ikan";
+                    elseif ($bahan->golongan == "4")
+                    $golongan = "Sayuran";
+                    elseif ($bahan->golongan == "5")
+                    $golongan = "Serelia/Umbi";
+                    elseif ($bahan->golongan == "6")
+                    $golongan = "Bahan Pokok";
+                    elseif ($bahan->golongan == "7")
+                    $golongan = "Umum";
+                    else
+                    $golongan = '';
+                    ?>
+                    <?php echo $golongan; ?>
 				</td>		
 				<td>
 					<?php echo $bahan->energi_bahan; ?>                    
@@ -70,20 +78,20 @@
 				</td>
 			</tr>
 			<?php
-				$no_data++;
-				endforeach;
+                $no_data++;
+                endforeach;			
 			?>
 		</tbody>
 	</table>
 </div>				
 <script>
-    var no = '<?php echo $no; ?>';
-                                    
+    var no_edit = '<?php echo $no_edit; ?>'
+
     function pilih(no_data) {
         // id="name_"+no  diset valuenya sesuai komponen yg dinginkan        
         // id_bahan-no = 
         // nama_bahan-'+no_list+'
-        // alert(no_data);
+        
         var id_bahan_terpilih = $('#master-id_bahan-'+no_data).val();
         var nama_bahan = $('#master-nama_bahan-'+no_data).val();
         var berat_takaran = $('#master-berat_takaran-'+no_data).val();
@@ -94,18 +102,19 @@
         var lemak_bahan = $('#master-lemak_bahan-'+no_data).val();
 
         // console.log(no_data, id_bahan_terpilih, nama_bahan, berat_takaran, golongan, energi_bahan, karbohidrat_bahan, protein_bahan, lemak_bahan)
-        // console.log(no);
-
-        $('#id_bahan-'+no).val(id_bahan_terpilih);
-        $('#nama_bahan-'+no).val(nama_bahan); // + no_data
-        $('#berat_takaran-'+no).val(berat_takaran);
-        $('#golongan-'+no).val(golongan);
-        $('#energi_bahan-'+no).val(energi_bahan);
-        $('#karbohidrat_bahan-'+no).val(karbohidrat_bahan);
-        $('#protein_bahan-'+no).val(protein_bahan);
-        $('#lemak_bahan-'+no).val(lemak_bahan);
+        // console.log(id);
+        
+        // inisialisasi value dari element input sesuai id
+        $('#id_bahan-'+no_edit).val(id_bahan_terpilih);
+        $('#nama_bahan-'+no_edit).val(nama_bahan); // + no_data
+        $('#berat_takaran-'+no_edit).val(berat_takaran);
+        $('#golongan-'+no_edit).val(golongan);
+        $('#energi_bahan-'+no_edit).val(energi_bahan);
+        $('#karbohidrat_bahan-'+no_edit).val(karbohidrat_bahan);
+        $('#protein_bahan-'+no_edit).val(protein_bahan);
+        $('#lemak_bahan-'+no_edit).val(lemak_bahan);
 
         // modale ditutup
-        $('#myModal').modal('hide');
+        $('#modalBahan').modal('hide');
     }
 </script>

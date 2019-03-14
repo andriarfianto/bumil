@@ -48,10 +48,11 @@
 						</div> -->
 
                         <form action="<?php echo site_url('admin/menu/add'); ?>" method="post" enctype="multipart/form-data">
-                            <div class="col lg 12">
+                            
+                            <div class="col-lg-12">
                                 <div class="row">
                                     <!-- Nama Menu -->
-                                    <div class="col md 6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="nama_menu">Nama Menu*</label>
                                             <input type="text" class="form-control" name="nama_menu" value="<?php echo $nama_menu; ?>"
@@ -63,7 +64,7 @@
                                     </div>
 
                                     <!-- Karbohidrat Menu -->
-                                    <div class="col md 6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="karbohidrat_menu">Karbohidrat Menu*</label>
                                             <input type="text" class="form-control" name="karbohidrat_menu" value="<?php echo $karbohidrat_menu; ?>"
@@ -78,7 +79,7 @@
 
                                 <div class="row">
                                     <!-- Kategori Menu -->
-                                    <div class="col md 6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="kategori_menu">Kategori Menu*</label>
                                             <select class="form-control" id="kategori_menu" name="kategori_menu">
@@ -105,7 +106,7 @@
                                     </div>
 
                                     <!-- Protein Menu -->
-                                    <div class="col md 6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="protein_menu">Protein Menu*</label>
                                             <input type="text" class="form-control" name="protein_menu" value="<?php echo $protein_menu; ?>"
@@ -119,8 +120,8 @@
                                 <!-- ./rows -->
 
                                 <div class="row">
-                                    <!-- Energi -->
-                                    <div class="col md 6">
+                                    <!-- Energi Menu -->
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="energi_menu">Energi Menu*</label>
                                             <input type="text" class="form-control" name="energi_menu" value="<?php echo $energi_menu; ?>"
@@ -132,7 +133,7 @@
                                     </div>
 
                                     <!-- Lemak Menu -->
-                                    <div class="col md 6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="lemak_menu">Lemak Menu*</label>
                                             <input type="text" class="form-control" name="lemak_menu" value="<?php echo $lemak_menu; ?>"
@@ -243,17 +244,17 @@
             i++;
             $('#data-table').append(
                 '<tr id="row' + i + '" a="'+no_list+'">' +
-                    '<td><input type="text" class="form-control" name="id_bahan[' + no_list + ']" id="id_bahan-' + no_list + '" placeholder="ID. Menu"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="id_bahan[' + no_list + ']" id="id_bahan-' + no_list + '" placeholder="ID. Menu"></td>' +
                     '<td><button type="button" onclick="browse()" class="btn btn-small btn-primary btn-browse"><i class="fas fa-file"></i></button></td>' +
-                    '<td><input type="text" class="form-control" name="nama_bahan[' + no_list + ']" id="nama_bahan-' + no_list + '" placeholder="Nama Bahan"></td>' +
-                    '<td><input type="text" class="form-control" name="berat_takaran[' + no_list + ']" id="berat_takaran-' + no_list + '" placeholder="Berat Takaran"></td>' +
-                    '<td><input type="text" class="form-control" name="golongan[' + no_list + ']" id="golongan-' + no_list + '" placeholder="Golongan"></td>' +
-                    '<td><input type="text" class="form-control" name="energi_bahan[' + no_list + ']" id="energi_bahan-' + no_list + '" placeholder="Energi Bahan"></td>' +
-                    '<td><input type="text" class="form-control" name="karbohidrat_bahan[' + no_list + ']" id="karbohidrat_bahan-' + no_list + '" placeholder="Karbohidrat Bahan"></td>' +
-                    '<td><input type="text" class="form-control" name="protein_bahan[' + no_list + ']" id="protein_bahan-' + no_list + '" placeholder="Protein Bahan"></td>' +
-                    '<td><input type="text" class="form-control" name="lemak_bahan[' + no_list + ']" id="lemak_bahan-' + no_list + '" placeholder="Lemak Bahan"></td>' +
-                    '<td><input type="text" class="form-control" name="jumlah_bahan[' + no_list + ']" id="jumlah_bahan-' + no_list + '" placeholder="Jumlah"></td>' +
-                    '<td><input type="text" class="form-control" name="satuan_takaran[' + no_list + ']" id="satuan_takaran-' + no_list + '" placeholder="Takaran"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="nama_bahan[' + no_list + ']" id="nama_bahan-' + no_list + '" placeholder="Nama Bahan"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="berat_takaran[' + no_list + ']" id="berat_takaran-' + no_list + '" placeholder="Berat Takaran"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="golongan[' + no_list + ']" id="golongan-' + no_list + '" placeholder="Golongan"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="energi_bahan[' + no_list + ']" id="energi_bahan-' + no_list + '" placeholder="Energi Bahan"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="karbohidrat_bahan[' + no_list + ']" id="karbohidrat_bahan-' + no_list + '" placeholder="Karbohidrat Bahan"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="protein_bahan[' + no_list + ']" id="protein_bahan-' + no_list + '" placeholder="Protein Bahan"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="lemak_bahan[' + no_list + ']" id="lemak_bahan-' + no_list + '" placeholder="Lemak Bahan"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="jumlah_bahan[' + no_list + ']" id="jumlah_bahan-' + no_list + '" placeholder="Jumlah"></td>' +
+                    '<td><input type="text" class="form-control" readonly name="satuan_takaran[' + no_list + ']" id="satuan_takaran-' + no_list + '" placeholder="Takaran"></td>' +
                     '<td>' +
                         '<button type="button" name="remove" id="' + no_list + '" class="btn btn-small btn-danger btn-remove"><i class="fas fa-trash"></i></button>' +
                     '</td>' +

@@ -31,20 +31,21 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/bahan'); ?>">
+						Tambah Data Bahan Makan
+						<!-- <a href="<?php //echo site_url('admin/bahan'); ?>">
 							<i class="fas fa-arrow-left"></i> Kembali
-						</a>
+						</a> -->
 					</div>
 
 					<div class="card-body">						
 						<div class="col-md-12">
 								<div class="row">
-									<div class="col-md-1"></div>
+									<div class="col-md-2"></div>
 									<div class="col-md-8">
 										<form action="<?php echo site_url('admin/bahan/add'); ?>" method="post" enctype="multipart/form-data">
 											
 											<div class="row">
-												<div class="col-md-3">
+												<div class="col-md-2">
 													<label for="nama_bahan">Nama Bahan*</label>													
 												</div>
 												<div class="col-md-1">:</div>
@@ -58,7 +59,7 @@
 											<br>									
 
 											<div class="row">
-												<div class="col-md-3">
+												<div class="col-md-2">
 													<label for="berat_takaran">Berat Takaran*</label>
 												</div>
 												<div class="col-md-1">:</div>
@@ -72,7 +73,7 @@
 											<br>										
 
 											<div class="row">
-												<div class="col-md-3">
+												<div class="col-md-2">
 													<label for="golongan">Golongan*</label>
 												</div>
 												<div class="col-md-1">:</div>
@@ -83,7 +84,10 @@
 														<option <?php if ($golongan == 2 ) echo 'selected' ; ?> value="2">Daging</option>
 														<option <?php if ($golongan == 3 ) echo 'selected' ; ?> value="3">Ikan</option>
 														<option <?php if ($golongan == 4 ) echo 'selected' ; ?> value="4">Sayuran</option>
-														<option <?php if ($golongan == 5 ) echo 'selected' ; ?> value="5">Serelia/Umbi</option>								
+														<option <?php if ($golongan == 5 ) echo 'selected' ; ?> value="5">Serelia/Umbi</option>
+														<option <?php if ($golongan == 6 ) echo 'selected' ; ?> value="6">Bahan Pokok</option>
+														<option <?php if ($golongan == 7 ) echo 'selected' ; ?> value="7">Umum</option>								
+
 													</select>
 													<span style="color: red">
 														<?php echo form_error('golongan'); ?>
@@ -93,7 +97,7 @@
 											<br>									
 
 											<div class="row">
-												<div class="col-md-3">
+												<div class="col-md-2">
 													<label for="energi_bahan">Energi Bahan*</label>
 												</div>
 												<div class="col-md-1">:</div>
@@ -107,7 +111,7 @@
 											<br>								
 
 											<div class="row">
-												<div class="col-md-3">
+												<div class="col-md-2">
 													<label for="karbohidrat_bahan">Karbohidrat Bahan*</label>
 												</div>
 												<div class="col-md-1">:</div>
@@ -121,7 +125,7 @@
 											<br>										
 
 											<div class="row">
-												<div class="col-md-3">
+												<div class="col-md-2">
 													<label for="protein_bahan">Protein Bahan*</label>
 												</div>
 												<div class="col-md-1">:</div>
@@ -135,7 +139,7 @@
 											<br>										
 
 											<div class="row">
-												<div class="col-md-3">
+												<div class="col-md-2">
 													<label for="lemak_bahan">Lemak Bahan*</label>
 												</div>
 												<div class="col-md-1">:</div>
@@ -149,9 +153,9 @@
 											<br>											
 
 											<div class="row">
-												<div class="col-md-9"></div>
+												<div class="col-md-8"></div>
 												<div class="text-right">
-													<a href="http://localhost/ci-ibuhamil/admin/user">
+													<a href="http://localhost/ci-ibuhamil/admin/bahan">
 														<button type="button" class="btn btn-primary pull-right">
 														<i class="fas fa-arrow-left"></i> Kembali</button>
 													</a>                                               

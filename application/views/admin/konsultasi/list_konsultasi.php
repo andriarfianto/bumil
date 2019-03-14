@@ -69,8 +69,8 @@
 											<img src="<?php echo base_url('upload/user/'.$user->foto); ?>" width="60">
 										</td>
 										<td>
-                                        <a href="<?php echo site_url('admin/konsultasi/detail/'.$user->id_user); ?>">
-                                            Detail Konsultasi
+                                        <a href="<?php echo site_url('admin/konsultasi/riwayat/'.$user->id_user); ?>">
+                                            Riwayat Konsultasi
                                         </a>
 										
 										</td>

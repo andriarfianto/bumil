@@ -39,9 +39,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/informasi') ?>">Informasi</a>
                 </li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/kontak') ?>">Kontak</a>
-                </li>
+                </li> -->
 				<li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('home/tentang') ?>">Tentang</a>
                 </li>
@@ -83,7 +83,7 @@
 			<div class="container-fluid">
 
 				<ul class="breadcrumb">
-					<li><a href="http://localhost/ci-ibuhamil/home">Home</a></li>
+					<li><a href="<?php echo base_url() ?>home">Home</a></li>
 				</ul>
 
 				<!-- <div class="jumbotron" style="background-color: #e3e3e3;">

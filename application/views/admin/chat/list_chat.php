@@ -31,7 +31,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-                        <i class="fa fa-comments" aria-hidden="true"></i> List user chat    
+                        <i class="fa fa-comments" aria-hidden="true"></i> Daftar Chat Ibu Hamil    
 					</div>
 
 					<div class="card-body">

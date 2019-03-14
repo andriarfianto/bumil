@@ -30,15 +30,15 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/artikel'); ?>">
+						Edit Data Artikel
+						<!-- <a href="<?php //echo site_url('admin/artikel'); ?>">
 							<i class="fas fa-arrow-left"></i> Back
-						</a>
+						</a> -->
 					</div>
 
 					<div class="card-body">
 
-						<form action="<?php echo site_url('admin/artikel/edit/'.$artikel->id_artikel); ?>" method="post"
-						 enctype="multipart/form-data">
+						<form action="<?php echo site_url('admin/artikel/edit/'.$artikel->id_artikel); ?>" method="post" enctype="multipart/form-data">
 
 							<input type="hidden" name="id" value="<?php echo $artikel->id_artikel; ?>">
 
@@ -81,11 +81,22 @@
 								</span>
 							</div>
 
-							<input type="submit" value="Save" name="btn" class="btn btn-success">
+							<div class="row">
+								<div class="col-md-10"></div>
+								<div class="text-right">
+									<a href="http://localhost/ci-ibuhamil/admin/artikel">
+										<button type="button" class="btn btn-primary pull-right">
+										<i class="fas fa-arrow-left"></i> Kembali</button>
+									</a>                                               
+
+									<button type="submit" class="btn btn-success pull-right">
+										<i class="far fa-save"></i> Save
+									</button>
+								</div>
+							</div>							
 						</form>
 					</div>
 				</div>
-
 
 				<div class="card-footer small text-muted">
 					* required fields

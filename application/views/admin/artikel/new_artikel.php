@@ -31,9 +31,10 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/artikel'); ?>">
+						Tambah Data Artikel
+						<!-- <a href="<?php //echo site_url('admin/artikel'); ?>">
 							<i class="fas fa-arrow-left"></i> Kembali
-						</a>
+						</a> -->
 					</div>
 
 					<div class="card-body">
@@ -87,9 +88,19 @@
 								</span>
 							</div>
 							
-							<button type="submit" class="btn btn-success">
-								<i class="far fa-save"></i> Save
-                            </button>
+							<div class="row">
+								<div class="col-md-10"></div>
+								<div class="text-right">
+									<a href="http://localhost/ci-ibuhamil/admin/artikel">
+										<button type="button" class="btn btn-primary pull-right">
+										<i class="fas fa-arrow-left"></i> Kembali</button>
+									</a>                                               
+
+									<button type="submit" class="btn btn-success pull-right">
+										<i class="far fa-save"></i> Save
+									</button>
+								</div>
+							</div>
 						</form>
 					</div>
 				</div>

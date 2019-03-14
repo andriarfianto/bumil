@@ -132,11 +132,12 @@ class konsultasi_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_konsultasi" => $id_konsultasi])->row();
     }
 
-    public function getIbu()
+    public function getIbu($id_konsultasi = null)
     {
-        $this->db->select('user.nama');
+        // var_dump($id_konsultasi);
+        $this->db->select('user.*');
         $this->db->join('user', 'user.id_user = '.$this->_table.'.id_user');
-        return $this->db->get($this->_table)->row();
+        return $this->db->get_where($this->_table, ["id_konsultasi" => $id_konsultasi])->row();
         // SELECT konsultasi.*, user.nama 
         // FROM `konsultasi`
         // JOIN user ON konsultasi.id_user = user.id_user

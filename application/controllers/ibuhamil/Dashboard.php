@@ -31,6 +31,7 @@ class Dashboard extends MY_Controller
         // var_dump($user_konsultasi); die('ds');
         $user_konsultasi = $this->chart_model->getById($id)->result();
         $data['konsultasi'] = json_encode($user_konsultasi);
+        // var_dump($data['berat_badan']);
         $this->load->view('ibuhamil/overview', $data); 
     }
 
